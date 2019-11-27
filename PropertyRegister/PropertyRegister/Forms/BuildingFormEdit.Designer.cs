@@ -72,13 +72,6 @@
             buildingNameLabel.TabIndex = 3;
             buildingNameLabel.Text = "building Name:";
             // 
-            // buildingNameTextBox
-            // 
-            this.buildingNameTextBox.Location = new System.Drawing.Point(217, 96);
-            this.buildingNameTextBox.Name = "buildingNameTextBox";
-            this.buildingNameTextBox.Size = new System.Drawing.Size(226, 20);
-            this.buildingNameTextBox.TabIndex = 4;
-            // 
             // landLabel
             // 
             landLabel.AutoSize = true;
@@ -88,13 +81,6 @@
             landLabel.TabIndex = 5;
             landLabel.Text = "land:";
             // 
-            // landTextBox
-            // 
-            this.landTextBox.Location = new System.Drawing.Point(217, 122);
-            this.landTextBox.Name = "landTextBox";
-            this.landTextBox.Size = new System.Drawing.Size(226, 20);
-            this.landTextBox.TabIndex = 6;
-            // 
             // addressLabel
             // 
             addressLabel.AutoSize = true;
@@ -103,13 +89,6 @@
             addressLabel.Size = new System.Drawing.Size(47, 13);
             addressLabel.TabIndex = 7;
             addressLabel.Text = "address:";
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Location = new System.Drawing.Point(217, 148);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(226, 20);
-            this.addressTextBox.TabIndex = 8;
             // 
             // yearLabel
             // 
@@ -129,13 +108,6 @@
             materialLabel.TabIndex = 11;
             materialLabel.Text = "material:";
             // 
-            // materialTextBox
-            // 
-            this.materialTextBox.Location = new System.Drawing.Point(217, 200);
-            this.materialTextBox.Name = "materialTextBox";
-            this.materialTextBox.Size = new System.Drawing.Size(226, 20);
-            this.materialTextBox.TabIndex = 12;
-            // 
             // flowLabel
             // 
             flowLabel.AutoSize = true;
@@ -144,6 +116,34 @@
             flowLabel.Size = new System.Drawing.Size(29, 13);
             flowLabel.TabIndex = 13;
             flowLabel.Text = "flow:";
+            // 
+            // buildingNameTextBox
+            // 
+            this.buildingNameTextBox.Location = new System.Drawing.Point(217, 96);
+            this.buildingNameTextBox.Name = "buildingNameTextBox";
+            this.buildingNameTextBox.Size = new System.Drawing.Size(226, 20);
+            this.buildingNameTextBox.TabIndex = 4;
+            // 
+            // landTextBox
+            // 
+            this.landTextBox.Location = new System.Drawing.Point(217, 122);
+            this.landTextBox.Name = "landTextBox";
+            this.landTextBox.Size = new System.Drawing.Size(226, 20);
+            this.landTextBox.TabIndex = 6;
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(217, 148);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(226, 20);
+            this.addressTextBox.TabIndex = 8;
+            // 
+            // materialTextBox
+            // 
+            this.materialTextBox.Location = new System.Drawing.Point(217, 200);
+            this.materialTextBox.Name = "materialTextBox";
+            this.materialTextBox.Size = new System.Drawing.Size(226, 20);
+            this.materialTextBox.TabIndex = 12;
             // 
             // buttonSave
             // 
@@ -203,7 +203,7 @@
             0,
             0});
             // 
-            // FormBuildingEdit
+            // BuildingFormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -223,7 +223,7 @@
             this.Controls.Add(materialLabel);
             this.Controls.Add(this.materialTextBox);
             this.Controls.Add(flowLabel);
-            this.Name = "FormBuildingEdit";
+            this.Name = "BuildingFormEdit";
             this.Text = "FormBuildingEdit";
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flowNumericUpDown)).EndInit();

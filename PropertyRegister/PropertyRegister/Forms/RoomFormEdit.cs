@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PropertyRegister.Forms
+{
+    public partial class RoomFormEdit : Form
+    {
+        private PropertyRegisterDataSet propertyRegisterDataSet;
+        private PropertyRegisterDataSet.RoomRow roomRow;
+        private string roomName = "";
+
+        public RoomFormEdit(PropertyRegisterDataSet propertyRegisterDataSet)
+        {
+            InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            this.roomRow = propertyRegisterDataSet.Room.NewRoomRow();
+        }
+
+        public RoomFormEdit(PropertyRegisterDataSet propertyRegisterDataSet, string roomName)
+        {
+            InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            this.roomName = roomName;
+            this.roomRow = propertyRegisterDataSet.Room.FindByroomName(roomName);
+
+            roomNameTextBox.DataBindings.Add("Text", roomRow, "roomName");
+            squareTextBox.DataBindings.Add("Text", roomRow, "square");
+            windowsNumericUpDown.DataBindings.Add("Text", roomRow, "windows");
+        }
+
+        private void RoomFormEdit_Load(object sender, EventArgs e)
+        {
+            buildingIdComboBox.DataSource = propertyRegisterDataSet.Building;
+            buildingIdComboBox.DisplayMember = "buildingName";
+            buildingIdComboBox.ValueMember = "buildingId";
+            if (roomName != "") buildingIdComboBox.SelectedValue = roomRow.buildingId;
+
+            typeRoomIdComboBox.DataSource = propertyRegisterDataSet.TypeRoom;
+            typeRoomIdComboBox.DisplayMember = "target";
+            typeRoomIdComboBox.ValueMember = "typeRoomId";
+            if (roomName != "") typeRoomIdComboBox.SelectedValue = roomRow.typeRoomId;
+
+            orgUnitIdComboBox.DataSource = propertyRegisterDataSet.OrgUnit;
+            orgUnitIdComboBox.DisplayMember = "orgUnitName";
+            orgUnitIdComboBox.ValueMember = "orgUnitId";
+            if (roomName != "") orgUnitIdComboBox.SelectedValue = roomRow.orgUnitId;
+
+            cheifIdComboBox.DataSource = propertyRegisterDataSet.Chief;
+            cheifIdComboBox.DisplayMember = "surname";
+            cheifIdComboBox.ValueMember = "chiefId";
+            if (roomName != "") cheifIdComboBox.SelectedValue = roomRow.chiefId;
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            roomRow.roomName = roomNameTextBox.Text;
+            roomRow.square = int.Parse(squareTextBox.Text);
+            roomRow.windows = int.Parse(windowsNumericUpDown.Text);
+            roomRow.buildingId = (int)buildingIdComboBox.SelectedValue;
+            roomRow.typeRoomId = (int)typeRoomIdComboBox.SelectedValue;
+            roomRow.orgUnitId = (int)orgUnitIdComboBox.SelectedValue;
+            roomRow.chiefId = (int)cheifIdComboBox.SelectedValue;
+
+            try
+            {
+                if (roomName == "") propertyRegisterDataSet.Room.AddRoomRow(roomRow);
+                new PropertyRegisterDataSetTableAdapters.RoomTableAdapter().Update(roomRow);
+                propertyRegisterDataSet.Room.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.Close();
+            }
+        }
+    }
+}
