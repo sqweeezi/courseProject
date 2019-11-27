@@ -20,6 +20,10 @@ namespace PropertyRegister
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.TypeRoom". При необходимости она может быть перемещена или удалена.
+            this.typeRoomTableAdapter.Fill(this.propertyRegisterDataSet.TypeRoom);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Chief". При необходимости она может быть перемещена или удалена.
+            this.chiefTableAdapter.Fill(this.propertyRegisterDataSet.Chief);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.OrgUnit". При необходимости она может быть перемещена или удалена.
             this.orgUnitTableAdapter.Fill(this.propertyRegisterDataSet.OrgUnit);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Building". При необходимости она может быть перемещена или удалена.
@@ -45,6 +49,18 @@ namespace PropertyRegister
                 {
                     orgUnitTableAdapter.Update(propertyRegisterDataSet);
                     propertyRegisterDataSet.OrgUnit.AcceptChanges();
+                    return;
+                }
+                if (tableName == propertyRegisterDataSet.Chief.TableName)
+                {
+                    chiefTableAdapter.Update(propertyRegisterDataSet);
+                    propertyRegisterDataSet.Chief.AcceptChanges();
+                    return;
+                }
+                if (tableName == propertyRegisterDataSet.TypeRoom.TableName)
+                {
+                    typeRoomTableAdapter.Update(propertyRegisterDataSet);
+                    propertyRegisterDataSet.TypeRoom.AcceptChanges();
                     return;
                 }
             }
@@ -104,6 +120,58 @@ namespace PropertyRegister
             {
                 MessageBox.Show(ex.Message);
                 orgUnitTableAdapter.Fill(propertyRegisterDataSet.OrgUnit);
+            }
+        }
+
+        private void CheifButtonAdd_Click(object sender, EventArgs e)
+        {
+            CheifFormEdit form = new CheifFormEdit(propertyRegisterDataSet);
+            form.ShowDialog();
+        }
+
+        private void CheifButtonEdit_Click(object sender, EventArgs e)
+        {
+            CheifFormEdit form = new CheifFormEdit(propertyRegisterDataSet, (int)chiefDataGridView.CurrentRow.Cells[0].Value);
+            form.ShowDialog();
+        }
+
+        private void CheifButtonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                propertyRegisterDataSet.Chief.FindBychiefId((int)chiefDataGridView.CurrentRow.Cells[0].Value).Delete();
+                saveToBD(this.propertyRegisterDataSet.Chief.TableName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                chiefTableAdapter.Fill(propertyRegisterDataSet.Chief);
+            }
+        }
+
+        private void TypeRoomButtonAdd_Click(object sender, EventArgs e)
+        {
+            TypeRoomFormEdit form = new TypeRoomFormEdit(propertyRegisterDataSet);
+            form.ShowDialog();
+        }
+
+        private void TypeRoomButtonEdit_Click(object sender, EventArgs e)
+        {
+            TypeRoomFormEdit form = new TypeRoomFormEdit(propertyRegisterDataSet, (int)typeRoomDataGridView.CurrentRow.Cells[0].Value);
+            form.ShowDialog();
+        }
+
+        private void TypeRoomButtonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                propertyRegisterDataSet.TypeRoom.FindBytypeRoomId((int)typeRoomDataGridView.CurrentRow.Cells[0].Value).Delete();
+                saveToBD(this.propertyRegisterDataSet.TypeRoom.TableName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                typeRoomTableAdapter.Fill(propertyRegisterDataSet.TypeRoom);
             }
         }
     }

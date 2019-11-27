@@ -60,6 +60,25 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.chiefBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.chiefTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.ChiefTableAdapter();
+            this.chiefDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cheifButtonAdd = new System.Windows.Forms.Button();
+            this.cheifButtonEdit = new System.Windows.Forms.Button();
+            this.cheifButtonDelete = new System.Windows.Forms.Button();
+            this.typeRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typeRoomTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter();
+            this.typeRoomDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeRoomButtonAdd = new System.Windows.Forms.Button();
+            this.typeRoomButtonEdit = new System.Windows.Forms.Button();
+            this.typeRoomButtonDelete = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buildingDataGridView)).BeginInit();
@@ -68,6 +87,12 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chiefDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeRoomBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeRoomDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -326,6 +351,10 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.cheifButtonDelete);
+            this.tabPage3.Controls.Add(this.cheifButtonEdit);
+            this.tabPage3.Controls.Add(this.cheifButtonAdd);
+            this.tabPage3.Controls.Add(this.chiefDataGridView);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -336,6 +365,10 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.typeRoomButtonDelete);
+            this.tabPage4.Controls.Add(this.typeRoomButtonEdit);
+            this.tabPage4.Controls.Add(this.typeRoomButtonAdd);
+            this.tabPage4.Controls.Add(this.typeRoomDataGridView);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -354,6 +387,167 @@
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // chiefBindingSource
+            // 
+            this.chiefBindingSource.DataMember = "Chief";
+            this.chiefBindingSource.DataSource = this.propertyRegisterDataSet;
+            // 
+            // chiefTableAdapter
+            // 
+            this.chiefTableAdapter.ClearBeforeFill = true;
+            // 
+            // chiefDataGridView
+            // 
+            this.chiefDataGridView.AllowUserToAddRows = false;
+            this.chiefDataGridView.AllowUserToDeleteRows = false;
+            this.chiefDataGridView.AutoGenerateColumns = false;
+            this.chiefDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.chiefDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16});
+            this.chiefDataGridView.DataSource = this.chiefBindingSource;
+            this.chiefDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.chiefDataGridView.Name = "chiefDataGridView";
+            this.chiefDataGridView.ReadOnly = true;
+            this.chiefDataGridView.Size = new System.Drawing.Size(719, 220);
+            this.chiefDataGridView.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "chiefId";
+            this.dataGridViewTextBoxColumn12.HeaderText = "chiefId";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "surname";
+            this.dataGridViewTextBoxColumn13.HeaderText = "surname";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn14.HeaderText = "name";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "patronymic";
+            this.dataGridViewTextBoxColumn15.HeaderText = "patronymic";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "address";
+            this.dataGridViewTextBoxColumn16.HeaderText = "address";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // cheifButtonAdd
+            // 
+            this.cheifButtonAdd.Location = new System.Drawing.Point(344, 290);
+            this.cheifButtonAdd.Name = "cheifButtonAdd";
+            this.cheifButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.cheifButtonAdd.TabIndex = 1;
+            this.cheifButtonAdd.Text = "button1";
+            this.cheifButtonAdd.UseVisualStyleBackColor = true;
+            this.cheifButtonAdd.Click += new System.EventHandler(this.CheifButtonAdd_Click);
+            // 
+            // cheifButtonEdit
+            // 
+            this.cheifButtonEdit.Location = new System.Drawing.Point(463, 305);
+            this.cheifButtonEdit.Name = "cheifButtonEdit";
+            this.cheifButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.cheifButtonEdit.TabIndex = 2;
+            this.cheifButtonEdit.Text = "button2";
+            this.cheifButtonEdit.UseVisualStyleBackColor = true;
+            this.cheifButtonEdit.Click += new System.EventHandler(this.CheifButtonEdit_Click);
+            // 
+            // cheifButtonDelete
+            // 
+            this.cheifButtonDelete.Location = new System.Drawing.Point(651, 287);
+            this.cheifButtonDelete.Name = "cheifButtonDelete";
+            this.cheifButtonDelete.Size = new System.Drawing.Size(75, 23);
+            this.cheifButtonDelete.TabIndex = 3;
+            this.cheifButtonDelete.Text = "button3";
+            this.cheifButtonDelete.UseVisualStyleBackColor = true;
+            this.cheifButtonDelete.Click += new System.EventHandler(this.CheifButtonDelete_Click);
+            // 
+            // typeRoomBindingSource
+            // 
+            this.typeRoomBindingSource.DataMember = "TypeRoom";
+            this.typeRoomBindingSource.DataSource = this.propertyRegisterDataSet;
+            // 
+            // typeRoomTableAdapter
+            // 
+            this.typeRoomTableAdapter.ClearBeforeFill = true;
+            // 
+            // typeRoomDataGridView
+            // 
+            this.typeRoomDataGridView.AllowUserToAddRows = false;
+            this.typeRoomDataGridView.AllowUserToDeleteRows = false;
+            this.typeRoomDataGridView.AutoGenerateColumns = false;
+            this.typeRoomDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.typeRoomDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18});
+            this.typeRoomDataGridView.DataSource = this.typeRoomBindingSource;
+            this.typeRoomDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.typeRoomDataGridView.Name = "typeRoomDataGridView";
+            this.typeRoomDataGridView.ReadOnly = true;
+            this.typeRoomDataGridView.Size = new System.Drawing.Size(300, 220);
+            this.typeRoomDataGridView.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "typeRoomId";
+            this.dataGridViewTextBoxColumn17.HeaderText = "typeRoomId";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "target";
+            this.dataGridViewTextBoxColumn18.HeaderText = "target";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // typeRoomButtonAdd
+            // 
+            this.typeRoomButtonAdd.Location = new System.Drawing.Point(314, 324);
+            this.typeRoomButtonAdd.Name = "typeRoomButtonAdd";
+            this.typeRoomButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.typeRoomButtonAdd.TabIndex = 1;
+            this.typeRoomButtonAdd.Text = "button1";
+            this.typeRoomButtonAdd.UseVisualStyleBackColor = true;
+            this.typeRoomButtonAdd.Click += new System.EventHandler(this.TypeRoomButtonAdd_Click);
+            // 
+            // typeRoomButtonEdit
+            // 
+            this.typeRoomButtonEdit.Location = new System.Drawing.Point(486, 355);
+            this.typeRoomButtonEdit.Name = "typeRoomButtonEdit";
+            this.typeRoomButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.typeRoomButtonEdit.TabIndex = 2;
+            this.typeRoomButtonEdit.Text = "button2";
+            this.typeRoomButtonEdit.UseVisualStyleBackColor = true;
+            this.typeRoomButtonEdit.Click += new System.EventHandler(this.TypeRoomButtonEdit_Click);
+            // 
+            // typeRoomButtonDelete
+            // 
+            this.typeRoomButtonDelete.Location = new System.Drawing.Point(714, 352);
+            this.typeRoomButtonDelete.Name = "typeRoomButtonDelete";
+            this.typeRoomButtonDelete.Size = new System.Drawing.Size(75, 23);
+            this.typeRoomButtonDelete.TabIndex = 3;
+            this.typeRoomButtonDelete.Text = "button3";
+            this.typeRoomButtonDelete.UseVisualStyleBackColor = true;
+            this.typeRoomButtonDelete.Click += new System.EventHandler(this.TypeRoomButtonDelete_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,6 +565,12 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chiefDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeRoomBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeRoomDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -408,6 +608,25 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.BindingSource chiefBindingSource;
+        private PropertyRegisterDataSetTableAdapters.ChiefTableAdapter chiefTableAdapter;
+        private System.Windows.Forms.Button cheifButtonDelete;
+        private System.Windows.Forms.Button cheifButtonEdit;
+        private System.Windows.Forms.Button cheifButtonAdd;
+        private System.Windows.Forms.DataGridView chiefDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.BindingSource typeRoomBindingSource;
+        private PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter typeRoomTableAdapter;
+        private System.Windows.Forms.Button typeRoomButtonDelete;
+        private System.Windows.Forms.Button typeRoomButtonEdit;
+        private System.Windows.Forms.Button typeRoomButtonAdd;
+        private System.Windows.Forms.DataGridView typeRoomDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
     }
 }
 
