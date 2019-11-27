@@ -35,12 +35,6 @@
             System.Windows.Forms.Label orgUnitIdLabel;
             System.Windows.Forms.Label chiefIdLabel;
             System.Windows.Forms.Label roomNameLabel;
-            this.squareTextBox = new System.Windows.Forms.TextBox();
-            this.windowsTextBox = new System.Windows.Forms.TextBox();
-            this.buildingIdTextBox = new System.Windows.Forms.TextBox();
-            this.typeRoomIdTextBox = new System.Windows.Forms.TextBox();
-            this.orgUnitIdTextBox = new System.Windows.Forms.TextBox();
-            this.chiefIdTextBox = new System.Windows.Forms.TextBox();
             this.buildingIdComboBox = new System.Windows.Forms.ComboBox();
             this.typeRoomIdComboBox = new System.Windows.Forms.ComboBox();
             this.orgUnitIdComboBox = new System.Windows.Forms.ComboBox();
@@ -49,6 +43,8 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.windowsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.roomNameTextBox = new System.Windows.Forms.TextBox();
+            this.squareNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             squareLabel = new System.Windows.Forms.Label();
             windowsLabel = new System.Windows.Forms.Label();
             buildingIdLabel = new System.Windows.Forms.Label();
@@ -57,224 +53,207 @@
             chiefIdLabel = new System.Windows.Forms.Label();
             roomNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.windowsNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squareNumericUpDown)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // squareLabel
             // 
             squareLabel.AutoSize = true;
-            squareLabel.Location = new System.Drawing.Point(27, 40);
+            squareLabel.Location = new System.Drawing.Point(83, 49);
             squareLabel.Name = "squareLabel";
-            squareLabel.Size = new System.Drawing.Size(42, 13);
+            squareLabel.Size = new System.Drawing.Size(69, 16);
             squareLabel.TabIndex = 3;
-            squareLabel.Text = "square:";
+            squareLabel.Text = "Площадь:";
             // 
             // windowsLabel
             // 
             windowsLabel.AutoSize = true;
-            windowsLabel.Location = new System.Drawing.Point(27, 66);
+            windowsLabel.Location = new System.Drawing.Point(63, 79);
             windowsLabel.Name = "windowsLabel";
-            windowsLabel.Size = new System.Drawing.Size(51, 13);
+            windowsLabel.Size = new System.Drawing.Size(89, 16);
             windowsLabel.TabIndex = 5;
-            windowsLabel.Text = "windows:";
+            windowsLabel.Text = "Кол-во окон:";
             // 
             // buildingIdLabel
             // 
             buildingIdLabel.AutoSize = true;
-            buildingIdLabel.Location = new System.Drawing.Point(27, 92);
+            buildingIdLabel.Location = new System.Drawing.Point(92, 113);
             buildingIdLabel.Name = "buildingIdLabel";
-            buildingIdLabel.Size = new System.Drawing.Size(58, 13);
+            buildingIdLabel.Size = new System.Drawing.Size(60, 16);
             buildingIdLabel.TabIndex = 7;
-            buildingIdLabel.Text = "building Id:";
+            buildingIdLabel.Text = "Здание:";
             // 
             // typeRoomIdLabel
             // 
             typeRoomIdLabel.AutoSize = true;
-            typeRoomIdLabel.Location = new System.Drawing.Point(27, 118);
+            typeRoomIdLabel.Location = new System.Drawing.Point(40, 144);
             typeRoomIdLabel.Name = "typeRoomIdLabel";
-            typeRoomIdLabel.Size = new System.Drawing.Size(73, 13);
+            typeRoomIdLabel.Size = new System.Drawing.Size(112, 16);
             typeRoomIdLabel.TabIndex = 9;
-            typeRoomIdLabel.Text = "type Room Id:";
+            typeRoomIdLabel.Text = "Тип помещения:";
             // 
             // orgUnitIdLabel
             // 
             orgUnitIdLabel.AutoSize = true;
-            orgUnitIdLabel.Location = new System.Drawing.Point(27, 144);
+            orgUnitIdLabel.Location = new System.Drawing.Point(35, 175);
             orgUnitIdLabel.Name = "orgUnitIdLabel";
-            orgUnitIdLabel.Size = new System.Drawing.Size(59, 13);
+            orgUnitIdLabel.Size = new System.Drawing.Size(117, 16);
             orgUnitIdLabel.TabIndex = 11;
-            orgUnitIdLabel.Text = "org Unit Id:";
+            orgUnitIdLabel.Text = "Подразделение:";
             // 
             // chiefIdLabel
             // 
             chiefIdLabel.AutoSize = true;
-            chiefIdLabel.Location = new System.Drawing.Point(27, 170);
+            chiefIdLabel.Location = new System.Drawing.Point(15, 207);
             chiefIdLabel.Name = "chiefIdLabel";
-            chiefIdLabel.Size = new System.Drawing.Size(45, 13);
+            chiefIdLabel.Size = new System.Drawing.Size(137, 16);
             chiefIdLabel.TabIndex = 13;
-            chiefIdLabel.Text = "chief Id:";
+            chiefIdLabel.Text = "Мат. ответсвенный:";
             // 
-            // squareTextBox
+            // roomNameLabel
             // 
-            this.squareTextBox.Location = new System.Drawing.Point(106, 37);
-            this.squareTextBox.Name = "squareTextBox";
-            this.squareTextBox.Size = new System.Drawing.Size(100, 20);
-            this.squareTextBox.TabIndex = 4;
-            // 
-            // windowsTextBox
-            // 
-            this.windowsTextBox.Location = new System.Drawing.Point(106, 63);
-            this.windowsTextBox.Name = "windowsTextBox";
-            this.windowsTextBox.Size = new System.Drawing.Size(100, 20);
-            this.windowsTextBox.TabIndex = 6;
-            // 
-            // buildingIdTextBox
-            // 
-            this.buildingIdTextBox.Location = new System.Drawing.Point(106, 89);
-            this.buildingIdTextBox.Name = "buildingIdTextBox";
-            this.buildingIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.buildingIdTextBox.TabIndex = 8;
-            // 
-            // typeRoomIdTextBox
-            // 
-            this.typeRoomIdTextBox.Location = new System.Drawing.Point(106, 115);
-            this.typeRoomIdTextBox.Name = "typeRoomIdTextBox";
-            this.typeRoomIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.typeRoomIdTextBox.TabIndex = 10;
-            // 
-            // orgUnitIdTextBox
-            // 
-            this.orgUnitIdTextBox.Location = new System.Drawing.Point(106, 141);
-            this.orgUnitIdTextBox.Name = "orgUnitIdTextBox";
-            this.orgUnitIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.orgUnitIdTextBox.TabIndex = 12;
-            // 
-            // chiefIdTextBox
-            // 
-            this.chiefIdTextBox.Location = new System.Drawing.Point(106, 167);
-            this.chiefIdTextBox.Name = "chiefIdTextBox";
-            this.chiefIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.chiefIdTextBox.TabIndex = 14;
+            roomNameLabel.AutoSize = true;
+            roomNameLabel.Location = new System.Drawing.Point(75, 23);
+            roomNameLabel.Name = "roomNameLabel";
+            roomNameLabel.Size = new System.Drawing.Size(77, 16);
+            roomNameLabel.TabIndex = 1;
+            roomNameLabel.Text = "Название:";
             // 
             // buildingIdComboBox
             // 
             this.buildingIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.buildingIdComboBox.FormattingEnabled = true;
-            this.buildingIdComboBox.Location = new System.Drawing.Point(290, 92);
+            this.buildingIdComboBox.Location = new System.Drawing.Point(158, 110);
             this.buildingIdComboBox.Name = "buildingIdComboBox";
-            this.buildingIdComboBox.Size = new System.Drawing.Size(121, 21);
+            this.buildingIdComboBox.Size = new System.Drawing.Size(182, 23);
             this.buildingIdComboBox.TabIndex = 15;
             // 
             // typeRoomIdComboBox
             // 
             this.typeRoomIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeRoomIdComboBox.FormattingEnabled = true;
-            this.typeRoomIdComboBox.Location = new System.Drawing.Point(290, 119);
+            this.typeRoomIdComboBox.Location = new System.Drawing.Point(158, 141);
             this.typeRoomIdComboBox.Name = "typeRoomIdComboBox";
-            this.typeRoomIdComboBox.Size = new System.Drawing.Size(121, 21);
+            this.typeRoomIdComboBox.Size = new System.Drawing.Size(182, 23);
             this.typeRoomIdComboBox.TabIndex = 16;
             // 
             // orgUnitIdComboBox
             // 
             this.orgUnitIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.orgUnitIdComboBox.FormattingEnabled = true;
-            this.orgUnitIdComboBox.Location = new System.Drawing.Point(290, 146);
+            this.orgUnitIdComboBox.Location = new System.Drawing.Point(158, 172);
             this.orgUnitIdComboBox.Name = "orgUnitIdComboBox";
-            this.orgUnitIdComboBox.Size = new System.Drawing.Size(121, 21);
+            this.orgUnitIdComboBox.Size = new System.Drawing.Size(182, 23);
             this.orgUnitIdComboBox.TabIndex = 17;
             // 
             // cheifIdComboBox
             // 
             this.cheifIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cheifIdComboBox.FormattingEnabled = true;
-            this.cheifIdComboBox.Location = new System.Drawing.Point(290, 173);
+            this.cheifIdComboBox.Location = new System.Drawing.Point(158, 204);
             this.cheifIdComboBox.Name = "cheifIdComboBox";
-            this.cheifIdComboBox.Size = new System.Drawing.Size(121, 21);
+            this.cheifIdComboBox.Size = new System.Drawing.Size(182, 23);
             this.cheifIdComboBox.TabIndex = 18;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(379, 283);
+            this.buttonSave.Location = new System.Drawing.Point(172, 260);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(87, 27);
             this.buttonSave.TabIndex = 19;
-            this.buttonSave.Text = "button1";
+            this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(526, 288);
+            this.buttonClose.Location = new System.Drawing.Point(265, 260);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(87, 27);
             this.buttonClose.TabIndex = 20;
-            this.buttonClose.Text = "button2";
+            this.buttonClose.Text = "Отмена";
             this.buttonClose.UseVisualStyleBackColor = true;
             // 
             // windowsNumericUpDown
             // 
-            this.windowsNumericUpDown.Location = new System.Drawing.Point(290, 63);
+            this.windowsNumericUpDown.Location = new System.Drawing.Point(158, 77);
             this.windowsNumericUpDown.Name = "windowsNumericUpDown";
-            this.windowsNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.windowsNumericUpDown.Size = new System.Drawing.Size(72, 21);
             this.windowsNumericUpDown.TabIndex = 21;
             // 
             // roomNameTextBox
             // 
-            this.roomNameTextBox.Location = new System.Drawing.Point(106, 11);
+            this.roomNameTextBox.Location = new System.Drawing.Point(158, 20);
             this.roomNameTextBox.Name = "roomNameTextBox";
-            this.roomNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.roomNameTextBox.Size = new System.Drawing.Size(72, 21);
             this.roomNameTextBox.TabIndex = 2;
             // 
-            // roomNameLabel
+            // squareNumericUpDown
             // 
-            roomNameLabel.AutoSize = true;
-            roomNameLabel.Location = new System.Drawing.Point(27, 14);
-            roomNameLabel.Name = "roomNameLabel";
-            roomNameLabel.Size = new System.Drawing.Size(64, 13);
-            roomNameLabel.TabIndex = 1;
-            roomNameLabel.Text = "room Name:";
+            this.squareNumericUpDown.Location = new System.Drawing.Point(158, 47);
+            this.squareNumericUpDown.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.squareNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.squareNumericUpDown.Name = "squareNumericUpDown";
+            this.squareNumericUpDown.Size = new System.Drawing.Size(72, 21);
+            this.squareNumericUpDown.TabIndex = 22;
+            this.squareNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cheifIdComboBox);
+            this.groupBox1.Controls.Add(this.squareNumericUpDown);
+            this.groupBox1.Controls.Add(chiefIdLabel);
+            this.groupBox1.Controls.Add(this.windowsNumericUpDown);
+            this.groupBox1.Controls.Add(orgUnitIdLabel);
+            this.groupBox1.Controls.Add(typeRoomIdLabel);
+            this.groupBox1.Controls.Add(buildingIdLabel);
+            this.groupBox1.Controls.Add(windowsLabel);
+            this.groupBox1.Controls.Add(this.orgUnitIdComboBox);
+            this.groupBox1.Controls.Add(squareLabel);
+            this.groupBox1.Controls.Add(this.typeRoomIdComboBox);
+            this.groupBox1.Controls.Add(this.roomNameTextBox);
+            this.groupBox1.Controls.Add(this.buildingIdComboBox);
+            this.groupBox1.Controls.Add(roomNameLabel);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(371, 242);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
             // 
             // RoomFormEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.windowsNumericUpDown);
+            this.ClientSize = new System.Drawing.Size(405, 297);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.cheifIdComboBox);
-            this.Controls.Add(this.orgUnitIdComboBox);
-            this.Controls.Add(this.typeRoomIdComboBox);
-            this.Controls.Add(this.buildingIdComboBox);
-            this.Controls.Add(roomNameLabel);
-            this.Controls.Add(this.roomNameTextBox);
-            this.Controls.Add(squareLabel);
-            this.Controls.Add(this.squareTextBox);
-            this.Controls.Add(windowsLabel);
-            this.Controls.Add(this.windowsTextBox);
-            this.Controls.Add(buildingIdLabel);
-            this.Controls.Add(this.buildingIdTextBox);
-            this.Controls.Add(typeRoomIdLabel);
-            this.Controls.Add(this.typeRoomIdTextBox);
-            this.Controls.Add(orgUnitIdLabel);
-            this.Controls.Add(this.orgUnitIdTextBox);
-            this.Controls.Add(chiefIdLabel);
-            this.Controls.Add(this.chiefIdTextBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "RoomFormEdit";
             this.Text = "RoomFormEdit";
             this.Load += new System.EventHandler(this.RoomFormEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.windowsNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.squareNumericUpDown)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox squareTextBox;
-        private System.Windows.Forms.TextBox windowsTextBox;
-        private System.Windows.Forms.TextBox buildingIdTextBox;
-        private System.Windows.Forms.TextBox typeRoomIdTextBox;
-        private System.Windows.Forms.TextBox orgUnitIdTextBox;
-        private System.Windows.Forms.TextBox chiefIdTextBox;
         private System.Windows.Forms.ComboBox buildingIdComboBox;
         private System.Windows.Forms.ComboBox typeRoomIdComboBox;
         private System.Windows.Forms.ComboBox orgUnitIdComboBox;
@@ -283,5 +262,7 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.NumericUpDown windowsNumericUpDown;
         private System.Windows.Forms.TextBox roomNameTextBox;
+        private System.Windows.Forms.NumericUpDown squareNumericUpDown;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

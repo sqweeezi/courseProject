@@ -31,7 +31,7 @@ namespace PropertyRegister.Forms
             this.buildingRow = propertyRegisterDataSet.Building.FindBybuildingId(buildingId);
 
             buildingNameTextBox.DataBindings.Add("Text", buildingRow, "buildingName");
-            landTextBox.DataBindings.Add("Text", buildingRow, "land");
+            landNumericUpDown.DataBindings.Add("Text", buildingRow, "land");
             addressTextBox.DataBindings.Add("Text", buildingRow, "address");
             yearNumericUpDown.DataBindings.Add("Text", buildingRow, "year");
             materialTextBox.DataBindings.Add("Text", buildingRow, "material");
@@ -41,7 +41,7 @@ namespace PropertyRegister.Forms
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             buildingRow.buildingName = buildingNameTextBox.Text;
-            buildingRow.land = int.Parse(landTextBox.Text);
+            buildingRow.land = int.Parse(landNumericUpDown.Text);
             buildingRow.address = addressTextBox.Text;
             buildingRow.year = int.Parse(yearNumericUpDown.Text);
             buildingRow.material = materialTextBox.Text;

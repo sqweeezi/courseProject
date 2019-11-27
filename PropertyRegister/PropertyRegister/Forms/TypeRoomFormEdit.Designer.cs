@@ -32,57 +32,70 @@
             this.targetTextBox = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             targetLabel = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // targetLabel
             // 
             targetLabel.AutoSize = true;
-            targetLabel.Location = new System.Drawing.Point(68, 50);
+            targetLabel.Location = new System.Drawing.Point(16, 32);
             targetLabel.Name = "targetLabel";
-            targetLabel.Size = new System.Drawing.Size(37, 13);
+            targetLabel.Size = new System.Drawing.Size(93, 16);
             targetLabel.TabIndex = 3;
-            targetLabel.Text = "target:";
+            targetLabel.Text = "Назначение:";
             // 
             // targetTextBox
             // 
-            this.targetTextBox.Location = new System.Drawing.Point(147, 47);
+            this.targetTextBox.Location = new System.Drawing.Point(115, 29);
             this.targetTextBox.Name = "targetTextBox";
-            this.targetTextBox.Size = new System.Drawing.Size(100, 20);
+            this.targetTextBox.Size = new System.Drawing.Size(295, 21);
             this.targetTextBox.TabIndex = 4;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(31, 123);
+            this.buttonSave.Location = new System.Drawing.Point(242, 97);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(87, 27);
             this.buttonSave.TabIndex = 5;
-            this.buttonSave.Text = "button1";
+            this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(172, 154);
+            this.buttonClose.Location = new System.Drawing.Point(335, 97);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(87, 27);
             this.buttonClose.TabIndex = 6;
-            this.buttonClose.Text = "button2";
+            this.buttonClose.Text = "Отмена";
             this.buttonClose.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.targetTextBox);
+            this.groupBox1.Controls.Add(targetLabel);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(443, 79);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
             // 
             // TypeRoomFormEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(467, 136);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(targetLabel);
-            this.Controls.Add(this.targetTextBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "TypeRoomFormEdit";
             this.Text = "TypeRoomFormEdit";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -90,5 +103,6 @@
         private System.Windows.Forms.TextBox targetTextBox;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

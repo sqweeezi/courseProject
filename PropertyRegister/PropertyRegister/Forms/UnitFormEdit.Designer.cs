@@ -33,86 +33,80 @@
             System.Windows.Forms.Label costLabel;
             this.unitNameTextBox = new System.Windows.Forms.TextBox();
             this.dateStartDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.costTextBox = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.costNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             unitNameLabel = new System.Windows.Forms.Label();
             dateStartLabel = new System.Windows.Forms.Label();
             costLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // unitNameLabel
             // 
             unitNameLabel.AutoSize = true;
-            unitNameLabel.Location = new System.Drawing.Point(48, 43);
+            unitNameLabel.Location = new System.Drawing.Point(70, 23);
             unitNameLabel.Name = "unitNameLabel";
-            unitNameLabel.Size = new System.Drawing.Size(58, 13);
+            unitNameLabel.Size = new System.Drawing.Size(110, 16);
             unitNameLabel.TabIndex = 3;
-            unitNameLabel.Text = "unit Name:";
+            unitNameLabel.Text = "Наименование:";
             // 
             // dateStartLabel
             // 
             dateStartLabel.AutoSize = true;
-            dateStartLabel.Location = new System.Drawing.Point(48, 70);
+            dateStartLabel.Location = new System.Drawing.Point(4, 47);
             dateStartLabel.Name = "dateStartLabel";
-            dateStartLabel.Size = new System.Drawing.Size(56, 13);
+            dateStartLabel.Size = new System.Drawing.Size(176, 16);
             dateStartLabel.TabIndex = 5;
-            dateStartLabel.Text = "date Start:";
+            dateStartLabel.Text = "Дата постановки на учет:";
             // 
             // costLabel
             // 
             costLabel.AutoSize = true;
-            costLabel.Location = new System.Drawing.Point(48, 95);
+            costLabel.Location = new System.Drawing.Point(99, 76);
             costLabel.Name = "costLabel";
-            costLabel.Size = new System.Drawing.Size(30, 13);
+            costLabel.Size = new System.Drawing.Size(81, 16);
             costLabel.TabIndex = 7;
-            costLabel.Text = "cost:";
+            costLabel.Text = "Стоимость:";
             // 
             // unitNameTextBox
             // 
-            this.unitNameTextBox.Location = new System.Drawing.Point(112, 40);
+            this.unitNameTextBox.Location = new System.Drawing.Point(186, 20);
             this.unitNameTextBox.Name = "unitNameTextBox";
-            this.unitNameTextBox.Size = new System.Drawing.Size(200, 20);
+            this.unitNameTextBox.Size = new System.Drawing.Size(289, 21);
             this.unitNameTextBox.TabIndex = 4;
             // 
             // dateStartDateTimePicker
             // 
-            this.dateStartDateTimePicker.Location = new System.Drawing.Point(112, 66);
+            this.dateStartDateTimePicker.Location = new System.Drawing.Point(186, 47);
             this.dateStartDateTimePicker.Name = "dateStartDateTimePicker";
-            this.dateStartDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.dateStartDateTimePicker.Size = new System.Drawing.Size(154, 21);
             this.dateStartDateTimePicker.TabIndex = 6;
-            // 
-            // costTextBox
-            // 
-            this.costTextBox.Location = new System.Drawing.Point(112, 92);
-            this.costTextBox.Name = "costTextBox";
-            this.costTextBox.Size = new System.Drawing.Size(200, 20);
-            this.costTextBox.TabIndex = 8;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(112, 168);
+            this.buttonSave.Location = new System.Drawing.Point(307, 132);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(87, 27);
             this.buttonSave.TabIndex = 9;
-            this.buttonSave.Text = "button1";
+            this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(220, 168);
+            this.buttonClose.Location = new System.Drawing.Point(400, 132);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(87, 27);
             this.buttonClose.TabIndex = 10;
-            this.buttonClose.Text = "button2";
+            this.buttonClose.Text = "Отмена";
             this.buttonClose.UseVisualStyleBackColor = true;
             // 
             // costNumericUpDown
             // 
-            this.costNumericUpDown.Location = new System.Drawing.Point(350, 92);
+            this.costNumericUpDown.Location = new System.Drawing.Point(186, 74);
             this.costNumericUpDown.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -124,7 +118,7 @@
             0,
             0});
             this.costNumericUpDown.Name = "costNumericUpDown";
-            this.costNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.costNumericUpDown.Size = new System.Drawing.Size(154, 21);
             this.costNumericUpDown.TabIndex = 11;
             this.costNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -132,34 +126,44 @@
             0,
             0});
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.unitNameTextBox);
+            this.groupBox1.Controls.Add(this.costNumericUpDown);
+            this.groupBox1.Controls.Add(costLabel);
+            this.groupBox1.Controls.Add(this.dateStartDateTimePicker);
+            this.groupBox1.Controls.Add(dateStartLabel);
+            this.groupBox1.Controls.Add(unitNameLabel);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(499, 114);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            // 
             // UnitFormEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.costNumericUpDown);
+            this.ClientSize = new System.Drawing.Size(522, 169);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(unitNameLabel);
-            this.Controls.Add(this.unitNameTextBox);
-            this.Controls.Add(dateStartLabel);
-            this.Controls.Add(this.dateStartDateTimePicker);
-            this.Controls.Add(costLabel);
-            this.Controls.Add(this.costTextBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "UnitFormEdit";
             this.Text = "UnitFormEdit";
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.TextBox unitNameTextBox;
         private System.Windows.Forms.DateTimePicker dateStartDateTimePicker;
-        private System.Windows.Forms.TextBox costTextBox;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.NumericUpDown costNumericUpDown;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

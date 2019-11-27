@@ -30,112 +30,106 @@
         {
             System.Windows.Forms.Label unitIdLabel;
             System.Windows.Forms.Label countLabel;
-            this.unitIdTextBox = new System.Windows.Forms.TextBox();
             this.unitIdComboBox = new System.Windows.Forms.ComboBox();
-            this.countTextBox = new System.Windows.Forms.TextBox();
             this.countNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             unitIdLabel = new System.Windows.Forms.Label();
             countLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // unitIdLabel
             // 
             unitIdLabel.AutoSize = true;
-            unitIdLabel.Location = new System.Drawing.Point(54, 102);
+            unitIdLabel.Location = new System.Drawing.Point(15, 23);
             unitIdLabel.Name = "unitIdLabel";
-            unitIdLabel.Size = new System.Drawing.Size(39, 13);
+            unitIdLabel.Size = new System.Drawing.Size(85, 16);
             unitIdLabel.TabIndex = 3;
-            unitIdLabel.Text = "unit Id:";
-            // 
-            // unitIdTextBox
-            // 
-            this.unitIdTextBox.Location = new System.Drawing.Point(124, 99);
-            this.unitIdTextBox.Name = "unitIdTextBox";
-            this.unitIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.unitIdTextBox.TabIndex = 4;
+            unitIdLabel.Text = "Имущество:";
             // 
             // countLabel
             // 
             countLabel.AutoSize = true;
-            countLabel.Location = new System.Drawing.Point(54, 128);
+            countLabel.Location = new System.Drawing.Point(45, 51);
             countLabel.Name = "countLabel";
-            countLabel.Size = new System.Drawing.Size(37, 13);
+            countLabel.Size = new System.Drawing.Size(55, 16);
             countLabel.TabIndex = 5;
-            countLabel.Text = "count:";
+            countLabel.Text = "Кол-во:";
             // 
             // unitIdComboBox
             // 
+            this.unitIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.unitIdComboBox.FormattingEnabled = true;
-            this.unitIdComboBox.Location = new System.Drawing.Point(240, 99);
+            this.unitIdComboBox.Location = new System.Drawing.Point(106, 20);
             this.unitIdComboBox.Name = "unitIdComboBox";
-            this.unitIdComboBox.Size = new System.Drawing.Size(154, 21);
+            this.unitIdComboBox.Size = new System.Drawing.Size(204, 23);
             this.unitIdComboBox.TabIndex = 7;
-            // 
-            // countTextBox
-            // 
-            this.countTextBox.Location = new System.Drawing.Point(124, 125);
-            this.countTextBox.Name = "countTextBox";
-            this.countTextBox.Size = new System.Drawing.Size(100, 20);
-            this.countTextBox.TabIndex = 6;
             // 
             // countNumericUpDown
             // 
-            this.countNumericUpDown.Location = new System.Drawing.Point(240, 128);
+            this.countNumericUpDown.Location = new System.Drawing.Point(106, 51);
             this.countNumericUpDown.Name = "countNumericUpDown";
-            this.countNumericUpDown.Size = new System.Drawing.Size(154, 20);
+            this.countNumericUpDown.Size = new System.Drawing.Size(56, 21);
             this.countNumericUpDown.TabIndex = 8;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(379, 325);
+            this.buttonSave.Location = new System.Drawing.Point(142, 109);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(87, 27);
             this.buttonSave.TabIndex = 9;
-            this.buttonSave.Text = "button1";
+            this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(625, 324);
+            this.buttonClose.Location = new System.Drawing.Point(235, 109);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(87, 27);
             this.buttonClose.TabIndex = 10;
-            this.buttonClose.Text = "button2";
+            this.buttonClose.Text = "Отмена";
             this.buttonClose.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.unitIdComboBox);
+            this.groupBox1.Controls.Add(countLabel);
+            this.groupBox1.Controls.Add(unitIdLabel);
+            this.groupBox1.Controls.Add(this.countNumericUpDown);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(328, 91);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
             // 
             // InventoryFormEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 557);
+            this.ClientSize = new System.Drawing.Size(362, 147);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.countNumericUpDown);
-            this.Controls.Add(this.unitIdComboBox);
-            this.Controls.Add(unitIdLabel);
-            this.Controls.Add(this.unitIdTextBox);
-            this.Controls.Add(countLabel);
-            this.Controls.Add(this.countTextBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "InventoryFormEdit";
             this.Text = "InventoryFormEdit";
             this.Load += new System.EventHandler(this.InventoryFormEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox unitIdTextBox;
         private System.Windows.Forms.ComboBox unitIdComboBox;
-        private System.Windows.Forms.TextBox countTextBox;
         private System.Windows.Forms.NumericUpDown countNumericUpDown;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

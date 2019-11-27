@@ -31,7 +31,7 @@ namespace PropertyRegister.Forms
             this.roomRow = propertyRegisterDataSet.Room.FindByroomName(roomName);
 
             roomNameTextBox.DataBindings.Add("Text", roomRow, "roomName");
-            squareTextBox.DataBindings.Add("Text", roomRow, "square");
+            squareNumericUpDown.DataBindings.Add("Text", roomRow, "square");
             windowsNumericUpDown.DataBindings.Add("Text", roomRow, "windows");
         }
 
@@ -61,7 +61,7 @@ namespace PropertyRegister.Forms
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             roomRow.roomName = roomNameTextBox.Text;
-            roomRow.square = int.Parse(squareTextBox.Text);
+            roomRow.square = squareNumericUpDown.Value;
             roomRow.windows = int.Parse(windowsNumericUpDown.Text);
             roomRow.buildingId = (int)buildingIdComboBox.SelectedValue;
             roomRow.typeRoomId = (int)typeRoomIdComboBox.SelectedValue;
