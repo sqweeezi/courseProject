@@ -20,23 +20,27 @@ namespace PropertyRegister
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Building". При необходимости она может быть перемещена или удалена.
+            this.buildingTableAdapter.Fill(this.propertyRegisterDataSet.Building);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.TypeRoom". При необходимости она может быть перемещена или удалена.
+            this.typeRoomTableAdapter.Fill(this.propertyRegisterDataSet.TypeRoom);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.OrgUnit". При необходимости она может быть перемещена или удалена.
+            this.orgUnitTableAdapter.Fill(this.propertyRegisterDataSet.OrgUnit);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Chief". При необходимости она может быть перемещена или удалена.
+            this.chiefTableAdapter.Fill(this.propertyRegisterDataSet.Chief);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Unit". При необходимости она может быть перемещена или удалена.
+            this.unitTableAdapter.Fill(this.propertyRegisterDataSet.Unit);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Inventory". При необходимости она может быть перемещена или удалена.
             this.inventoryTableAdapter.Fill(this.propertyRegisterDataSet.Inventory);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Room". При необходимости она может быть перемещена или удалена.
             this.roomTableAdapter.Fill(this.propertyRegisterDataSet.Room);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Revaluation". При необходимости она может быть перемещена или удалена.
             this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Unit". При необходимости она может быть перемещена или удалена.
-            this.unitTableAdapter.Fill(this.propertyRegisterDataSet.Unit);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.TypeRoom". При необходимости она может быть перемещена или удалена.
-            this.typeRoomTableAdapter.Fill(this.propertyRegisterDataSet.TypeRoom);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Chief". При необходимости она может быть перемещена или удалена.
-            this.chiefTableAdapter.Fill(this.propertyRegisterDataSet.Chief);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.OrgUnit". При необходимости она может быть перемещена или удалена.
-            this.orgUnitTableAdapter.Fill(this.propertyRegisterDataSet.OrgUnit);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Building". При необходимости она может быть перемещена или удалена.
-            this.buildingTableAdapter.Fill(this.propertyRegisterDataSet.Building);
-
+            
+            
+            
+            
+           
         }
 
         /// <summary>
@@ -97,110 +101,6 @@ namespace PropertyRegister
             }
         }
 
-        private void BuildingButtonAdd_Click(object sender, EventArgs e)
-        {
-            BuildingFormEdit form = new BuildingFormEdit(propertyRegisterDataSet);
-            form.ShowDialog();
-        }
-
-        private void BuildingButtonEdit_Click(object sender, EventArgs e)
-        {
-            BuildingFormEdit form = new BuildingFormEdit(propertyRegisterDataSet, (int)buildingDataGridView.CurrentRow.Cells[0].Value);
-            form.ShowDialog();
-        }
-
-        private void BuildingButtonDel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                propertyRegisterDataSet.Building.FindBybuildingId((int)buildingDataGridView.CurrentRow.Cells[0].Value).Delete();
-                saveToBD(this.propertyRegisterDataSet.Building.TableName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                buildingTableAdapter.Fill(propertyRegisterDataSet.Building);
-            }
-        }
-
-        private void OrgUnitButtonAdd_Click(object sender, EventArgs e)
-        {
-            OrgUnitFormEdit form = new OrgUnitFormEdit(propertyRegisterDataSet);
-            form.ShowDialog();
-        }
-
-        private void OrgUnitButtonEdit_Click(object sender, EventArgs e)
-        {
-            OrgUnitFormEdit form = new OrgUnitFormEdit(propertyRegisterDataSet, (int)orgUnitDataGridView.CurrentRow.Cells[0].Value);
-            form.ShowDialog();
-        }
-
-        private void OrgUnitButtonDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                propertyRegisterDataSet.OrgUnit.FindByorgUnitId((int)orgUnitDataGridView.CurrentRow.Cells[0].Value).Delete();
-                saveToBD(this.propertyRegisterDataSet.OrgUnit.TableName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                orgUnitTableAdapter.Fill(propertyRegisterDataSet.OrgUnit);
-            }
-        }
-
-        private void CheifButtonAdd_Click(object sender, EventArgs e)
-        {
-            CheifFormEdit form = new CheifFormEdit(propertyRegisterDataSet);
-            form.ShowDialog();
-        }
-
-        private void CheifButtonEdit_Click(object sender, EventArgs e)
-        {
-            CheifFormEdit form = new CheifFormEdit(propertyRegisterDataSet, (int)chiefDataGridView.CurrentRow.Cells[0].Value);
-            form.ShowDialog();
-        }
-
-        private void CheifButtonDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                propertyRegisterDataSet.Chief.FindBychiefId((int)chiefDataGridView.CurrentRow.Cells[0].Value).Delete();
-                saveToBD(this.propertyRegisterDataSet.Chief.TableName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                chiefTableAdapter.Fill(propertyRegisterDataSet.Chief);
-            }
-        }
-
-        private void TypeRoomButtonAdd_Click(object sender, EventArgs e)
-        {
-            TypeRoomFormEdit form = new TypeRoomFormEdit(propertyRegisterDataSet);
-            form.ShowDialog();
-        }
-
-        private void TypeRoomButtonEdit_Click(object sender, EventArgs e)
-        {
-            TypeRoomFormEdit form = new TypeRoomFormEdit(propertyRegisterDataSet, (int)typeRoomDataGridView.CurrentRow.Cells[0].Value);
-            form.ShowDialog();
-        }
-
-        private void TypeRoomButtonDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                propertyRegisterDataSet.TypeRoom.FindBytypeRoomId((int)typeRoomDataGridView.CurrentRow.Cells[0].Value).Delete();
-                saveToBD(this.propertyRegisterDataSet.TypeRoom.TableName);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                typeRoomTableAdapter.Fill(propertyRegisterDataSet.TypeRoom);
-            }
-        }
-
         private void RoomButtonAdd_Click(object sender, EventArgs e)
         {
             RoomFormEdit form = new RoomFormEdit(propertyRegisterDataSet);
@@ -237,8 +137,8 @@ namespace PropertyRegister
         {
             InventoryFormEdit form = new InventoryFormEdit(
                 propertyRegisterDataSet,
-                inventoryDataGridView.CurrentRow.Cells[0].Value.ToString(),
-                (int)inventoryDataGridView.CurrentRow.Cells[1].Value
+                inventoryDataGridView.CurrentRow.Cells[1].Value.ToString(),
+                (int)inventoryDataGridView.CurrentRow.Cells[0].Value
                 );
             form.ShowDialog();
         }
@@ -248,8 +148,8 @@ namespace PropertyRegister
             try
             {
                 propertyRegisterDataSet.Inventory.FindByroomNameunitId(
-                    inventoryDataGridView.CurrentRow.Cells[0].Value.ToString(),
-                    (int)inventoryDataGridView.CurrentRow.Cells[1].Value
+                    inventoryDataGridView.CurrentRow.Cells[1].Value.ToString(),
+                    (int)inventoryDataGridView.CurrentRow.Cells[0].Value
                     ).Delete();
                 saveToBD(this.propertyRegisterDataSet.Inventory.TableName);
             }
@@ -284,6 +184,36 @@ namespace PropertyRegister
                 MessageBox.Show(ex.Message);
                 unitTableAdapter.Fill(propertyRegisterDataSet.Unit);
             }
+        }
+
+        private void ЗданияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuildingForm form = new BuildingForm(propertyRegisterDataSet);
+            form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
+        }
+
+        private void ПодразделенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrgUnitForm form = new OrgUnitForm();
+            form.ShowDialog();
+        }
+
+        private void МатОтвественныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheifForm form = new CheifForm();
+            form.ShowDialog();
+        }
+
+        private void ТипПомещенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TypeRoomForm form = new TypeRoomForm();
+            form.ShowDialog();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            roomDataGridView.Dispose();
         }
     }
 }

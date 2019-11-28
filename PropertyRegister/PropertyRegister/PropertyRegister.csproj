@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\BuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BuildingForm.Designer.cs">
+      <DependentUpon>BuildingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BuildingFormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\BuildingFormEdit.Designer.cs">
       <DependentUpon>BuildingFormEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CheifForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CheifForm.Designer.cs">
+      <DependentUpon>CheifForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CheifFormEdit.cs">
       <SubType>Form</SubType>
@@ -70,6 +82,12 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OrgUnitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrgUnitForm.Designer.cs">
+      <DependentUpon>OrgUnitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\OrgUnitFormEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +99,12 @@
     </Compile>
     <Compile Include="Forms\RoomFormEdit.Designer.cs">
       <DependentUpon>RoomFormEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TypeRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TypeRoomForm.Designer.cs">
+      <DependentUpon>TypeRoomForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TypeRoomFormEdit.cs">
       <SubType>Form</SubType>
@@ -101,8 +125,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PropertyRegisterDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\BuildingForm.resx">
+      <DependentUpon>BuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BuildingFormEdit.resx">
       <DependentUpon>BuildingFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CheifForm.resx">
+      <DependentUpon>CheifForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CheifFormEdit.resx">
       <DependentUpon>CheifFormEdit.cs</DependentUpon>
@@ -113,11 +143,17 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrgUnitForm.resx">
+      <DependentUpon>OrgUnitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\OrgUnitFormEdit.resx">
       <DependentUpon>OrgUnitFormEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RoomFormEdit.resx">
       <DependentUpon>RoomFormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TypeRoomForm.resx">
+      <DependentUpon>TypeRoomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TypeRoomFormEdit.resx">
       <DependentUpon>TypeRoomFormEdit.cs</DependentUpon>

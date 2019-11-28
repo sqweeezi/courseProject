@@ -33,6 +33,8 @@ namespace PropertyRegister.Forms
             roomNameTextBox.DataBindings.Add("Text", roomRow, "roomName");
             squareNumericUpDown.DataBindings.Add("Text", roomRow, "square");
             windowsNumericUpDown.DataBindings.Add("Text", roomRow, "windows");
+
+            roomNameTextBox.Text.Trim();
         }
 
         private void RoomFormEdit_Load(object sender, EventArgs e)
