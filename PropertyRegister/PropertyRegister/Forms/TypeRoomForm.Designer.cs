@@ -73,31 +73,31 @@
             // 
             // typeRoomButtonDelete
             // 
-            this.typeRoomButtonDelete.Location = new System.Drawing.Point(261, 272);
+            this.typeRoomButtonDelete.Location = new System.Drawing.Point(304, 314);
             this.typeRoomButtonDelete.Name = "typeRoomButtonDelete";
-            this.typeRoomButtonDelete.Size = new System.Drawing.Size(87, 27);
+            this.typeRoomButtonDelete.Size = new System.Drawing.Size(101, 31);
             this.typeRoomButtonDelete.TabIndex = 7;
-            this.typeRoomButtonDelete.Text = "button3";
+            this.typeRoomButtonDelete.Text = "Удалить";
             this.typeRoomButtonDelete.UseVisualStyleBackColor = true;
             this.typeRoomButtonDelete.Click += new System.EventHandler(this.TypeRoomButtonDelete_Click);
             // 
             // typeRoomButtonEdit
             // 
-            this.typeRoomButtonEdit.Location = new System.Drawing.Point(168, 272);
+            this.typeRoomButtonEdit.Location = new System.Drawing.Point(196, 314);
             this.typeRoomButtonEdit.Name = "typeRoomButtonEdit";
-            this.typeRoomButtonEdit.Size = new System.Drawing.Size(87, 27);
+            this.typeRoomButtonEdit.Size = new System.Drawing.Size(101, 31);
             this.typeRoomButtonEdit.TabIndex = 6;
-            this.typeRoomButtonEdit.Text = "button2";
+            this.typeRoomButtonEdit.Text = "Изменить";
             this.typeRoomButtonEdit.UseVisualStyleBackColor = true;
             this.typeRoomButtonEdit.Click += new System.EventHandler(this.TypeRoomButtonEdit_Click);
             // 
             // typeRoomButtonAdd
             // 
-            this.typeRoomButtonAdd.Location = new System.Drawing.Point(75, 272);
+            this.typeRoomButtonAdd.Location = new System.Drawing.Point(87, 314);
             this.typeRoomButtonAdd.Name = "typeRoomButtonAdd";
-            this.typeRoomButtonAdd.Size = new System.Drawing.Size(87, 27);
+            this.typeRoomButtonAdd.Size = new System.Drawing.Size(101, 31);
             this.typeRoomButtonAdd.TabIndex = 5;
-            this.typeRoomButtonAdd.Text = "button1";
+            this.typeRoomButtonAdd.Text = "Добавить";
             this.typeRoomButtonAdd.UseVisualStyleBackColor = true;
             this.typeRoomButtonAdd.Click += new System.EventHandler(this.TypeRoomButtonAdd_Click);
             // 
@@ -111,12 +111,12 @@
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn17});
             this.typeRoomDataGridView.DataSource = this.typeRoomBindingSource;
-            this.typeRoomDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.typeRoomDataGridView.Location = new System.Drawing.Point(14, 14);
             this.typeRoomDataGridView.Name = "typeRoomDataGridView";
             this.typeRoomDataGridView.ReadOnly = true;
             this.typeRoomDataGridView.RowHeadersVisible = false;
             this.typeRoomDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.typeRoomDataGridView.Size = new System.Drawing.Size(350, 254);
+            this.typeRoomDataGridView.Size = new System.Drawing.Size(408, 293);
             this.typeRoomDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn18
@@ -137,13 +137,14 @@
             // 
             // TypeRoomForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 335);
+            this.ClientSize = new System.Drawing.Size(435, 353);
             this.Controls.Add(this.typeRoomButtonDelete);
             this.Controls.Add(this.typeRoomButtonEdit);
             this.Controls.Add(this.typeRoomButtonAdd);
             this.Controls.Add(this.typeRoomDataGridView);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "TypeRoomForm";
             this.Text = "TypeRoomForm";
             this.Load += new System.EventHandler(this.TypeRoomForm_Load);

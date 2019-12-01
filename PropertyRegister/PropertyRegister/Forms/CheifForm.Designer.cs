@@ -76,31 +76,31 @@
             // 
             // cheifButtonDelete
             // 
-            this.cheifButtonDelete.Location = new System.Drawing.Point(946, 472);
+            this.cheifButtonDelete.Location = new System.Drawing.Point(713, 272);
             this.cheifButtonDelete.Name = "cheifButtonDelete";
             this.cheifButtonDelete.Size = new System.Drawing.Size(87, 27);
             this.cheifButtonDelete.TabIndex = 7;
-            this.cheifButtonDelete.Text = "button3";
+            this.cheifButtonDelete.Text = "Удалить";
             this.cheifButtonDelete.UseVisualStyleBackColor = true;
             this.cheifButtonDelete.Click += new System.EventHandler(this.CheifButtonDelete_Click);
             // 
             // cheifButtonEdit
             // 
-            this.cheifButtonEdit.Location = new System.Drawing.Point(727, 493);
+            this.cheifButtonEdit.Location = new System.Drawing.Point(620, 272);
             this.cheifButtonEdit.Name = "cheifButtonEdit";
             this.cheifButtonEdit.Size = new System.Drawing.Size(87, 27);
             this.cheifButtonEdit.TabIndex = 6;
-            this.cheifButtonEdit.Text = "button2";
+            this.cheifButtonEdit.Text = "Изменить";
             this.cheifButtonEdit.UseVisualStyleBackColor = true;
             this.cheifButtonEdit.Click += new System.EventHandler(this.CheifButtonEdit_Click);
             // 
             // cheifButtonAdd
             // 
-            this.cheifButtonAdd.Location = new System.Drawing.Point(588, 476);
+            this.cheifButtonAdd.Location = new System.Drawing.Point(527, 272);
             this.cheifButtonAdd.Name = "cheifButtonAdd";
             this.cheifButtonAdd.Size = new System.Drawing.Size(87, 27);
             this.cheifButtonAdd.TabIndex = 5;
-            this.cheifButtonAdd.Text = "button1";
+            this.cheifButtonAdd.Text = "Добавить";
             this.cheifButtonAdd.UseVisualStyleBackColor = true;
             this.cheifButtonAdd.Click += new System.EventHandler(this.CheifButtonAdd_Click);
             // 
@@ -117,7 +117,7 @@
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16});
             this.chiefDataGridView.DataSource = this.chiefBindingSource;
-            this.chiefDataGridView.Location = new System.Drawing.Point(194, 148);
+            this.chiefDataGridView.Location = new System.Drawing.Point(12, 12);
             this.chiefDataGridView.Name = "chiefDataGridView";
             this.chiefDataGridView.ReadOnly = true;
             this.chiefDataGridView.RowHeadersVisible = false;
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1227, 668);
+            this.ClientSize = new System.Drawing.Size(860, 305);
             this.Controls.Add(this.cheifButtonDelete);
             this.Controls.Add(this.cheifButtonEdit);
             this.Controls.Add(this.cheifButtonAdd);

@@ -33,6 +33,7 @@ namespace PropertyRegister.Forms
             unitNameTextBox.DataBindings.Add("Text", unitRow, "unitName");
             dateStartDateTimePicker.DataBindings.Add("Text", unitRow, "dateStart");
             costNumericUpDown.DataBindings.Add("Text", unitRow, "cost");
+            timeEndNumericUpDown.DataBindings.Add("Text", unitRow, "timeEnd");
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
@@ -40,6 +41,7 @@ namespace PropertyRegister.Forms
             unitRow.unitName = unitNameTextBox.Text;
             unitRow.dateStart = dateStartDateTimePicker.Value;
             unitRow.cost = int.Parse(costNumericUpDown.Text);
+            unitRow.timeEnd = int.Parse(timeEndNumericUpDown.Text);
 
             try
             {

@@ -37,11 +37,14 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.costNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.timeEndNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             unitNameLabel = new System.Windows.Forms.Label();
             dateStartLabel = new System.Windows.Forms.Label();
             costLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEndNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // unitNameLabel
@@ -87,7 +90,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(307, 132);
+            this.buttonSave.Location = new System.Drawing.Point(303, 165);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(87, 27);
             this.buttonSave.TabIndex = 9;
@@ -97,7 +100,7 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(400, 132);
+            this.buttonClose.Location = new System.Drawing.Point(396, 165);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(87, 27);
             this.buttonClose.TabIndex = 10;
@@ -128,6 +131,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.timeEndNumericUpDown);
             this.groupBox1.Controls.Add(this.unitNameTextBox);
             this.groupBox1.Controls.Add(this.costNumericUpDown);
             this.groupBox1.Controls.Add(costLabel);
@@ -136,15 +141,31 @@
             this.groupBox1.Controls.Add(unitNameLabel);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(499, 114);
+            this.groupBox1.Size = new System.Drawing.Size(499, 147);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
+            // 
+            // timeEndNumericUpDown
+            // 
+            this.timeEndNumericUpDown.Location = new System.Drawing.Point(186, 101);
+            this.timeEndNumericUpDown.Name = "timeEndNumericUpDown";
+            this.timeEndNumericUpDown.Size = new System.Drawing.Size(120, 21);
+            this.timeEndNumericUpDown.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(46, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Cрок амортизации:";
             // 
             // UnitFormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 169);
+            this.ClientSize = new System.Drawing.Size(522, 204);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
@@ -154,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEndNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,5 +187,7 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.NumericUpDown costNumericUpDown;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown timeEndNumericUpDown;
+        private System.Windows.Forms.Label label1;
     }
 }

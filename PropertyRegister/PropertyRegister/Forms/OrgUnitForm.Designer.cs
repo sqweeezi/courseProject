@@ -75,31 +75,31 @@
             // 
             // orgUnitButtonDelete
             // 
-            this.orgUnitButtonDelete.Location = new System.Drawing.Point(1014, 492);
+            this.orgUnitButtonDelete.Location = new System.Drawing.Point(826, 314);
             this.orgUnitButtonDelete.Name = "orgUnitButtonDelete";
-            this.orgUnitButtonDelete.Size = new System.Drawing.Size(87, 27);
+            this.orgUnitButtonDelete.Size = new System.Drawing.Size(101, 31);
             this.orgUnitButtonDelete.TabIndex = 7;
-            this.orgUnitButtonDelete.Text = "button3";
+            this.orgUnitButtonDelete.Text = "Удалить";
             this.orgUnitButtonDelete.UseVisualStyleBackColor = true;
             this.orgUnitButtonDelete.Click += new System.EventHandler(this.OrgUnitButtonDelete_Click);
             // 
             // orgUnitButtonEdit
             // 
-            this.orgUnitButtonEdit.Location = new System.Drawing.Point(787, 482);
+            this.orgUnitButtonEdit.Location = new System.Drawing.Point(717, 314);
             this.orgUnitButtonEdit.Name = "orgUnitButtonEdit";
-            this.orgUnitButtonEdit.Size = new System.Drawing.Size(87, 27);
+            this.orgUnitButtonEdit.Size = new System.Drawing.Size(101, 31);
             this.orgUnitButtonEdit.TabIndex = 6;
-            this.orgUnitButtonEdit.Text = "button2";
+            this.orgUnitButtonEdit.Text = "Изменить";
             this.orgUnitButtonEdit.UseVisualStyleBackColor = true;
             this.orgUnitButtonEdit.Click += new System.EventHandler(this.OrgUnitButtonEdit_Click);
             // 
             // orgUnitButtonAdd
             // 
-            this.orgUnitButtonAdd.Location = new System.Drawing.Point(608, 458);
+            this.orgUnitButtonAdd.Location = new System.Drawing.Point(609, 314);
             this.orgUnitButtonAdd.Name = "orgUnitButtonAdd";
-            this.orgUnitButtonAdd.Size = new System.Drawing.Size(87, 27);
+            this.orgUnitButtonAdd.Size = new System.Drawing.Size(101, 31);
             this.orgUnitButtonAdd.TabIndex = 5;
-            this.orgUnitButtonAdd.Text = "button1";
+            this.orgUnitButtonAdd.Text = "Добавить";
             this.orgUnitButtonAdd.UseVisualStyleBackColor = true;
             this.orgUnitButtonAdd.Click += new System.EventHandler(this.OrgUnitButtonAdd_Click);
             // 
@@ -115,12 +115,12 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
             this.orgUnitDataGridView.DataSource = this.orgUnitBindingSource;
-            this.orgUnitDataGridView.Location = new System.Drawing.Point(163, 109);
+            this.orgUnitDataGridView.Location = new System.Drawing.Point(14, 14);
             this.orgUnitDataGridView.Name = "orgUnitDataGridView";
             this.orgUnitDataGridView.ReadOnly = true;
             this.orgUnitDataGridView.RowHeadersVisible = false;
             this.orgUnitDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orgUnitDataGridView.Size = new System.Drawing.Size(824, 254);
+            this.orgUnitDataGridView.Size = new System.Drawing.Size(961, 293);
             this.orgUnitDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn9
@@ -146,7 +146,7 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "Заведущий подразделением";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 162;
+            this.dataGridViewTextBoxColumn10.Width = 203;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -155,17 +155,18 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "Телефон";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 77;
+            this.dataGridViewTextBoxColumn11.Width = 93;
             // 
             // OrgUnitForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 629);
+            this.ClientSize = new System.Drawing.Size(987, 357);
             this.Controls.Add(this.orgUnitButtonDelete);
             this.Controls.Add(this.orgUnitButtonEdit);
             this.Controls.Add(this.orgUnitButtonAdd);
             this.Controls.Add(this.orgUnitDataGridView);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "OrgUnitForm";
             this.Text = "OrgUnitForm";
             this.Load += new System.EventHandler(this.OrgUnitForm_Load);

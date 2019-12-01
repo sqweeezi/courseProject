@@ -2794,6 +2794,8 @@ namespace PropertyRegister {
             
             private global::System.Data.DataColumn columncost;
             
+            private global::System.Data.DataColumn columntimeEnd;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public UnitDataTable() {
@@ -2861,6 +2863,14 @@ namespace PropertyRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn timeEndColumn {
+                get {
+                    return this.columntimeEnd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2896,13 +2906,14 @@ namespace PropertyRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UnitRow AddUnitRow(string unitName, System.DateTime dateStart, decimal cost) {
+            public UnitRow AddUnitRow(string unitName, System.DateTime dateStart, decimal cost, int timeEnd) {
                 UnitRow rowUnitRow = ((UnitRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         unitName,
                         dateStart,
-                        cost};
+                        cost,
+                        timeEnd};
                 rowUnitRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUnitRow);
                 return rowUnitRow;
@@ -2936,6 +2947,7 @@ namespace PropertyRegister {
                 this.columnunitName = base.Columns["unitName"];
                 this.columndateStart = base.Columns["dateStart"];
                 this.columncost = base.Columns["cost"];
+                this.columntimeEnd = base.Columns["timeEnd"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2949,6 +2961,8 @@ namespace PropertyRegister {
                 base.Columns.Add(this.columndateStart);
                 this.columncost = new global::System.Data.DataColumn("cost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncost);
+                this.columntimeEnd = new global::System.Data.DataColumn("timeEnd", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntimeEnd);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnunitId}, true));
                 this.columnunitId.AutoIncrement = true;
@@ -2961,6 +2975,7 @@ namespace PropertyRegister {
                 this.columnunitName.MaxLength = 30;
                 this.columndateStart.AllowDBNull = false;
                 this.columncost.AllowDBNull = false;
+                this.columntimeEnd.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3805,6 +3820,17 @@ namespace PropertyRegister {
                 }
                 set {
                     this[this.tableUnit.costColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int timeEnd {
+                get {
+                    return ((int)(this[this.tableUnit.timeEndColumn]));
+                }
+                set {
+                    this[this.tableUnit.timeEndColumn] = value;
                 }
             }
             
@@ -6764,38 +6790,43 @@ SELECT roomName, square, windows, buildingId, typeRoomId, orgUnitId, chiefId FRO
             tableMapping.ColumnMappings.Add("unitName", "unitName");
             tableMapping.ColumnMappings.Add("dateStart", "dateStart");
             tableMapping.ColumnMappings.Add("cost", "cost");
+            tableMapping.ColumnMappings.Add("timeEnd", "timeEnd");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Unit] WHERE (([unitId] = @Original_unitId) AND ([unitName] = @" +
                 "Original_unitName) AND ([dateStart] = @Original_dateStart) AND ([cost] = @Origin" +
-                "al_cost))";
+                "al_cost) AND ([timeEnd] = @Original_timeEnd))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_unitId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_unitName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateStart", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateStart", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "cost", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_timeEnd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeEnd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Unit] ([unitName], [dateStart], [cost]) VALUES (@unitName, @da" +
-                "teStart, @cost);\r\nSELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unit" +
-                "Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Unit] ([unitName], [dateStart], [cost], [timeEnd]) VALUES (@un" +
+                "itName, @dateStart, @cost, @timeEnd);\r\nSELECT unitId, unitName, dateStart, cost," +
+                " timeEnd FROM Unit WHERE (unitId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@unitName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateStart", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateStart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeEnd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeEnd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Unit] SET [unitName] = @unitName, [dateStart] = @dateStart, [cost] = @cost WHERE (([unitId] = @Original_unitId) AND ([unitName] = @Original_unitName) AND ([dateStart] = @Original_dateStart) AND ([cost] = @Original_cost));
-SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Unit] SET [unitName] = @unitName, [dateStart] = @dateStart, [cost] = @cost, [timeEnd] = @timeEnd WHERE (([unitId] = @Original_unitId) AND ([unitName] = @Original_unitName) AND ([dateStart] = @Original_dateStart) AND ([cost] = @Original_cost) AND ([timeEnd] = @Original_timeEnd));
+SELECT unitId, unitName, dateStart, cost, timeEnd FROM Unit WHERE (unitId = @unitId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@unitName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateStart", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateStart", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeEnd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeEnd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_unitId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_unitName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateStart", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateStart", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "cost", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_timeEnd", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeEnd", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@unitId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "unitId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6812,7 +6843,7 @@ SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT unitId, unitName, dateStart, cost FROM dbo.Unit";
+            this._commandCollection[0].CommandText = "SELECT unitId, unitName, dateStart, cost, timeEnd FROM dbo.Unit";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6873,7 +6904,7 @@ SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_unitId, string Original_unitName, System.DateTime Original_dateStart, decimal Original_cost) {
+        public virtual int Delete(int Original_unitId, string Original_unitName, System.DateTime Original_dateStart, decimal Original_cost, int Original_timeEnd) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_unitId));
             if ((Original_unitName == null)) {
                 throw new global::System.ArgumentNullException("Original_unitName");
@@ -6883,6 +6914,7 @@ SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
             }
             this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_dateStart));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_cost));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_timeEnd));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6903,7 +6935,7 @@ SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string unitName, System.DateTime dateStart, decimal cost) {
+        public virtual int Insert(string unitName, System.DateTime dateStart, decimal cost, int timeEnd) {
             if ((unitName == null)) {
                 throw new global::System.ArgumentNullException("unitName");
             }
@@ -6912,6 +6944,7 @@ SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
             }
             this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(dateStart));
             this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(cost));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(timeEnd));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6932,7 +6965,7 @@ SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string unitName, System.DateTime dateStart, decimal cost, int Original_unitId, string Original_unitName, System.DateTime Original_dateStart, decimal Original_cost, int unitId) {
+        public virtual int Update(string unitName, System.DateTime dateStart, decimal cost, int timeEnd, int Original_unitId, string Original_unitName, System.DateTime Original_dateStart, decimal Original_cost, int Original_timeEnd, int unitId) {
             if ((unitName == null)) {
                 throw new global::System.ArgumentNullException("unitName");
             }
@@ -6941,16 +6974,18 @@ SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
             }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(dateStart));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(cost));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_unitId));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(timeEnd));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_unitId));
             if ((Original_unitName == null)) {
                 throw new global::System.ArgumentNullException("Original_unitName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_unitName));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_unitName));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_dateStart));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_cost));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(unitId));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_dateStart));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Original_cost));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_timeEnd));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(unitId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6971,8 +7006,8 @@ SELECT unitId, unitName, dateStart, cost FROM Unit WHERE (unitId = @unitId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string unitName, System.DateTime dateStart, decimal cost, int Original_unitId, string Original_unitName, System.DateTime Original_dateStart, decimal Original_cost) {
-            return this.Update(unitName, dateStart, cost, Original_unitId, Original_unitName, Original_dateStart, Original_cost, Original_unitId);
+        public virtual int Update(string unitName, System.DateTime dateStart, decimal cost, int timeEnd, int Original_unitId, string Original_unitName, System.DateTime Original_dateStart, decimal Original_cost, int Original_timeEnd) {
+            return this.Update(unitName, dateStart, cost, timeEnd, Original_unitId, Original_unitName, Original_dateStart, Original_cost, Original_timeEnd, Original_unitId);
         }
     }
     

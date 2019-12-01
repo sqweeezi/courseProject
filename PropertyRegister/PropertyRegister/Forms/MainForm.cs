@@ -36,10 +36,6 @@ namespace PropertyRegister
             this.roomTableAdapter.Fill(this.propertyRegisterDataSet.Room);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Revaluation". При необходимости она может быть перемещена или удалена.
             this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
-            
-            
-            
-            
            
         }
 
@@ -168,7 +164,7 @@ namespace PropertyRegister
 
         private void UnitButtonEdit_Click(object sender, EventArgs e)
         {
-            UnitFormEdit form = new UnitFormEdit(propertyRegisterDataSet, (int)unitDataGridView.CurrentRow.Cells[0].Value);
+            UnitFormEdit form = new UnitFormEdit(propertyRegisterDataSet, (int)unitDataGridView.CurrentRow.Cells[1].Value);
             form.ShowDialog();
         }
 
@@ -176,7 +172,7 @@ namespace PropertyRegister
         {
             try
             {
-                propertyRegisterDataSet.Unit.FindByunitId((int)unitDataGridView.CurrentRow.Cells[0].Value).Delete();
+                propertyRegisterDataSet.Unit.FindByunitId((int)unitDataGridView.CurrentRow.Cells[1].Value).Delete();
                 saveToBD(this.propertyRegisterDataSet.Unit.TableName);
             }
             catch (Exception ex)
