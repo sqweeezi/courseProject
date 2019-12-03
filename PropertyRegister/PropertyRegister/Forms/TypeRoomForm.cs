@@ -23,18 +23,17 @@ namespace PropertyRegister.Forms
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.TypeRoom". При необходимости она может быть перемещена или удалена.
             this.typeRoomTableAdapter.Fill(this.propertyRegisterDataSet.TypeRoom);
-
         }
 
         private void TypeRoomButtonAdd_Click(object sender, EventArgs e)
         {
-            TypeRoomFormEdit form = new TypeRoomFormEdit(propertyRegisterDataSet);
+            TypeRoomEditForm form = new TypeRoomEditForm(propertyRegisterDataSet);
             form.ShowDialog();
         }
 
         private void TypeRoomButtonEdit_Click(object sender, EventArgs e)
         {
-            TypeRoomFormEdit form = new TypeRoomFormEdit(propertyRegisterDataSet, (int)typeRoomDataGridView.CurrentRow.Cells[1].Value);
+            TypeRoomEditForm form = new TypeRoomEditForm(propertyRegisterDataSet, (int)typeRoomDataGridView.CurrentRow.Cells[1].Value);
             form.ShowDialog();
         }
 

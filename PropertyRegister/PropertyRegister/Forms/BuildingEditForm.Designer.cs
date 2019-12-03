@@ -1,6 +1,6 @@
 ﻿namespace PropertyRegister.Forms
 {
-    partial class BuildingFormEdit
+    partial class BuildingEditForm
     {
         /// <summary>
         /// Required designer variable.

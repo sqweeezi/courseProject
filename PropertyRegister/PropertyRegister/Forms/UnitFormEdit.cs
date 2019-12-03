@@ -31,7 +31,7 @@ namespace PropertyRegister.Forms
             this.unitRow = propertyRegisterDataSet.Unit.FindByunitId(unitId);
 
             unitNameTextBox.DataBindings.Add("Text", unitRow, "unitName");
-            dateStartDateTimePicker.DataBindings.Add("Text", unitRow, "dateStart");
+            datePurchaseDateTimePicker.DataBindings.Add("Text", unitRow, "dateStart");
             costNumericUpDown.DataBindings.Add("Text", unitRow, "cost");
             timeEndNumericUpDown.DataBindings.Add("Text", unitRow, "timeEnd");
         }
@@ -39,9 +39,9 @@ namespace PropertyRegister.Forms
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             unitRow.unitName = unitNameTextBox.Text;
-            unitRow.dateStart = dateStartDateTimePicker.Value;
+            unitRow.datePurchase = datePurchaseDateTimePicker.Value;
             unitRow.cost = int.Parse(costNumericUpDown.Text);
-            unitRow.timeEnd = int.Parse(timeEndNumericUpDown.Text);
+            unitRow.periodDepreciation = int.Parse(timeEndNumericUpDown.Text);
 
             try
             {

@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace PropertyRegister.Forms
 {
-    public partial class RoomFormEdit : Form
+    public partial class RoomEditForm : Form
     {
         private PropertyRegisterDataSet propertyRegisterDataSet;
         private PropertyRegisterDataSet.RoomRow roomRow;
         private string roomName = "";
 
-        public RoomFormEdit(PropertyRegisterDataSet propertyRegisterDataSet)
+        public RoomEditForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
             this.roomRow = propertyRegisterDataSet.Room.NewRoomRow();
         }
 
-        public RoomFormEdit(PropertyRegisterDataSet propertyRegisterDataSet, string roomName)
+        public RoomEditForm(PropertyRegisterDataSet propertyRegisterDataSet, string roomName)
         {
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
@@ -45,7 +45,7 @@ namespace PropertyRegister.Forms
             if (roomName != "") buildingIdComboBox.SelectedValue = roomRow.buildingId;
 
             typeRoomIdComboBox.DataSource = propertyRegisterDataSet.TypeRoom;
-            typeRoomIdComboBox.DisplayMember = "target";
+            typeRoomIdComboBox.DisplayMember = "type";
             typeRoomIdComboBox.ValueMember = "typeRoomId";
             if (roomName != "") typeRoomIdComboBox.SelectedValue = roomRow.typeRoomId;
 

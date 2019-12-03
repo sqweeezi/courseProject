@@ -29,47 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
-            this.typeRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.typeRoomTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter();
-            this.tableAdapterManager = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager();
             this.typeRoomButtonDelete = new System.Windows.Forms.Button();
             this.typeRoomButtonEdit = new System.Windows.Forms.Button();
             this.typeRoomButtonAdd = new System.Windows.Forms.Button();
             this.typeRoomDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
+            this.typeRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typeRoomTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter();
+            this.typeRoomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.typeRoomDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRoomBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeRoomDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // propertyRegisterDataSet
-            // 
-            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
-            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // typeRoomBindingSource
-            // 
-            this.typeRoomBindingSource.DataMember = "TypeRoom";
-            this.typeRoomBindingSource.DataSource = this.propertyRegisterDataSet;
-            // 
-            // typeRoomTableAdapter
-            // 
-            this.typeRoomTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BuildingTableAdapter = null;
-            this.tableAdapterManager.ChiefTableAdapter = null;
-            this.tableAdapterManager.InventoryTableAdapter = null;
-            this.tableAdapterManager.OrgUnitTableAdapter = null;
-            this.tableAdapterManager.RevaluationTableAdapter = null;
-            this.tableAdapterManager.RoomTableAdapter = null;
-            this.tableAdapterManager.TypeRoomTableAdapter = this.typeRoomTableAdapter;
-            this.tableAdapterManager.UnitTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // typeRoomButtonDelete
             // 
@@ -108,10 +80,10 @@
             this.typeRoomDataGridView.AutoGenerateColumns = false;
             this.typeRoomDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.typeRoomDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn17});
+            this.typeRoomIdDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn});
             this.typeRoomDataGridView.DataSource = this.typeRoomBindingSource;
-            this.typeRoomDataGridView.Location = new System.Drawing.Point(14, 14);
+            this.typeRoomDataGridView.Location = new System.Drawing.Point(12, 15);
             this.typeRoomDataGridView.Name = "typeRoomDataGridView";
             this.typeRoomDataGridView.ReadOnly = true;
             this.typeRoomDataGridView.RowHeadersVisible = false;
@@ -119,21 +91,33 @@
             this.typeRoomDataGridView.Size = new System.Drawing.Size(408, 293);
             this.typeRoomDataGridView.TabIndex = 4;
             // 
-            // dataGridViewTextBoxColumn18
+            // propertyRegisterDataSet
             // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "target";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Название";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
+            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dataGridViewTextBoxColumn17
+            // typeRoomBindingSource
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "typeRoomId";
-            this.dataGridViewTextBoxColumn17.HeaderText = "typeRoomId";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Visible = false;
+            this.typeRoomBindingSource.DataMember = "TypeRoom";
+            this.typeRoomBindingSource.DataSource = this.propertyRegisterDataSet;
+            // 
+            // typeRoomTableAdapter
+            // 
+            this.typeRoomTableAdapter.ClearBeforeFill = true;
+            // 
+            // typeRoomIdDataGridViewTextBoxColumn
+            // 
+            this.typeRoomIdDataGridViewTextBoxColumn.DataPropertyName = "typeRoomId";
+            this.typeRoomIdDataGridViewTextBoxColumn.HeaderText = "typeRoomId";
+            this.typeRoomIdDataGridViewTextBoxColumn.Name = "typeRoomIdDataGridViewTextBoxColumn";
+            this.typeRoomIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // TypeRoomForm
             // 
@@ -148,24 +132,23 @@
             this.Name = "TypeRoomForm";
             this.Text = "TypeRoomForm";
             this.Load += new System.EventHandler(this.TypeRoomForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.typeRoomDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeRoomBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeRoomDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private PropertyRegisterDataSet propertyRegisterDataSet;
-        private System.Windows.Forms.BindingSource typeRoomBindingSource;
-        private PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter typeRoomTableAdapter;
-        private PropertyRegisterDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button typeRoomButtonDelete;
         private System.Windows.Forms.Button typeRoomButtonEdit;
         private System.Windows.Forms.Button typeRoomButtonAdd;
         private System.Windows.Forms.DataGridView typeRoomDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private PropertyRegisterDataSet propertyRegisterDataSet;
+        private System.Windows.Forms.BindingSource typeRoomBindingSource;
+        private PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter typeRoomTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeRoomIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
     }
 }

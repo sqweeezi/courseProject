@@ -23,18 +23,20 @@ namespace PropertyRegister.Forms
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.OrgUnit". При необходимости она может быть перемещена или удалена.
             this.orgUnitTableAdapter.Fill(this.propertyRegisterDataSet.OrgUnit);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.OrgUnit". При необходимости она может быть перемещена или удалена.
+            this.orgUnitTableAdapter.Fill(this.propertyRegisterDataSet.OrgUnit);
 
         }
 
         private void OrgUnitButtonAdd_Click(object sender, EventArgs e)
         {
-            OrgUnitFormEdit form = new OrgUnitFormEdit(propertyRegisterDataSet);
+            OrgUnitEditForm form = new OrgUnitEditForm(propertyRegisterDataSet);
             form.ShowDialog();
         }
 
         private void OrgUnitButtonEdit_Click(object sender, EventArgs e)
         {
-            OrgUnitFormEdit form = new OrgUnitFormEdit(propertyRegisterDataSet, (int)orgUnitDataGridView.CurrentRow.Cells[1].Value);
+            OrgUnitEditForm form = new OrgUnitEditForm(propertyRegisterDataSet, (int)orgUnitDataGridView.CurrentRow.Cells[1].Value);
             form.ShowDialog();
         }
 

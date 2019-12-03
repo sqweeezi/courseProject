@@ -1,6 +1,6 @@
 ﻿namespace PropertyRegister.Forms
 {
-    partial class TypeRoomFormEdit
+    partial class TypeRoomEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label targetLabel;
-            this.targetTextBox = new System.Windows.Forms.TextBox();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -48,10 +48,10 @@
             // 
             // targetTextBox
             // 
-            this.targetTextBox.Location = new System.Drawing.Point(115, 29);
-            this.targetTextBox.Name = "targetTextBox";
-            this.targetTextBox.Size = new System.Drawing.Size(295, 21);
-            this.targetTextBox.TabIndex = 4;
+            this.typeTextBox.Location = new System.Drawing.Point(115, 29);
+            this.typeTextBox.Name = "targetTextBox";
+            this.typeTextBox.Size = new System.Drawing.Size(295, 21);
+            this.typeTextBox.TabIndex = 4;
             // 
             // buttonSave
             // 
@@ -74,7 +74,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.targetTextBox);
+            this.groupBox1.Controls.Add(this.typeTextBox);
             this.groupBox1.Controls.Add(targetLabel);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -100,7 +100,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox targetTextBox;
+        private System.Windows.Forms.TextBox typeTextBox;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBox1;

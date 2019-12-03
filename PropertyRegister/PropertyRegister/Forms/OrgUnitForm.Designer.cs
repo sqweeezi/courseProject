@@ -29,49 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
-            this.orgUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orgUnitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter();
-            this.tableAdapterManager = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager();
             this.orgUnitButtonDelete = new System.Windows.Forms.Button();
             this.orgUnitButtonEdit = new System.Windows.Forms.Button();
             this.orgUnitButtonAdd = new System.Windows.Forms.Button();
             this.orgUnitDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
+            this.orgUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orgUnitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter();
+            this.orgUnitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgUnitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chiefIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // propertyRegisterDataSet
-            // 
-            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
-            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // orgUnitBindingSource
-            // 
-            this.orgUnitBindingSource.DataMember = "OrgUnit";
-            this.orgUnitBindingSource.DataSource = this.propertyRegisterDataSet;
-            // 
-            // orgUnitTableAdapter
-            // 
-            this.orgUnitTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BuildingTableAdapter = null;
-            this.tableAdapterManager.ChiefTableAdapter = null;
-            this.tableAdapterManager.InventoryTableAdapter = null;
-            this.tableAdapterManager.OrgUnitTableAdapter = this.orgUnitTableAdapter;
-            this.tableAdapterManager.RevaluationTableAdapter = null;
-            this.tableAdapterManager.RoomTableAdapter = null;
-            this.tableAdapterManager.TypeRoomTableAdapter = null;
-            this.tableAdapterManager.UnitTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // orgUnitButtonDelete
             // 
@@ -110,10 +82,10 @@
             this.orgUnitDataGridView.AutoGenerateColumns = false;
             this.orgUnitDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.orgUnitDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
+            this.orgUnitIdDataGridViewTextBoxColumn,
+            this.orgUnitNameDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.chiefIdDataGridViewTextBoxColumn});
             this.orgUnitDataGridView.DataSource = this.orgUnitBindingSource;
             this.orgUnitDataGridView.Location = new System.Drawing.Point(14, 14);
             this.orgUnitDataGridView.Name = "orgUnitDataGridView";
@@ -123,39 +95,47 @@
             this.orgUnitDataGridView.Size = new System.Drawing.Size(961, 293);
             this.orgUnitDataGridView.TabIndex = 4;
             // 
-            // dataGridViewTextBoxColumn9
+            // propertyRegisterDataSet
             // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "orgUnitName";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Наименование подразделения";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
+            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dataGridViewTextBoxColumn8
+            // orgUnitBindingSource
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "orgUnitId";
-            this.dataGridViewTextBoxColumn8.HeaderText = "orgUnitId";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Visible = false;
+            this.orgUnitBindingSource.DataMember = "OrgUnit";
+            this.orgUnitBindingSource.DataSource = this.propertyRegisterDataSet;
             // 
-            // dataGridViewTextBoxColumn10
+            // orgUnitTableAdapter
             // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "boss";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Заведущий подразделением";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 203;
+            this.orgUnitTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn11
+            // orgUnitIdDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "phone";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Телефон";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 93;
+            this.orgUnitIdDataGridViewTextBoxColumn.DataPropertyName = "orgUnitId";
+            this.orgUnitIdDataGridViewTextBoxColumn.HeaderText = "orgUnitId";
+            this.orgUnitIdDataGridViewTextBoxColumn.Name = "orgUnitIdDataGridViewTextBoxColumn";
+            this.orgUnitIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orgUnitNameDataGridViewTextBoxColumn
+            // 
+            this.orgUnitNameDataGridViewTextBoxColumn.DataPropertyName = "orgUnitName";
+            this.orgUnitNameDataGridViewTextBoxColumn.HeaderText = "orgUnitName";
+            this.orgUnitNameDataGridViewTextBoxColumn.Name = "orgUnitNameDataGridViewTextBoxColumn";
+            this.orgUnitNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // chiefIdDataGridViewTextBoxColumn
+            // 
+            this.chiefIdDataGridViewTextBoxColumn.DataPropertyName = "chiefId";
+            this.chiefIdDataGridViewTextBoxColumn.HeaderText = "chiefId";
+            this.chiefIdDataGridViewTextBoxColumn.Name = "chiefIdDataGridViewTextBoxColumn";
+            this.chiefIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // OrgUnitForm
             // 
@@ -170,26 +150,25 @@
             this.Name = "OrgUnitForm";
             this.Text = "OrgUnitForm";
             this.Load += new System.EventHandler(this.OrgUnitForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private PropertyRegisterDataSet propertyRegisterDataSet;
-        private System.Windows.Forms.BindingSource orgUnitBindingSource;
-        private PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter orgUnitTableAdapter;
-        private PropertyRegisterDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button orgUnitButtonDelete;
         private System.Windows.Forms.Button orgUnitButtonEdit;
         private System.Windows.Forms.Button orgUnitButtonAdd;
         private System.Windows.Forms.DataGridView orgUnitDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private PropertyRegisterDataSet propertyRegisterDataSet;
+        private System.Windows.Forms.BindingSource orgUnitBindingSource;
+        private PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter orgUnitTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgUnitIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgUnitNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chiefIdDataGridViewTextBoxColumn;
     }
 }

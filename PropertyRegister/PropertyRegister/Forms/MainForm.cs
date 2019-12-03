@@ -21,6 +21,8 @@ namespace PropertyRegister
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Storage". При необходимости она может быть перемещена или удалена.
+            this.storageTableAdapter.Fill(this.propertyRegisterDataSet.Storage);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Building". При необходимости она может быть перемещена или удалена.
             this.buildingTableAdapter.Fill(this.propertyRegisterDataSet.Building);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.TypeRoom". При необходимости она может быть перемещена или удалена.
@@ -29,26 +31,26 @@ namespace PropertyRegister
             this.orgUnitTableAdapter.Fill(this.propertyRegisterDataSet.OrgUnit);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Chief". При необходимости она может быть перемещена или удалена.
             this.chiefTableAdapter.Fill(this.propertyRegisterDataSet.Chief);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Revaluation". При необходимости она может быть перемещена или удалена.
+            this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Unit". При необходимости она может быть перемещена или удалена.
             this.unitTableAdapter.Fill(this.propertyRegisterDataSet.Unit);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Inventory". При необходимости она может быть перемещена или удалена.
             this.inventoryTableAdapter.Fill(this.propertyRegisterDataSet.Inventory);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Room". При необходимости она может быть перемещена или удалена.
             this.roomTableAdapter.Fill(this.propertyRegisterDataSet.Room);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Revaluation". При необходимости она может быть перемещена или удалена.
-            this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
 
-            var tmp = propertyRegisterDataSet.Chief
-               .Select(x => new
-               {
-                   x.chiefId,
-                   fio = x.surname + " " + x.name[0] + "." + (x.patronymic != null ? x.patronymic[0] + "." : null)
-               })
-               .ToList();
+            //var tmp = propertyRegisterDataSet.Chief
+            //   .Select(x => new
+            //   {
+            //       x.chiefId,
+            //       fio = x.surname + " " + x.name[0] + "." + (x.patronymic != null ? x.patronymic[0] + "." : null)
+            //   })
+            //   .ToList();
 
-            (roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DataSource = tmp;
-            (roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DisplayMember = "fio";
-            (roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).ValueMember = "chiefId";
+            //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DataSource = tmp;
+            //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DisplayMember = "fio";
+            //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).ValueMember = "chiefId";
         }
 
         /// <summary>
@@ -59,30 +61,30 @@ namespace PropertyRegister
         {
             try
             {
-                if (tableName == propertyRegisterDataSet.Building.TableName)
-                {
-                    buildingTableAdapter.Update(propertyRegisterDataSet);
-                    propertyRegisterDataSet.Building.AcceptChanges();
-                    return;
-                }
-                if (tableName == propertyRegisterDataSet.OrgUnit.TableName)
-                {
-                    orgUnitTableAdapter.Update(propertyRegisterDataSet);
-                    propertyRegisterDataSet.OrgUnit.AcceptChanges();
-                    return;
-                }
-                if (tableName == propertyRegisterDataSet.Chief.TableName)
-                {
-                    chiefTableAdapter.Update(propertyRegisterDataSet);
-                    propertyRegisterDataSet.Chief.AcceptChanges();
-                    return;
-                }
-                if (tableName == propertyRegisterDataSet.TypeRoom.TableName)
-                {
-                    typeRoomTableAdapter.Update(propertyRegisterDataSet);
-                    propertyRegisterDataSet.TypeRoom.AcceptChanges();
-                    return;
-                }
+                //if (tableName == propertyRegisterDataSet.Building.TableName)
+                //{
+                //    buildingTableAdapter.Update(propertyRegisterDataSet);
+                //    propertyRegisterDataSet.Building.AcceptChanges();
+                //    return;
+                //}
+                //if (tableName == propertyRegisterDataSet.OrgUnit.TableName)
+                //{
+                //    orgUnitTableAdapter.Update(propertyRegisterDataSet);
+                //    propertyRegisterDataSet.OrgUnit.AcceptChanges();
+                //    return;
+                //}
+                //if (tableName == propertyRegisterDataSet.Chief.TableName)
+                //{
+                //    chiefTableAdapter.Update(propertyRegisterDataSet);
+                //    propertyRegisterDataSet.Chief.AcceptChanges();
+                //    return;
+                //}
+                //if (tableName == propertyRegisterDataSet.TypeRoom.TableName)
+                //{
+                //    typeRoomTableAdapter.Update(propertyRegisterDataSet);
+                //    propertyRegisterDataSet.TypeRoom.AcceptChanges();
+                //    return;
+                //}
                 if (tableName == propertyRegisterDataSet.Room.TableName)
                 {
                     roomTableAdapter.Update(propertyRegisterDataSet);
@@ -111,14 +113,14 @@ namespace PropertyRegister
 
         private void RoomButtonAdd_Click(object sender, EventArgs e)
         {
-           
-            RoomFormEdit form = new RoomFormEdit(propertyRegisterDataSet);
+
+            RoomEditForm form = new RoomEditForm(propertyRegisterDataSet);
             form.ShowDialog();
         }
 
         private void RoomButtonEdit_Click(object sender, EventArgs e)
         {
-            RoomFormEdit form = new RoomFormEdit(propertyRegisterDataSet, roomDataGridView.CurrentRow.Cells[0].Value.ToString());
+            RoomEditForm form = new RoomEditForm(propertyRegisterDataSet, roomDataGridView.CurrentRow.Cells[0].Value.ToString());
             form.ShowDialog();
         }
 
@@ -138,18 +140,27 @@ namespace PropertyRegister
 
         private void InventoryButtonAdd_Click(object sender, EventArgs e)
         {
-            InventoryFormEdit form = new InventoryFormEdit(propertyRegisterDataSet);
-            form.ShowDialog();
+            InventoryEditForm form = new InventoryEditForm(
+                propertyRegisterDataSet,
+                roomDataGridView.CurrentRow.Cells[0].Value.ToString()
+                );
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                fKInventoryroomN76177A41BindingSource.ResetBindings(true);
+            }
         }
 
         private void InventoryButtonEdit_Click(object sender, EventArgs e)
         {
-            InventoryFormEdit form = new InventoryFormEdit(
+            InventoryEditForm form = new InventoryEditForm(
                 propertyRegisterDataSet,
-                inventoryDataGridView.CurrentRow.Cells[1].Value.ToString(),
+                roomDataGridView.CurrentRow.Cells[0].Value.ToString(),
                 (int)inventoryDataGridView.CurrentRow.Cells[0].Value
                 );
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                fKInventoryroomN76177A41BindingSource.ResetBindings(false);
+            }
         }
 
         private void InventoryButtonDelete_Click(object sender, EventArgs e)
@@ -172,13 +183,17 @@ namespace PropertyRegister
         private void UnitButtonAdd_Click(object sender, EventArgs e)
         {
             UnitFormEdit form = new UnitFormEdit(propertyRegisterDataSet);
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+            }
         }
 
         private void UnitButtonEdit_Click(object sender, EventArgs e)
         {
             UnitFormEdit form = new UnitFormEdit(propertyRegisterDataSet, (int)unitDataGridView.CurrentRow.Cells[1].Value);
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+            }
         }
 
         private void UnitButtonDelete_Click(object sender, EventArgs e)
@@ -198,29 +213,37 @@ namespace PropertyRegister
         private void ЗданияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BuildingForm form = new BuildingForm(propertyRegisterDataSet);
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                roomBindingSource.ResetBindings(false);
+            }
         }
 
         private void ПодразделенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OrgUnitForm form = new OrgUnitForm(propertyRegisterDataSet);
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                roomBindingSource.ResetBindings(false);
+            }
         }
 
         private void МатОтвественныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheifForm form = new CheifForm(propertyRegisterDataSet);
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                roomBindingSource.ResetBindings(false);
+            }
         }
 
         private void ТипПомещенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TypeRoomForm form = new TypeRoomForm(propertyRegisterDataSet);
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                roomBindingSource.ResetBindings(false);
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -230,7 +253,7 @@ namespace PropertyRegister
 
         private void ПереоценитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          //  new PropertyRegisterDataSetTableAdapters.QueriesTableAdapter().Reevaluate();
+            //  new PropertyRegisterDataSetTableAdapters.QueriesTableAdapter().Reevaluate();
 
             //using (var sqlConn = new SqlConnection(Properties.Settings.Default.ConnectionString))
             //{

@@ -1,6 +1,6 @@
 ﻿namespace PropertyRegister.Forms
 {
-    partial class RoomFormEdit
+    partial class RoomEditForm
     {
         /// <summary>
         /// Required designer variable.

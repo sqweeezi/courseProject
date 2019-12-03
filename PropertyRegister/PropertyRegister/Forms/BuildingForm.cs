@@ -27,14 +27,20 @@ namespace PropertyRegister.Forms
 
         private void BuildingButtonAdd_Click(object sender, EventArgs e)
         {
-            BuildingFormEdit form = new BuildingFormEdit(propertyRegisterDataSet);
-            form.ShowDialog();
+            BuildingEditForm form = new BuildingEditForm(propertyRegisterDataSet);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void BuildingButtonEdit_Click(object sender, EventArgs e)
         {
-            BuildingFormEdit form = new BuildingFormEdit(propertyRegisterDataSet, (int)buildingDataGridView.CurrentRow.Cells[1].Value);
-            form.ShowDialog();
+            BuildingEditForm form = new BuildingEditForm(propertyRegisterDataSet, (int)buildingDataGridView.CurrentRow.Cells[1].Value);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void BuildingButtonDel_Click(object sender, EventArgs e)

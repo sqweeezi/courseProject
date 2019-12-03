@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PropertyRegister.Forms
+{
+    public partial class StorageForm : Form
+    {
+        public StorageForm(PropertyRegisterDataSet propertyRegisterDataSet)
+        {
+            InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            storageBindingSource.DataSource = propertyRegisterDataSet;
+        }
+
+        private void StorageForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Storage". При необходимости она может быть перемещена или удалена.
+            this.storageTableAdapter.Fill(this.propertyRegisterDataSet.Storage);
+        }
+
+        private void StorageAddButton_Click(object sender, EventArgs e)
+        {
+            StorageEditForm form = new StorageEditForm(propertyRegisterDataSet);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void StorageEditButton_Click(object sender, EventArgs e)
+        {
+            //StorageEditForm form = new StorageEditForm(propertyRegisterDataSet, (int)storageDataGridView.CurrentRow.Cells[1].Value);
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+
+            //}
+        }
+
+        private void StorageDeleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                propertyRegisterDataSet.Building.FindBybuildingId((int)storageDataGridView.CurrentRow.Cells[1].Value).Delete();
+                storageTableAdapter.Update(propertyRegisterDataSet);
+                propertyRegisterDataSet.Building.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                storageTableAdapter.Fill(propertyRegisterDataSet.Storage);
+            }
+        }
+    }
+}

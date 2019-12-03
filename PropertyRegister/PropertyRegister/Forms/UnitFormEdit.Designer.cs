@@ -31,17 +31,20 @@
             System.Windows.Forms.Label unitNameLabel;
             System.Windows.Forms.Label dateStartLabel;
             System.Windows.Forms.Label costLabel;
+            System.Windows.Forms.Label typeUnitIdLabel;
             this.unitNameTextBox = new System.Windows.Forms.TextBox();
-            this.dateStartDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.datePurchaseDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.costNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.timeEndNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.typeUnitIdComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.timeEndNumericUpDown = new System.Windows.Forms.NumericUpDown();
             unitNameLabel = new System.Windows.Forms.Label();
             dateStartLabel = new System.Windows.Forms.Label();
             costLabel = new System.Windows.Forms.Label();
+            typeUnitIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeEndNumericUpDown)).BeginInit();
@@ -59,7 +62,7 @@
             // dateStartLabel
             // 
             dateStartLabel.AutoSize = true;
-            dateStartLabel.Location = new System.Drawing.Point(4, 47);
+            dateStartLabel.Location = new System.Drawing.Point(4, 76);
             dateStartLabel.Name = "dateStartLabel";
             dateStartLabel.Size = new System.Drawing.Size(176, 16);
             dateStartLabel.TabIndex = 5;
@@ -68,11 +71,20 @@
             // costLabel
             // 
             costLabel.AutoSize = true;
-            costLabel.Location = new System.Drawing.Point(99, 76);
+            costLabel.Location = new System.Drawing.Point(99, 105);
             costLabel.Name = "costLabel";
             costLabel.Size = new System.Drawing.Size(81, 16);
             costLabel.TabIndex = 7;
             costLabel.Text = "Стоимость:";
+            // 
+            // typeUnitIdLabel
+            // 
+            typeUnitIdLabel.AutoSize = true;
+            typeUnitIdLabel.Location = new System.Drawing.Point(69, 50);
+            typeUnitIdLabel.Name = "typeUnitIdLabel";
+            typeUnitIdLabel.Size = new System.Drawing.Size(111, 16);
+            typeUnitIdLabel.TabIndex = 14;
+            typeUnitIdLabel.Text = "Тип имущества:";
             // 
             // unitNameTextBox
             // 
@@ -81,16 +93,16 @@
             this.unitNameTextBox.Size = new System.Drawing.Size(289, 21);
             this.unitNameTextBox.TabIndex = 4;
             // 
-            // dateStartDateTimePicker
+            // datePurchaseDateTimePicker
             // 
-            this.dateStartDateTimePicker.Location = new System.Drawing.Point(186, 47);
-            this.dateStartDateTimePicker.Name = "dateStartDateTimePicker";
-            this.dateStartDateTimePicker.Size = new System.Drawing.Size(154, 21);
-            this.dateStartDateTimePicker.TabIndex = 6;
+            this.datePurchaseDateTimePicker.Location = new System.Drawing.Point(186, 76);
+            this.datePurchaseDateTimePicker.Name = "datePurchaseDateTimePicker";
+            this.datePurchaseDateTimePicker.Size = new System.Drawing.Size(154, 21);
+            this.datePurchaseDateTimePicker.TabIndex = 6;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(303, 165);
+            this.buttonSave.Location = new System.Drawing.Point(307, 179);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(87, 27);
             this.buttonSave.TabIndex = 9;
@@ -100,7 +112,7 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(396, 165);
+            this.buttonClose.Location = new System.Drawing.Point(400, 179);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(87, 27);
             this.buttonClose.TabIndex = 10;
@@ -109,7 +121,7 @@
             // 
             // costNumericUpDown
             // 
-            this.costNumericUpDown.Location = new System.Drawing.Point(186, 74);
+            this.costNumericUpDown.Location = new System.Drawing.Point(186, 103);
             this.costNumericUpDown.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -131,41 +143,51 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(typeUnitIdLabel);
+            this.groupBox1.Controls.Add(this.typeUnitIdComboBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.timeEndNumericUpDown);
             this.groupBox1.Controls.Add(this.unitNameTextBox);
             this.groupBox1.Controls.Add(this.costNumericUpDown);
             this.groupBox1.Controls.Add(costLabel);
-            this.groupBox1.Controls.Add(this.dateStartDateTimePicker);
+            this.groupBox1.Controls.Add(this.datePurchaseDateTimePicker);
             this.groupBox1.Controls.Add(dateStartLabel);
             this.groupBox1.Controls.Add(unitNameLabel);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(499, 147);
+            this.groupBox1.Size = new System.Drawing.Size(522, 161);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // timeEndNumericUpDown
+            // typeUnitIdComboBox
             // 
-            this.timeEndNumericUpDown.Location = new System.Drawing.Point(186, 101);
-            this.timeEndNumericUpDown.Name = "timeEndNumericUpDown";
-            this.timeEndNumericUpDown.Size = new System.Drawing.Size(120, 21);
-            this.timeEndNumericUpDown.TabIndex = 12;
+            this.typeUnitIdComboBox.FormattingEnabled = true;
+            this.typeUnitIdComboBox.Location = new System.Drawing.Point(186, 47);
+            this.typeUnitIdComboBox.Name = "typeUnitIdComboBox";
+            this.typeUnitIdComboBox.Size = new System.Drawing.Size(154, 23);
+            this.typeUnitIdComboBox.TabIndex = 14;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 103);
+            this.label1.Location = new System.Drawing.Point(46, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 16);
             this.label1.TabIndex = 13;
             this.label1.Text = "Cрок амортизации:";
             // 
+            // timeEndNumericUpDown
+            // 
+            this.timeEndNumericUpDown.Location = new System.Drawing.Point(186, 130);
+            this.timeEndNumericUpDown.Name = "timeEndNumericUpDown";
+            this.timeEndNumericUpDown.Size = new System.Drawing.Size(120, 21);
+            this.timeEndNumericUpDown.TabIndex = 12;
+            // 
             // UnitFormEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 204);
+            this.ClientSize = new System.Drawing.Size(546, 217);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
@@ -182,12 +204,13 @@
 
         #endregion
         private System.Windows.Forms.TextBox unitNameTextBox;
-        private System.Windows.Forms.DateTimePicker dateStartDateTimePicker;
+        private System.Windows.Forms.DateTimePicker datePurchaseDateTimePicker;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.NumericUpDown costNumericUpDown;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown timeEndNumericUpDown;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox typeUnitIdComboBox;
     }
 }

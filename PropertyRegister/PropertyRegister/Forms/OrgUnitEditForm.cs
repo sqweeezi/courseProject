@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace PropertyRegister.Forms
 {
-    public partial class OrgUnitFormEdit : Form
+    public partial class OrgUnitEditForm : Form
     {
         private PropertyRegisterDataSet propertyRegisterDataSet;
         private PropertyRegisterDataSet.OrgUnitRow orgUnitRow;
         private int orgUnitId = -1;
 
-        public OrgUnitFormEdit(PropertyRegisterDataSet propertyRegisterDataSet)
+        public OrgUnitEditForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
             this.orgUnitRow = propertyRegisterDataSet.OrgUnit.NewOrgUnitRow();
         }
 
-        public OrgUnitFormEdit(PropertyRegisterDataSet propertyRegisterDataSet, int orgUnitId)
+        public OrgUnitEditForm(PropertyRegisterDataSet propertyRegisterDataSet, int orgUnitId)
         {
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
@@ -31,14 +31,13 @@ namespace PropertyRegister.Forms
             this.orgUnitRow = propertyRegisterDataSet.OrgUnit.FindByorgUnitId(orgUnitId);
 
             orgUnitNameTextBox.DataBindings.Add("Text", orgUnitRow, "orgUnitName");
-            bossTextBox.DataBindings.Add("Text", orgUnitRow, "boss");
             phoneTextBox.DataBindings.Add("Text", orgUnitRow, "phone");
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             orgUnitRow.orgUnitName = orgUnitNameTextBox.Text;
-            orgUnitRow.boss = bossTextBox.Text;
+            orgUnitRow.chiefId = (int)cheifIdComboBox.SelectedValue;
             orgUnitRow.phone = phoneTextBox.Text;
 
             try
@@ -55,6 +54,22 @@ namespace PropertyRegister.Forms
             {
                 this.Close();
             }
+        }
+
+        private void OrgUnitFormEdit_Load(object sender, EventArgs e)
+        {
+            var tmp = propertyRegisterDataSet.Chief
+               .Select(x => new
+               {
+                   x.chiefId,
+                   fio = x.surname + " " + x.name[0] + "." + (x.patronymic != null ? x.patronymic[0] + "." : null)
+               })
+               .ToList();
+
+            cheifIdComboBox.DataSource = tmp;
+            cheifIdComboBox.DisplayMember = "fio";
+            cheifIdComboBox.ValueMember = "chiefId";
+            if (orgUnitId != -1) cheifIdComboBox.SelectedValue = orgUnitRow.chiefId;
         }
     }
 }

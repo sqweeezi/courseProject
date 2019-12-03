@@ -10,32 +10,32 @@ using System.Windows.Forms;
 
 namespace PropertyRegister.Forms
 {
-    public partial class TypeRoomFormEdit : Form
+    public partial class TypeRoomEditForm : Form
     {
         private PropertyRegisterDataSet propertyRegisterDataSet;
         private PropertyRegisterDataSet.TypeRoomRow typeRoomRow;
         private int typeRoomId = -1;
 
-        public TypeRoomFormEdit(PropertyRegisterDataSet propertyRegisterDataSet)
+        public TypeRoomEditForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
             this.typeRoomRow = propertyRegisterDataSet.TypeRoom.NewTypeRoomRow();
         }
 
-        public TypeRoomFormEdit(PropertyRegisterDataSet propertyRegisterDataSet, int typeRoomId)
+        public TypeRoomEditForm(PropertyRegisterDataSet propertyRegisterDataSet, int typeRoomId)
         {
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
             this.typeRoomId = typeRoomId;
             this.typeRoomRow = propertyRegisterDataSet.TypeRoom.FindBytypeRoomId(typeRoomId);
 
-            targetTextBox.DataBindings.Add("Text", typeRoomRow, "target");
+            typeTextBox.DataBindings.Add("Text", typeRoomRow, "target");
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            typeRoomRow.target = targetTextBox.Text;
+            typeRoomRow.type = typeTextBox.Text;
 
             try
             {

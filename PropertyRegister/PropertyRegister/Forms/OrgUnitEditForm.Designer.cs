@@ -1,6 +1,6 @@
 ﻿namespace PropertyRegister.Forms
 {
-    partial class OrgUnitFormEdit
+    partial class OrgUnitEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +32,11 @@
             System.Windows.Forms.Label bossLabel;
             System.Windows.Forms.Label phoneLabel;
             this.orgUnitNameTextBox = new System.Windows.Forms.TextBox();
-            this.bossTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cheifIdComboBox = new System.Windows.Forms.ComboBox();
             orgUnitNameLabel = new System.Windows.Forms.Label();
             bossLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
@@ -55,11 +55,11 @@
             // bossLabel
             // 
             bossLabel.AutoSize = true;
-            bossLabel.Location = new System.Drawing.Point(41, 55);
+            bossLabel.Location = new System.Drawing.Point(19, 55);
             bossLabel.Name = "bossLabel";
-            bossLabel.Size = new System.Drawing.Size(85, 16);
+            bossLabel.Size = new System.Drawing.Size(107, 16);
             bossLabel.TabIndex = 5;
-            bossLabel.Text = "Заведущий:";
+            bossLabel.Text = "Ответсвенный:";
             // 
             // phoneLabel
             // 
@@ -76,13 +76,6 @@
             this.orgUnitNameTextBox.Name = "orgUnitNameTextBox";
             this.orgUnitNameTextBox.Size = new System.Drawing.Size(207, 21);
             this.orgUnitNameTextBox.TabIndex = 4;
-            // 
-            // bossTextBox
-            // 
-            this.bossTextBox.Location = new System.Drawing.Point(132, 52);
-            this.bossTextBox.Name = "bossTextBox";
-            this.bossTextBox.Size = new System.Drawing.Size(207, 21);
-            this.bossTextBox.TabIndex = 6;
             // 
             // phoneTextBox
             // 
@@ -112,17 +105,26 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cheifIdComboBox);
             this.groupBox1.Controls.Add(this.orgUnitNameTextBox);
             this.groupBox1.Controls.Add(this.phoneTextBox);
             this.groupBox1.Controls.Add(phoneLabel);
             this.groupBox1.Controls.Add(orgUnitNameLabel);
-            this.groupBox1.Controls.Add(this.bossTextBox);
             this.groupBox1.Controls.Add(bossLabel);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(364, 121);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
+            // 
+            // cheifIdComboBox
+            // 
+            this.cheifIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cheifIdComboBox.FormattingEnabled = true;
+            this.cheifIdComboBox.Location = new System.Drawing.Point(132, 52);
+            this.cheifIdComboBox.Name = "cheifIdComboBox";
+            this.cheifIdComboBox.Size = new System.Drawing.Size(207, 23);
+            this.cheifIdComboBox.TabIndex = 19;
             // 
             // OrgUnitFormEdit
             // 
@@ -135,6 +137,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "OrgUnitFormEdit";
             this.Text = "OrgUnitFormEdit";
+            this.Load += new System.EventHandler(this.OrgUnitFormEdit_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -143,10 +146,10 @@
 
         #endregion
         private System.Windows.Forms.TextBox orgUnitNameTextBox;
-        private System.Windows.Forms.TextBox bossTextBox;
         private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cheifIdComboBox;
     }
 }
