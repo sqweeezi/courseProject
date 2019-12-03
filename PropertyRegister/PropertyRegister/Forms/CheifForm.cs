@@ -12,9 +12,11 @@ namespace PropertyRegister.Forms
 {
     public partial class CheifForm : Form
     {
-        public CheifForm()
+        public CheifForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            chiefBindingSource.DataSource = propertyRegisterDataSet;
         }
 
         private void CheifForm_Load(object sender, EventArgs e)

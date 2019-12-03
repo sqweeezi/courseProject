@@ -28,58 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.inventoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.unitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
-            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKInventoryroomN6BCEF5F8BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryButtonDelete = new System.Windows.Forms.Button();
             this.inventoryButtonAdd = new System.Windows.Forms.Button();
             this.inventoryButtonEdit = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.roomDataGridView = new System.Windows.Forms.DataGridView();
-            this.buildingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.typeRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orgUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chiefBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buildingId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.typeRoomId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.orgUnitId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.chiefId = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.roomButtonAdd = new System.Windows.Forms.Button();
             this.roomButtonEdit = new System.Windows.Forms.Button();
             this.roomButtonDelete = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.revaluationDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKRevaluatiunitI6F9F86DCBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.unitDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitButtonDelete = new System.Windows.Forms.Button();
             this.unitButtonAdd = new System.Windows.Forms.Button();
             this.unitButtonEdit = new System.Windows.Forms.Button();
-            this.buildingTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.BuildingTableAdapter();
-            this.tableAdapterManager = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager();
-            this.orgUnitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter();
-            this.chiefTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.ChiefTableAdapter();
-            this.typeRoomTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter();
-            this.unitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.UnitTableAdapter();
-            this.revaluationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.revaluationTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.RevaluationTableAdapter();
-            this.roomTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.RoomTableAdapter();
-            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inventoryTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.InventoryTableAdapter();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -89,36 +61,20 @@
             this.подразделенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.матОтвественныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типПомещенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.переоценкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.переоценитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buildingId = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.typeRoomId = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.orgUnitId = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.chiefId = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlMain.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKInventoryroomN6BCEF5F8BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeRoomBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.revaluationDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKRevaluatiunitI6F9F86DCBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.revaluationBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,13 +125,7 @@
             this.inventoryDataGridView.AllowUserToDeleteRows = false;
             this.inventoryDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.inventoryDataGridView.AutoGenerateColumns = false;
             this.inventoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.inventoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn34,
-            this.dataGridViewTextBoxColumn33,
-            this.dataGridViewTextBoxColumn35});
-            this.inventoryDataGridView.DataSource = this.fKInventoryroomN6BCEF5F8BindingSource;
             this.inventoryDataGridView.Location = new System.Drawing.Point(6, 20);
             this.inventoryDataGridView.Name = "inventoryDataGridView";
             this.inventoryDataGridView.ReadOnly = true;
@@ -183,57 +133,6 @@
             this.inventoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.inventoryDataGridView.Size = new System.Drawing.Size(447, 336);
             this.inventoryDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn34.DataPropertyName = "unitId";
-            this.dataGridViewTextBoxColumn34.DataSource = this.unitBindingSource;
-            this.dataGridViewTextBoxColumn34.DisplayMember = "unitName";
-            this.dataGridViewTextBoxColumn34.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewTextBoxColumn34.HeaderText = "Имущество";
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            this.dataGridViewTextBoxColumn34.ReadOnly = true;
-            this.dataGridViewTextBoxColumn34.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn34.ValueMember = "unitId";
-            // 
-            // unitBindingSource
-            // 
-            this.unitBindingSource.DataMember = "Unit";
-            this.unitBindingSource.DataSource = this.propertyRegisterDataSet;
-            // 
-            // propertyRegisterDataSet
-            // 
-            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
-            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            this.dataGridViewTextBoxColumn33.DataPropertyName = "roomName";
-            this.dataGridViewTextBoxColumn33.HeaderText = "roomName";
-            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            this.dataGridViewTextBoxColumn33.ReadOnly = true;
-            this.dataGridViewTextBoxColumn33.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            this.dataGridViewTextBoxColumn35.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn35.DataPropertyName = "count";
-            this.dataGridViewTextBoxColumn35.HeaderText = "Кол-во";
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            this.dataGridViewTextBoxColumn35.ReadOnly = true;
-            this.dataGridViewTextBoxColumn35.Width = 77;
-            // 
-            // fKInventoryroomN6BCEF5F8BindingSource
-            // 
-            this.fKInventoryroomN6BCEF5F8BindingSource.DataMember = "FK__Inventory__roomN__6BCEF5F8";
-            this.fKInventoryroomN6BCEF5F8BindingSource.DataSource = this.roomBindingSource;
-            // 
-            // roomBindingSource
-            // 
-            this.roomBindingSource.DataMember = "Room";
-            this.roomBindingSource.DataSource = this.propertyRegisterDataSet;
             // 
             // inventoryButtonDelete
             // 
@@ -291,17 +190,12 @@
             this.roomDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.roomDataGridView.AutoGenerateColumns = false;
             this.roomDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.roomDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn26,
             this.buildingId,
             this.typeRoomId,
             this.orgUnitId,
-            this.chiefId,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28});
-            this.roomDataGridView.DataSource = this.roomBindingSource;
+            this.chiefId});
             this.roomDataGridView.Location = new System.Drawing.Point(6, 20);
             this.roomDataGridView.Name = "roomDataGridView";
             this.roomDataGridView.ReadOnly = true;
@@ -310,25 +204,53 @@
             this.roomDataGridView.Size = new System.Drawing.Size(787, 336);
             this.roomDataGridView.TabIndex = 0;
             // 
-            // buildingBindingSource
+            // buildingId
             // 
-            this.buildingBindingSource.DataMember = "Building";
-            this.buildingBindingSource.DataSource = this.propertyRegisterDataSet;
+            this.buildingId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.buildingId.DataPropertyName = "buildingId";
+            this.buildingId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.buildingId.HeaderText = "Здание";
+            this.buildingId.Name = "buildingId";
+            this.buildingId.ReadOnly = true;
+            this.buildingId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.buildingId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.buildingId.Width = 82;
             // 
-            // typeRoomBindingSource
+            // typeRoomId
             // 
-            this.typeRoomBindingSource.DataMember = "TypeRoom";
-            this.typeRoomBindingSource.DataSource = this.propertyRegisterDataSet;
+            this.typeRoomId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.typeRoomId.DataPropertyName = "typeRoomId";
+            this.typeRoomId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.typeRoomId.HeaderText = "Тип помещения";
+            this.typeRoomId.Name = "typeRoomId";
+            this.typeRoomId.ReadOnly = true;
+            this.typeRoomId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.typeRoomId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.typeRoomId.Width = 123;
             // 
-            // orgUnitBindingSource
+            // orgUnitId
             // 
-            this.orgUnitBindingSource.DataMember = "OrgUnit";
-            this.orgUnitBindingSource.DataSource = this.propertyRegisterDataSet;
+            this.orgUnitId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.orgUnitId.DataPropertyName = "orgUnitId";
+            this.orgUnitId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.orgUnitId.HeaderText = "Подразделение";
+            this.orgUnitId.Name = "orgUnitId";
+            this.orgUnitId.ReadOnly = true;
+            this.orgUnitId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.orgUnitId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.orgUnitId.Width = 139;
             // 
-            // chiefBindingSource
+            // chiefId
             // 
-            this.chiefBindingSource.DataMember = "Chief";
-            this.chiefBindingSource.DataSource = this.propertyRegisterDataSet;
+            this.chiefId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.chiefId.DataPropertyName = "chiefId";
+            this.chiefId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.chiefId.HeaderText = "Мат. отвественный";
+            this.chiefId.Name = "chiefId";
+            this.chiefId.ReadOnly = true;
+            this.chiefId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.chiefId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.chiefId.Width = 145;
             // 
             // roomButtonAdd
             // 
@@ -370,7 +292,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1076, 324);
+            this.tabPage5.Size = new System.Drawing.Size(1276, 410);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Имущество";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -380,9 +302,9 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.revaluationDataGridView);
-            this.groupBox2.Location = new System.Drawing.Point(611, 7);
+            this.groupBox2.Location = new System.Drawing.Point(811, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(459, 309);
+            this.groupBox2.Size = new System.Drawing.Size(459, 395);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Переоценка";
@@ -393,49 +315,14 @@
             this.revaluationDataGridView.AllowUserToDeleteRows = false;
             this.revaluationDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.revaluationDataGridView.AutoGenerateColumns = false;
             this.revaluationDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.revaluationDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn25});
-            this.revaluationDataGridView.DataSource = this.fKRevaluatiunitI6F9F86DCBindingSource;
             this.revaluationDataGridView.Location = new System.Drawing.Point(6, 20);
             this.revaluationDataGridView.Name = "revaluationDataGridView";
             this.revaluationDataGridView.ReadOnly = true;
             this.revaluationDataGridView.RowHeadersVisible = false;
             this.revaluationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.revaluationDataGridView.Size = new System.Drawing.Size(447, 233);
+            this.revaluationDataGridView.Size = new System.Drawing.Size(447, 319);
             this.revaluationDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "costData";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Дата переоценки";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "unitId";
-            this.dataGridViewTextBoxColumn23.HeaderText = "unitId";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "costAfter";
-            this.dataGridViewTextBoxColumn25.HeaderText = "Стоимость после переоценки";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            // 
-            // fKRevaluatiunitI6F9F86DCBindingSource
-            // 
-            this.fKRevaluatiunitI6F9F86DCBindingSource.DataMember = "FK__Revaluati__unitI__6F9F86DC";
-            this.fKRevaluatiunitI6F9F86DCBindingSource.DataSource = this.unitBindingSource;
             // 
             // groupBox1
             // 
@@ -448,7 +335,7 @@
             this.groupBox1.Controls.Add(this.unitButtonEdit);
             this.groupBox1.Location = new System.Drawing.Point(6, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(599, 309);
+            this.groupBox1.Size = new System.Drawing.Size(799, 395);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Имущество";
@@ -460,68 +347,19 @@
             this.unitDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.unitDataGridView.AutoGenerateColumns = false;
             this.unitDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.unitDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.timeEnd});
-            this.unitDataGridView.DataSource = this.unitBindingSource;
             this.unitDataGridView.Location = new System.Drawing.Point(6, 20);
             this.unitDataGridView.Name = "unitDataGridView";
             this.unitDataGridView.ReadOnly = true;
             this.unitDataGridView.RowHeadersVisible = false;
             this.unitDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.unitDataGridView.Size = new System.Drawing.Size(587, 250);
+            this.unitDataGridView.Size = new System.Drawing.Size(787, 336);
             this.unitDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "unitName";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Наименование";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "unitId";
-            this.dataGridViewTextBoxColumn19.HeaderText = "unitId";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "dateStart";
-            this.dataGridViewTextBoxColumn21.HeaderText = "Дата постановки на учет";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            this.dataGridViewTextBoxColumn21.Width = 152;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "cost";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Стоимость";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            this.dataGridViewTextBoxColumn22.Width = 103;
-            // 
-            // timeEnd
-            // 
-            this.timeEnd.DataPropertyName = "timeEnd";
-            this.timeEnd.HeaderText = "timeEnd";
-            this.timeEnd.Name = "timeEnd";
-            this.timeEnd.ReadOnly = true;
             // 
             // unitButtonDelete
             // 
             this.unitButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.unitButtonDelete.Location = new System.Drawing.Point(485, 276);
+            this.unitButtonDelete.Location = new System.Drawing.Point(685, 362);
             this.unitButtonDelete.Name = "unitButtonDelete";
             this.unitButtonDelete.Size = new System.Drawing.Size(87, 27);
             this.unitButtonDelete.TabIndex = 4;
@@ -532,7 +370,7 @@
             // unitButtonAdd
             // 
             this.unitButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.unitButtonAdd.Location = new System.Drawing.Point(299, 276);
+            this.unitButtonAdd.Location = new System.Drawing.Point(499, 362);
             this.unitButtonAdd.Name = "unitButtonAdd";
             this.unitButtonAdd.Size = new System.Drawing.Size(87, 27);
             this.unitButtonAdd.TabIndex = 2;
@@ -543,7 +381,7 @@
             // unitButtonEdit
             // 
             this.unitButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.unitButtonEdit.Location = new System.Drawing.Point(392, 276);
+            this.unitButtonEdit.Location = new System.Drawing.Point(592, 362);
             this.unitButtonEdit.Name = "unitButtonEdit";
             this.unitButtonEdit.Size = new System.Drawing.Size(87, 27);
             this.unitButtonEdit.TabIndex = 3;
@@ -551,66 +389,12 @@
             this.unitButtonEdit.UseVisualStyleBackColor = true;
             this.unitButtonEdit.Click += new System.EventHandler(this.UnitButtonEdit_Click);
             // 
-            // buildingTableAdapter
-            // 
-            this.buildingTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BuildingTableAdapter = this.buildingTableAdapter;
-            this.tableAdapterManager.ChiefTableAdapter = null;
-            this.tableAdapterManager.InventoryTableAdapter = null;
-            this.tableAdapterManager.OrgUnitTableAdapter = this.orgUnitTableAdapter;
-            this.tableAdapterManager.RevaluationTableAdapter = null;
-            this.tableAdapterManager.RoomTableAdapter = null;
-            this.tableAdapterManager.TypeRoomTableAdapter = null;
-            this.tableAdapterManager.UnitTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // orgUnitTableAdapter
-            // 
-            this.orgUnitTableAdapter.ClearBeforeFill = true;
-            // 
-            // chiefTableAdapter
-            // 
-            this.chiefTableAdapter.ClearBeforeFill = true;
-            // 
-            // typeRoomTableAdapter
-            // 
-            this.typeRoomTableAdapter.ClearBeforeFill = true;
-            // 
-            // unitTableAdapter
-            // 
-            this.unitTableAdapter.ClearBeforeFill = true;
-            // 
-            // revaluationBindingSource
-            // 
-            this.revaluationBindingSource.DataMember = "Revaluation";
-            this.revaluationBindingSource.DataSource = this.propertyRegisterDataSet;
-            // 
-            // revaluationTableAdapter
-            // 
-            this.revaluationTableAdapter.ClearBeforeFill = true;
-            // 
-            // roomTableAdapter
-            // 
-            this.roomTableAdapter.ClearBeforeFill = true;
-            // 
-            // inventoryBindingSource
-            // 
-            this.inventoryBindingSource.DataMember = "Inventory";
-            this.inventoryBindingSource.DataSource = this.propertyRegisterDataSet;
-            // 
-            // inventoryTableAdapter
-            // 
-            this.inventoryTableAdapter.ClearBeforeFill = true;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.справочникиToolStripMenuItem});
+            this.справочникиToolStripMenuItem,
+            this.переоценкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1293, 24);
@@ -676,101 +460,29 @@
             this.типПомещенияToolStripMenuItem.Text = "Тип помещения";
             this.типПомещенияToolStripMenuItem.Click += new System.EventHandler(this.ТипПомещенияToolStripMenuItem_Click);
             // 
+            // переоценкаToolStripMenuItem
+            // 
+            this.переоценкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.переоценитьToolStripMenuItem});
+            this.переоценкаToolStripMenuItem.Name = "переоценкаToolStripMenuItem";
+            this.переоценкаToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.переоценкаToolStripMenuItem.Text = "Переоценка";
+            // 
+            // переоценитьToolStripMenuItem
+            // 
+            this.переоценитьToolStripMenuItem.Name = "переоценитьToolStripMenuItem";
+            this.переоценитьToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.переоценитьToolStripMenuItem.Text = "Переоценить";
+            this.переоценитьToolStripMenuItem.Click += new System.EventHandler(this.ПереоценитьToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
-            this.statusStrip1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.Highlight;
             this.statusStrip1.Location = new System.Drawing.Point(0, 468);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1293, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn26.DataPropertyName = "roomName";
-            this.dataGridViewTextBoxColumn26.HeaderText = "Кабинет";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            this.dataGridViewTextBoxColumn26.Width = 88;
-            // 
-            // buildingId
-            // 
-            this.buildingId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.buildingId.DataPropertyName = "buildingId";
-            this.buildingId.DataSource = this.buildingBindingSource;
-            this.buildingId.DisplayMember = "buildingName";
-            this.buildingId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.buildingId.HeaderText = "Здание";
-            this.buildingId.Name = "buildingId";
-            this.buildingId.ReadOnly = true;
-            this.buildingId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.buildingId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.buildingId.ValueMember = "buildingId";
-            this.buildingId.Width = 82;
-            // 
-            // typeRoomId
-            // 
-            this.typeRoomId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.typeRoomId.DataPropertyName = "typeRoomId";
-            this.typeRoomId.DataSource = this.typeRoomBindingSource;
-            this.typeRoomId.DisplayMember = "target";
-            this.typeRoomId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.typeRoomId.HeaderText = "Тип помещения";
-            this.typeRoomId.Name = "typeRoomId";
-            this.typeRoomId.ReadOnly = true;
-            this.typeRoomId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.typeRoomId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.typeRoomId.ValueMember = "typeRoomId";
-            this.typeRoomId.Width = 123;
-            // 
-            // orgUnitId
-            // 
-            this.orgUnitId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.orgUnitId.DataPropertyName = "orgUnitId";
-            this.orgUnitId.DataSource = this.orgUnitBindingSource;
-            this.orgUnitId.DisplayMember = "orgUnitName";
-            this.orgUnitId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.orgUnitId.HeaderText = "Подразделение";
-            this.orgUnitId.Name = "orgUnitId";
-            this.orgUnitId.ReadOnly = true;
-            this.orgUnitId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.orgUnitId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.orgUnitId.ValueMember = "orgUnitId";
-            this.orgUnitId.Width = 139;
-            // 
-            // chiefId
-            // 
-            this.chiefId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.chiefId.DataPropertyName = "chiefId";
-            this.chiefId.DataSource = this.chiefBindingSource;
-            this.chiefId.DisplayMember = "surname";
-            this.chiefId.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.chiefId.HeaderText = "Мат. отвественный";
-            this.chiefId.Name = "chiefId";
-            this.chiefId.ReadOnly = true;
-            this.chiefId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.chiefId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.chiefId.ValueMember = "chiefId";
-            this.chiefId.Width = 145;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            this.dataGridViewTextBoxColumn27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn27.DataPropertyName = "square";
-            this.dataGridViewTextBoxColumn27.HeaderText = "Площадь";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.ReadOnly = true;
-            this.dataGridViewTextBoxColumn27.Width = 91;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn28.DataPropertyName = "windows";
-            this.dataGridViewTextBoxColumn28.HeaderText = "Кол-во окон";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.ReadOnly = true;
-            this.dataGridViewTextBoxColumn28.Width = 102;
             // 
             // MainForm
             // 
@@ -790,24 +502,13 @@
             this.tabPage6.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKInventoryroomN6BCEF5F8BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.roomDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.typeRoomBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.revaluationDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKRevaluatiunitI6F9F86DCBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.unitDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.revaluationBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -818,32 +519,12 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControlMain;
-        private PropertyRegisterDataSet propertyRegisterDataSet;
-        private System.Windows.Forms.BindingSource buildingBindingSource;
-        private PropertyRegisterDataSetTableAdapters.BuildingTableAdapter buildingTableAdapter;
-        private PropertyRegisterDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter orgUnitTableAdapter;
-        private System.Windows.Forms.BindingSource orgUnitBindingSource;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.BindingSource chiefBindingSource;
-        private PropertyRegisterDataSetTableAdapters.ChiefTableAdapter chiefTableAdapter;
-        private System.Windows.Forms.BindingSource typeRoomBindingSource;
-        private PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter typeRoomTableAdapter;
-        private System.Windows.Forms.BindingSource unitBindingSource;
-        private PropertyRegisterDataSetTableAdapters.UnitTableAdapter unitTableAdapter;
         private System.Windows.Forms.DataGridView unitDataGridView;
-        private System.Windows.Forms.BindingSource revaluationBindingSource;
-        private PropertyRegisterDataSetTableAdapters.RevaluationTableAdapter revaluationTableAdapter;
         private System.Windows.Forms.DataGridView revaluationDataGridView;
-        private System.Windows.Forms.BindingSource fKRevaluatiunitI6F9F86DCBindingSource;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.BindingSource roomBindingSource;
-        private PropertyRegisterDataSetTableAdapters.RoomTableAdapter roomTableAdapter;
         private System.Windows.Forms.DataGridView roomDataGridView;
-        private System.Windows.Forms.BindingSource inventoryBindingSource;
-        private PropertyRegisterDataSetTableAdapters.InventoryTableAdapter inventoryTableAdapter;
         private System.Windows.Forms.DataGridView inventoryDataGridView;
-        private System.Windows.Forms.BindingSource fKInventoryroomN6BCEF5F8BindingSource;
         private System.Windows.Forms.Button inventoryButtonDelete;
         private System.Windows.Forms.Button inventoryButtonEdit;
         private System.Windows.Forms.Button inventoryButtonAdd;
@@ -853,9 +534,6 @@
         private System.Windows.Forms.Button unitButtonDelete;
         private System.Windows.Forms.Button unitButtonEdit;
         private System.Windows.Forms.Button unitButtonAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
@@ -865,26 +543,17 @@
         private System.Windows.Forms.ToolStripMenuItem подразделенияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem матОтвественныеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типПомещенияToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeEnd;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewComboBoxColumn buildingId;
         private System.Windows.Forms.DataGridViewComboBoxColumn typeRoomId;
         private System.Windows.Forms.DataGridViewComboBoxColumn orgUnitId;
         private System.Windows.Forms.DataGridViewComboBoxColumn chiefId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.ToolStripMenuItem переоценкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem переоценитьToolStripMenuItem;
     }
 }
 

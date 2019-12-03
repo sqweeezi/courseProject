@@ -12,9 +12,11 @@ namespace PropertyRegister.Forms
 {
     public partial class OrgUnitForm : Form
     {
-        public OrgUnitForm()
+        public OrgUnitForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            orgUnitBindingSource.DataSource = propertyRegisterDataSet;
         }
 
         private void OrgUnitForm_Load(object sender, EventArgs e)

@@ -54,8 +54,17 @@ namespace PropertyRegister.Forms
             orgUnitIdComboBox.ValueMember = "orgUnitId";
             if (roomName != "") orgUnitIdComboBox.SelectedValue = roomRow.orgUnitId;
 
-            cheifIdComboBox.DataSource = propertyRegisterDataSet.Chief;
-            cheifIdComboBox.DisplayMember = "surname";
+
+            var tmp = propertyRegisterDataSet.Chief
+                .Select(x => new
+                {
+                    x.chiefId,
+                    fio = x.surname + " " + x.name[0] + "." + (x.patronymic != null ? x.patronymic[0] + "." : null)
+                })
+                .ToList();
+
+            cheifIdComboBox.DataSource = tmp;
+            cheifIdComboBox.DisplayMember = "fio";
             cheifIdComboBox.ValueMember = "chiefId";
             if (roomName != "") cheifIdComboBox.SelectedValue = roomRow.chiefId;
         }

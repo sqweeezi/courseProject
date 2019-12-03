@@ -120,9 +120,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyRegisterDataSet.cs">
-      <DependentUpon>PropertyRegisterDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="PropertyRegisterDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

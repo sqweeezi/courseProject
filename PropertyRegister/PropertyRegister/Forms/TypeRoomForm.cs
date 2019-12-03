@@ -12,9 +12,11 @@ namespace PropertyRegister.Forms
 {
     public partial class TypeRoomForm : Form
     {
-        public TypeRoomForm()
+        public TypeRoomForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            typeRoomBindingSource.DataSource = propertyRegisterDataSet;
         }
 
         private void TypeRoomForm_Load(object sender, EventArgs e)

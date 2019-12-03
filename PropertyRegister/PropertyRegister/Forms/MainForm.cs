@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,18 @@ namespace PropertyRegister
             this.roomTableAdapter.Fill(this.propertyRegisterDataSet.Room);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Revaluation". При необходимости она может быть перемещена или удалена.
             this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
-           
+
+            var tmp = propertyRegisterDataSet.Chief
+               .Select(x => new
+               {
+                   x.chiefId,
+                   fio = x.surname + " " + x.name[0] + "." + (x.patronymic != null ? x.patronymic[0] + "." : null)
+               })
+               .ToList();
+
+            (roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DataSource = tmp;
+            (roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DisplayMember = "fio";
+            (roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).ValueMember = "chiefId";
         }
 
         /// <summary>
@@ -99,6 +111,7 @@ namespace PropertyRegister
 
         private void RoomButtonAdd_Click(object sender, EventArgs e)
         {
+           
             RoomFormEdit form = new RoomFormEdit(propertyRegisterDataSet);
             form.ShowDialog();
         }
@@ -191,25 +204,44 @@ namespace PropertyRegister
 
         private void ПодразделенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OrgUnitForm form = new OrgUnitForm();
+            OrgUnitForm form = new OrgUnitForm(propertyRegisterDataSet);
             form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
         }
 
         private void МатОтвественныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CheifForm form = new CheifForm();
+            CheifForm form = new CheifForm(propertyRegisterDataSet);
             form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
         }
 
         private void ТипПомещенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TypeRoomForm form = new TypeRoomForm();
+            TypeRoomForm form = new TypeRoomForm(propertyRegisterDataSet);
             form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             roomDataGridView.Dispose();
+        }
+
+        private void ПереоценитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          //  new PropertyRegisterDataSetTableAdapters.QueriesTableAdapter().Reevaluate();
+
+            //using (var sqlConn = new SqlConnection(Properties.Settings.Default.ConnectionString))
+            //{
+            //    var sqlCmd = new SqlCommand("Reevaluate", sqlConn);
+            //    sqlCmd.CommandType = CommandType.StoredProcedure;
+
+            //    sqlConn.Open();
+            //    sqlCmd.ExecuteNonQuery();
+
+            //    this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
+            //}
         }
     }
 }
