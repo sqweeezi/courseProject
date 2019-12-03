@@ -28,13 +28,19 @@ namespace PropertyRegister.Forms
         private void TypeRoomButtonAdd_Click(object sender, EventArgs e)
         {
             TypeRoomEditForm form = new TypeRoomEditForm(propertyRegisterDataSet);
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void TypeRoomButtonEdit_Click(object sender, EventArgs e)
         {
             TypeRoomEditForm form = new TypeRoomEditForm(propertyRegisterDataSet, (int)typeRoomDataGridView.CurrentRow.Cells[1].Value);
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         private void TypeRoomButtonDelete_Click(object sender, EventArgs e)

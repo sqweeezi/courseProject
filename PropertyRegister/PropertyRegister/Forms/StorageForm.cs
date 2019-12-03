@@ -21,6 +21,8 @@ namespace PropertyRegister.Forms
 
         private void StorageForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Unit". При необходимости она может быть перемещена или удалена.
+            this.unitTableAdapter.Fill(this.propertyRegisterDataSet.Unit);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Storage". При необходимости она может быть перемещена или удалена.
             this.storageTableAdapter.Fill(this.propertyRegisterDataSet.Storage);
         }
@@ -36,20 +38,23 @@ namespace PropertyRegister.Forms
 
         private void StorageEditButton_Click(object sender, EventArgs e)
         {
-            //StorageEditForm form = new StorageEditForm(propertyRegisterDataSet, (int)storageDataGridView.CurrentRow.Cells[1].Value);
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
+            StorageEditForm form = new StorageEditForm(
+                propertyRegisterDataSet, 
+                (int)storageDataGridView.CurrentRow.Cells[1].Value
+                );
+            if (form.ShowDialog() == DialogResult.OK)
+            {
 
-            //}
+            }
         }
 
         private void StorageDeleteButton_Click(object sender, EventArgs e)
         {
             try
             {
-                propertyRegisterDataSet.Building.FindBybuildingId((int)storageDataGridView.CurrentRow.Cells[1].Value).Delete();
+                propertyRegisterDataSet.Storage.FindByunitId((int)storageDataGridView.CurrentRow.Cells[1].Value).Delete();
                 storageTableAdapter.Update(propertyRegisterDataSet);
-                propertyRegisterDataSet.Building.AcceptChanges();
+                propertyRegisterDataSet.Storage.AcceptChanges();
             }
             catch (Exception ex)
             {

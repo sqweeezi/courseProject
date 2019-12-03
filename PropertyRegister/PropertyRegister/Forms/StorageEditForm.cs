@@ -14,7 +14,7 @@ namespace PropertyRegister.Forms
     {
         private PropertyRegisterDataSet propertyRegisterDataSet;
         private PropertyRegisterDataSet.StorageRow storageRow;
-        //private int typeRoomId = -1;
+        private int unitId = -1;
 
         public StorageEditForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
@@ -23,14 +23,44 @@ namespace PropertyRegister.Forms
             this.storageRow = propertyRegisterDataSet.Storage.NewStorageRow();
         }
 
-        //public StorageEditForm(PropertyRegisterDataSet propertyRegisterDataSet, int typeRoomId)
-        //{
-        //    InitializeComponent();
-        //    this.propertyRegisterDataSet = propertyRegisterDataSet;
-        //    this.typeRoomId = typeRoomId;
-        //    this.typeRoomRow = propertyRegisterDataSet.TypeRoom.FindBytypeRoomId(typeRoomId);
+        public StorageEditForm(PropertyRegisterDataSet propertyRegisterDataSet, int unitId)
+        {
+            InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            this.unitId = unitId;
+            this.storageRow = propertyRegisterDataSet.Storage.FindByunitId(unitId);
 
-        //    //targetTextBox.DataBindings.Add("Text", typeRoomRow, "target");
-        //}
+            //targetTextBox.DataBindings.Add("Text", typeRoomRow, "target");
+        }
+
+        private void StorageEditForm_Load(object sender, EventArgs e)
+        {
+            unitIdComboBox.DataSource = propertyRegisterDataSet.Unit;
+            unitIdComboBox.DisplayMember = "unitName";
+            unitIdComboBox.ValueMember = "unitId";
+            if (unitId != -1) unitIdComboBox.SelectedValue = storageRow.unitId;
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            storageRow.unitId = (int)unitIdComboBox.SelectedValue;
+            storageRow.count = int.Parse(countNumericUpDown.Text);
+
+            try
+            {
+                if (unitId == -1) propertyRegisterDataSet.Storage.AddStorageRow(storageRow);
+                new PropertyRegisterDataSetTableAdapters.StorageTableAdapter().Update(storageRow);
+                propertyRegisterDataSet.Storage.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
     }
 }
