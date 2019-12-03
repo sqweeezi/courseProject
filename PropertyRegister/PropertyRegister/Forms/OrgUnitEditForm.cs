@@ -34,6 +34,22 @@ namespace PropertyRegister.Forms
             phoneTextBox.DataBindings.Add("Text", orgUnitRow, "phone");
         }
 
+        private void OrgUnitFormEdit_Load(object sender, EventArgs e)
+        {
+            var tmp = propertyRegisterDataSet.Chief
+               .Select(x => new
+               {
+                   x.chiefId,
+                   fio = x.surname + " " + x.name[0] + "." + (x.patronymic != null ? x.patronymic[0] + "." : null)
+               })
+               .ToList();
+
+            cheifIdComboBox.DataSource = tmp;
+            cheifIdComboBox.DisplayMember = "fio";
+            cheifIdComboBox.ValueMember = "chiefId";
+            if (orgUnitId != -1) cheifIdComboBox.SelectedValue = orgUnitRow.chiefId;
+        }
+
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             orgUnitRow.orgUnitName = orgUnitNameTextBox.Text;
@@ -52,24 +68,9 @@ namespace PropertyRegister.Forms
             }
             finally
             {
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-        }
-
-        private void OrgUnitFormEdit_Load(object sender, EventArgs e)
-        {
-            var tmp = propertyRegisterDataSet.Chief
-               .Select(x => new
-               {
-                   x.chiefId,
-                   fio = x.surname + " " + x.name[0] + "." + (x.patronymic != null ? x.patronymic[0] + "." : null)
-               })
-               .ToList();
-
-            cheifIdComboBox.DataSource = tmp;
-            cheifIdComboBox.DisplayMember = "fio";
-            cheifIdComboBox.ValueMember = "chiefId";
-            if (orgUnitId != -1) cheifIdComboBox.SelectedValue = orgUnitRow.chiefId;
         }
     }
 }

@@ -188,6 +188,9 @@
     <EmbeddedResource Include="Forms\TypeRoomEditForm.resx">
       <DependentUpon>TypeRoomEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TypeUnitEditForm.resx">
+      <DependentUpon>TypeUnitEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TypeUnitForm.resx">
       <DependentUpon>TypeUnitForm.cs</DependentUpon>
     </EmbeddedResource>

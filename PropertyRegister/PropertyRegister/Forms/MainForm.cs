@@ -14,6 +14,9 @@ namespace PropertyRegister
 {
     public partial class MainForm : Form
     {
+
+        #region Общая секция
+
         public MainForm()
         {
             InitializeComponent();
@@ -51,6 +54,45 @@ namespace PropertyRegister
             //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DataSource = tmp;
             //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DisplayMember = "fio";
             //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).ValueMember = "chiefId";
+
+
+            // Комбобоксы для фильтрации
+            var buildingCB = propertyRegisterDataSet.Building
+                .Select(x => new { x.buildingId, x.buildingName })
+                .ToList();
+
+            // добавим пустое поле
+            buildingCB.Insert(0, new { buildingId = -1, buildingName = "Нет" });
+
+            buildingFilterComboBox.DataSource = buildingCB;
+            buildingFilterComboBox.DisplayMember = "buildingName";
+            buildingFilterComboBox.ValueMember = "buildingId";
+
+            buildingFilterComboBox.SelectedIndexChanged += (s, ea) => { roomFilter(); };
+
+            var orgUnitCB = propertyRegisterDataSet.OrgUnit
+                .Select(x => new { x.orgUnitId, x.orgUnitName })
+                .ToList();
+
+            // добавим пустое поле
+            orgUnitCB.Insert(0, new { orgUnitId = -1, orgUnitName = "Нет" });
+
+            orgUnitFilterComboBox.DataSource = orgUnitCB;
+            orgUnitFilterComboBox.DisplayMember = "orgUnitName";
+            orgUnitFilterComboBox.ValueMember = "orgUnitId";
+
+            orgUnitFilterComboBox.SelectedIndexChanged += (s, ea) => { roomFilter(); };
+
+        }
+
+        private void roomFilter()
+        {
+            int first = (buildingFilterComboBox.SelectedValue == null ? -1 : (int)buildingFilterComboBox.SelectedValue);
+            int second = (orgUnitFilterComboBox.SelectedValue == null ? -1 : (int)orgUnitFilterComboBox.SelectedValue);
+            roomBindingSource.Filter =
+                (first != -1 ? "buildingId = '" + first + "'" : "") +
+                (first != -1 && second != -1 ? " and " : "") +
+                (second != -1 ? "orgUnitId = '" + second + "'" : "");
         }
 
         /// <summary>
@@ -111,6 +153,15 @@ namespace PropertyRegister
             }
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            roomDataGridView.Dispose();
+        }
+
+        #endregion
+
+        #region Вкладка Помещения
+
         private void RoomButtonAdd_Click(object sender, EventArgs e)
         {
 
@@ -155,7 +206,7 @@ namespace PropertyRegister
             InventoryEditForm form = new InventoryEditForm(
                 propertyRegisterDataSet,
                 roomDataGridView.CurrentRow.Cells[0].Value.ToString(),
-                (int)inventoryDataGridView.CurrentRow.Cells[0].Value
+                (int)inventoryDataGridView.CurrentRow.Cells[1].Value
                 );
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -168,8 +219,8 @@ namespace PropertyRegister
             try
             {
                 propertyRegisterDataSet.Inventory.FindByroomNameunitId(
-                    inventoryDataGridView.CurrentRow.Cells[1].Value.ToString(),
-                    (int)inventoryDataGridView.CurrentRow.Cells[0].Value
+                    roomDataGridView.CurrentRow.Cells[0].Value.ToString(),
+                    (int)inventoryDataGridView.CurrentRow.Cells[1].Value
                     ).Delete();
                 saveToBD(this.propertyRegisterDataSet.Inventory.TableName);
             }
@@ -180,11 +231,16 @@ namespace PropertyRegister
             }
         }
 
+        #endregion
+
+        #region Вкладка Имущество
+
         private void UnitButtonAdd_Click(object sender, EventArgs e)
         {
             UnitFormEdit form = new UnitFormEdit(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK)
             {
+                unitBindingSource.ResetBindings(true);
             }
         }
 
@@ -193,6 +249,7 @@ namespace PropertyRegister
             UnitFormEdit form = new UnitFormEdit(propertyRegisterDataSet, (int)unitDataGridView.CurrentRow.Cells[1].Value);
             if (form.ShowDialog() == DialogResult.OK)
             {
+                unitBindingSource.ResetBindings(false);
             }
         }
 
@@ -210,45 +267,52 @@ namespace PropertyRegister
             }
         }
 
+        #endregion
+
+        #region Меню
+
         private void ЗданияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BuildingForm form = new BuildingForm(propertyRegisterDataSet);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                roomBindingSource.ResetBindings(false);
-            }
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+            //    roomBindingSource.ResetBindings(false);
+            //}
+            form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
         }
 
         private void ПодразделенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OrgUnitForm form = new OrgUnitForm(propertyRegisterDataSet);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                roomBindingSource.ResetBindings(false);
-            }
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+            //    roomBindingSource.ResetBindings(false);
+            //}
+            form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
         }
 
         private void МатОтвественныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheifForm form = new CheifForm(propertyRegisterDataSet);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                roomBindingSource.ResetBindings(false);
-            }
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+            //    roomBindingSource.ResetBindings(false);
+            //}
+            form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
         }
 
         private void ТипПомещенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TypeRoomForm form = new TypeRoomForm(propertyRegisterDataSet);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                roomBindingSource.ResetBindings(false);
-            }
-        }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            roomDataGridView.Dispose();
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+            //    roomBindingSource.ResetBindings(false);
+            //}
+            form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
         }
 
         private void ПереоценитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -266,5 +330,14 @@ namespace PropertyRegister
             //    this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
             //}
         }
+
+        private void СкладToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StorageForm form = new StorageForm(propertyRegisterDataSet);
+            form.ShowDialog();
+            roomBindingSource.ResetBindings(false);
+        }
+
+        #endregion
     }
 }

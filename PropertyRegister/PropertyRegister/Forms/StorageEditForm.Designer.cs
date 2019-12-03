@@ -59,6 +59,7 @@
             // 
             // unitIdComboBox
             // 
+            this.unitIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.unitIdComboBox.FormattingEnabled = true;
             this.unitIdComboBox.Location = new System.Drawing.Point(159, 14);
             this.unitIdComboBox.Name = "unitIdComboBox";

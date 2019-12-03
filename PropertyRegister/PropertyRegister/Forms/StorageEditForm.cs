@@ -30,7 +30,7 @@ namespace PropertyRegister.Forms
             this.unitId = unitId;
             this.storageRow = propertyRegisterDataSet.Storage.FindByunitId(unitId);
 
-            //targetTextBox.DataBindings.Add("Text", typeRoomRow, "target");
+            countNumericUpDown.DataBindings.Add("Text", storageRow, "count");
         }
 
         private void StorageEditForm_Load(object sender, EventArgs e)

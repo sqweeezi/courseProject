@@ -30,16 +30,19 @@ namespace PropertyRegister.Forms
             TypeRoomEditForm form = new TypeRoomEditForm(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK)
             {
-
+                typeRoomBindingSource.ResetBindings(true);
             }
         }
 
         private void TypeRoomButtonEdit_Click(object sender, EventArgs e)
         {
-            TypeRoomEditForm form = new TypeRoomEditForm(propertyRegisterDataSet, (int)typeRoomDataGridView.CurrentRow.Cells[1].Value);
+            TypeRoomEditForm form = new TypeRoomEditForm(
+                propertyRegisterDataSet, 
+                (int)typeRoomDataGridView.CurrentRow.Cells[1].Value
+                );
             if (form.ShowDialog() == DialogResult.OK)
             {
-
+                typeRoomBindingSource.ResetBindings(false);
             }
         }
 

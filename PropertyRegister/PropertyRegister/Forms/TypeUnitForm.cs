@@ -27,7 +27,7 @@ namespace PropertyRegister.Forms
 
         private void TypeUnitAddButton_Click(object sender, EventArgs e)
         {
-            TypeRoomEditForm form = new TypeRoomEditForm(propertyRegisterDataSet);
+            TypeUnitEditForm form = new TypeUnitEditForm(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK)
             {
 
@@ -36,7 +36,7 @@ namespace PropertyRegister.Forms
 
         private void TypeUnitEditButton_Click(object sender, EventArgs e)
         {
-            TypeRoomEditForm form = new TypeRoomEditForm(
+            TypeUnitEditForm form = new TypeUnitEditForm(
                 propertyRegisterDataSet, 
                 (int)typeUnitDataGridView.CurrentRow.Cells[1].Value
                 );

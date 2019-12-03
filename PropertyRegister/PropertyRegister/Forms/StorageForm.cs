@@ -17,6 +17,7 @@ namespace PropertyRegister.Forms
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
             storageBindingSource.DataSource = propertyRegisterDataSet;
+            unitBindingSource.DataSource = propertyRegisterDataSet;
         }
 
         private void StorageForm_Load(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace PropertyRegister.Forms
             StorageEditForm form = new StorageEditForm(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK)
             {
-
+                storageBindingSource.ResetBindings(true);
             }
         }
 
@@ -44,7 +45,7 @@ namespace PropertyRegister.Forms
                 );
             if (form.ShowDialog() == DialogResult.OK)
             {
-
+                storageBindingSource.ResetBindings(false);
             }
         }
 

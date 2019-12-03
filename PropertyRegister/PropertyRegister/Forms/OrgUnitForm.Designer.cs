@@ -33,16 +33,16 @@
             this.orgUnitButtonEdit = new System.Windows.Forms.Button();
             this.orgUnitButtonAdd = new System.Windows.Forms.Button();
             this.orgUnitDataGridView = new System.Windows.Forms.DataGridView();
-            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
             this.orgUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
             this.orgUnitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter();
-            this.orgUnitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orgUnitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgUnitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chiefIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // orgUnitButtonDelete
@@ -82,8 +82,8 @@
             this.orgUnitDataGridView.AutoGenerateColumns = false;
             this.orgUnitDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.orgUnitDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orgUnitIdDataGridViewTextBoxColumn,
             this.orgUnitNameDataGridViewTextBoxColumn,
+            this.orgUnitIdDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.chiefIdDataGridViewTextBoxColumn});
             this.orgUnitDataGridView.DataSource = this.orgUnitBindingSource;
@@ -95,26 +95,19 @@
             this.orgUnitDataGridView.Size = new System.Drawing.Size(961, 293);
             this.orgUnitDataGridView.TabIndex = 4;
             // 
-            // propertyRegisterDataSet
-            // 
-            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
-            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // orgUnitBindingSource
             // 
             this.orgUnitBindingSource.DataMember = "OrgUnit";
             this.orgUnitBindingSource.DataSource = this.propertyRegisterDataSet;
             // 
+            // propertyRegisterDataSet
+            // 
+            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
+            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // orgUnitTableAdapter
             // 
             this.orgUnitTableAdapter.ClearBeforeFill = true;
-            // 
-            // orgUnitIdDataGridViewTextBoxColumn
-            // 
-            this.orgUnitIdDataGridViewTextBoxColumn.DataPropertyName = "orgUnitId";
-            this.orgUnitIdDataGridViewTextBoxColumn.HeaderText = "orgUnitId";
-            this.orgUnitIdDataGridViewTextBoxColumn.Name = "orgUnitIdDataGridViewTextBoxColumn";
-            this.orgUnitIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // orgUnitNameDataGridViewTextBoxColumn
             // 
@@ -122,6 +115,13 @@
             this.orgUnitNameDataGridViewTextBoxColumn.HeaderText = "orgUnitName";
             this.orgUnitNameDataGridViewTextBoxColumn.Name = "orgUnitNameDataGridViewTextBoxColumn";
             this.orgUnitNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orgUnitIdDataGridViewTextBoxColumn
+            // 
+            this.orgUnitIdDataGridViewTextBoxColumn.DataPropertyName = "orgUnitId";
+            this.orgUnitIdDataGridViewTextBoxColumn.HeaderText = "orgUnitId";
+            this.orgUnitIdDataGridViewTextBoxColumn.Name = "orgUnitIdDataGridViewTextBoxColumn";
+            this.orgUnitIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // phoneDataGridViewTextBoxColumn
             // 
@@ -151,8 +151,8 @@
             this.Text = "OrgUnitForm";
             this.Load += new System.EventHandler(this.OrgUnitForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,12 +162,11 @@
         private System.Windows.Forms.Button orgUnitButtonEdit;
         private System.Windows.Forms.Button orgUnitButtonAdd;
         private System.Windows.Forms.DataGridView orgUnitDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private PropertyRegisterDataSet propertyRegisterDataSet;
         private System.Windows.Forms.BindingSource orgUnitBindingSource;
         private PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter orgUnitTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orgUnitIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn orgUnitNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgUnitIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chiefIdDataGridViewTextBoxColumn;
     }

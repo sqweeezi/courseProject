@@ -33,7 +33,6 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.inventoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.fKRevaluatiunitI7246E95DBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.unitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
             this.inventoryButtonDelete = new System.Windows.Forms.Button();
@@ -55,18 +54,8 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.revaluationDataGridView = new System.Windows.Forms.DataGridView();
-            this.unitIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costAfterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.unitDataGridView = new System.Windows.Forms.DataGridView();
-            this.unitIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeUnitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datePurchaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.periodDepreciationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.writeOffDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.unitButtonDelete = new System.Windows.Forms.Button();
             this.unitButtonAdd = new System.Windows.Forms.Button();
             this.unitButtonEdit = new System.Windows.Forms.Button();
@@ -99,17 +88,27 @@
             this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.storageTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.StorageTableAdapter();
             this.tableAdapterManager = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.fKInventoryroomN76177A41BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buildingFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.orgUnitFilterComboBox = new System.Windows.Forms.ComboBox();
             this.roomNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKInventoryroomN76177A41BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.unitIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costAfterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fKRevaluatiunitI7246E95DBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.unitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeUnitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datePurchaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.periodDepreciationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.writeOffDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControlMain.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKRevaluatiunitI7246E95DBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -127,6 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKInventoryroomN76177A41BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKRevaluatiunitI7246E95DBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -165,7 +165,7 @@
             this.groupBox4.Controls.Add(this.inventoryButtonEdit);
             this.groupBox4.Location = new System.Drawing.Point(811, 7);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(459, 393);
+            this.groupBox4.Size = new System.Drawing.Size(459, 391);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Список имущества";
@@ -188,13 +188,8 @@
             this.inventoryDataGridView.ReadOnly = true;
             this.inventoryDataGridView.RowHeadersVisible = false;
             this.inventoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventoryDataGridView.Size = new System.Drawing.Size(447, 334);
+            this.inventoryDataGridView.Size = new System.Drawing.Size(447, 332);
             this.inventoryDataGridView.TabIndex = 1;
-            // 
-            // fKRevaluatiunitI7246E95DBindingSource
-            // 
-            this.fKRevaluatiunitI7246E95DBindingSource.DataMember = "FK__Revaluati__unitI__7246E95D";
-            this.fKRevaluatiunitI7246E95DBindingSource.DataSource = this.unitBindingSource;
             // 
             // unitBindingSource
             // 
@@ -209,7 +204,7 @@
             // inventoryButtonDelete
             // 
             this.inventoryButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.inventoryButtonDelete.Location = new System.Drawing.Point(317, 360);
+            this.inventoryButtonDelete.Location = new System.Drawing.Point(317, 358);
             this.inventoryButtonDelete.Name = "inventoryButtonDelete";
             this.inventoryButtonDelete.Size = new System.Drawing.Size(87, 27);
             this.inventoryButtonDelete.TabIndex = 7;
@@ -220,7 +215,7 @@
             // inventoryButtonAdd
             // 
             this.inventoryButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.inventoryButtonAdd.Location = new System.Drawing.Point(131, 360);
+            this.inventoryButtonAdd.Location = new System.Drawing.Point(131, 358);
             this.inventoryButtonAdd.Name = "inventoryButtonAdd";
             this.inventoryButtonAdd.Size = new System.Drawing.Size(87, 27);
             this.inventoryButtonAdd.TabIndex = 5;
@@ -231,7 +226,7 @@
             // inventoryButtonEdit
             // 
             this.inventoryButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.inventoryButtonEdit.Location = new System.Drawing.Point(224, 360);
+            this.inventoryButtonEdit.Location = new System.Drawing.Point(224, 358);
             this.inventoryButtonEdit.Name = "inventoryButtonEdit";
             this.inventoryButtonEdit.Size = new System.Drawing.Size(87, 27);
             this.inventoryButtonEdit.TabIndex = 6;
@@ -244,15 +239,15 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.comboBox2);
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.orgUnitFilterComboBox);
+            this.groupBox3.Controls.Add(this.buildingFilterComboBox);
             this.groupBox3.Controls.Add(this.roomDataGridView);
             this.groupBox3.Controls.Add(this.roomButtonAdd);
             this.groupBox3.Controls.Add(this.roomButtonEdit);
             this.groupBox3.Controls.Add(this.roomButtonDelete);
             this.groupBox3.Location = new System.Drawing.Point(6, 7);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(799, 393);
+            this.groupBox3.Size = new System.Drawing.Size(799, 391);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Помещение";
@@ -280,7 +275,7 @@
             this.roomDataGridView.ReadOnly = true;
             this.roomDataGridView.RowHeadersVisible = false;
             this.roomDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.roomDataGridView.Size = new System.Drawing.Size(787, 305);
+            this.roomDataGridView.Size = new System.Drawing.Size(787, 303);
             this.roomDataGridView.TabIndex = 0;
             // 
             // roomNameDataGridViewTextBoxColumn
@@ -340,7 +335,7 @@
             // roomButtonAdd
             // 
             this.roomButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.roomButtonAdd.Location = new System.Drawing.Point(499, 360);
+            this.roomButtonAdd.Location = new System.Drawing.Point(499, 358);
             this.roomButtonAdd.Name = "roomButtonAdd";
             this.roomButtonAdd.Size = new System.Drawing.Size(87, 27);
             this.roomButtonAdd.TabIndex = 2;
@@ -351,7 +346,7 @@
             // roomButtonEdit
             // 
             this.roomButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.roomButtonEdit.Location = new System.Drawing.Point(592, 360);
+            this.roomButtonEdit.Location = new System.Drawing.Point(592, 358);
             this.roomButtonEdit.Name = "roomButtonEdit";
             this.roomButtonEdit.Size = new System.Drawing.Size(87, 27);
             this.roomButtonEdit.TabIndex = 3;
@@ -362,7 +357,7 @@
             // roomButtonDelete
             // 
             this.roomButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.roomButtonDelete.Location = new System.Drawing.Point(685, 360);
+            this.roomButtonDelete.Location = new System.Drawing.Point(685, 358);
             this.roomButtonDelete.Name = "roomButtonDelete";
             this.roomButtonDelete.Size = new System.Drawing.Size(87, 27);
             this.roomButtonDelete.TabIndex = 4;
@@ -415,27 +410,6 @@
             this.revaluationDataGridView.Size = new System.Drawing.Size(447, 319);
             this.revaluationDataGridView.TabIndex = 1;
             // 
-            // unitIdDataGridViewTextBoxColumn2
-            // 
-            this.unitIdDataGridViewTextBoxColumn2.DataPropertyName = "unitId";
-            this.unitIdDataGridViewTextBoxColumn2.HeaderText = "unitId";
-            this.unitIdDataGridViewTextBoxColumn2.Name = "unitIdDataGridViewTextBoxColumn2";
-            this.unitIdDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // costAfterDataGridViewTextBoxColumn
-            // 
-            this.costAfterDataGridViewTextBoxColumn.DataPropertyName = "costAfter";
-            this.costAfterDataGridViewTextBoxColumn.HeaderText = "costAfter";
-            this.costAfterDataGridViewTextBoxColumn.Name = "costAfterDataGridViewTextBoxColumn";
-            this.costAfterDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -462,70 +436,21 @@
             this.unitDataGridView.AutoGenerateColumns = false;
             this.unitDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.unitDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.unitIdDataGridViewTextBoxColumn1,
             this.unitNameDataGridViewTextBoxColumn,
+            this.unitIdDataGridViewTextBoxColumn1,
             this.typeUnitIdDataGridViewTextBoxColumn,
             this.datePurchaseDataGridViewTextBoxColumn,
             this.periodDepreciationDataGridViewTextBoxColumn,
             this.costDataGridViewTextBoxColumn,
             this.writeOffDataGridViewCheckBoxColumn});
             this.unitDataGridView.DataSource = this.unitBindingSource;
-            this.unitDataGridView.Location = new System.Drawing.Point(6, 20);
+            this.unitDataGridView.Location = new System.Drawing.Point(6, 57);
             this.unitDataGridView.Name = "unitDataGridView";
             this.unitDataGridView.ReadOnly = true;
             this.unitDataGridView.RowHeadersVisible = false;
             this.unitDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.unitDataGridView.Size = new System.Drawing.Size(787, 336);
+            this.unitDataGridView.Size = new System.Drawing.Size(787, 299);
             this.unitDataGridView.TabIndex = 0;
-            // 
-            // unitIdDataGridViewTextBoxColumn1
-            // 
-            this.unitIdDataGridViewTextBoxColumn1.DataPropertyName = "unitId";
-            this.unitIdDataGridViewTextBoxColumn1.HeaderText = "unitId";
-            this.unitIdDataGridViewTextBoxColumn1.Name = "unitIdDataGridViewTextBoxColumn1";
-            this.unitIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // unitNameDataGridViewTextBoxColumn
-            // 
-            this.unitNameDataGridViewTextBoxColumn.DataPropertyName = "unitName";
-            this.unitNameDataGridViewTextBoxColumn.HeaderText = "unitName";
-            this.unitNameDataGridViewTextBoxColumn.Name = "unitNameDataGridViewTextBoxColumn";
-            this.unitNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeUnitIdDataGridViewTextBoxColumn
-            // 
-            this.typeUnitIdDataGridViewTextBoxColumn.DataPropertyName = "typeUnitId";
-            this.typeUnitIdDataGridViewTextBoxColumn.HeaderText = "typeUnitId";
-            this.typeUnitIdDataGridViewTextBoxColumn.Name = "typeUnitIdDataGridViewTextBoxColumn";
-            this.typeUnitIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // datePurchaseDataGridViewTextBoxColumn
-            // 
-            this.datePurchaseDataGridViewTextBoxColumn.DataPropertyName = "datePurchase";
-            this.datePurchaseDataGridViewTextBoxColumn.HeaderText = "datePurchase";
-            this.datePurchaseDataGridViewTextBoxColumn.Name = "datePurchaseDataGridViewTextBoxColumn";
-            this.datePurchaseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // periodDepreciationDataGridViewTextBoxColumn
-            // 
-            this.periodDepreciationDataGridViewTextBoxColumn.DataPropertyName = "periodDepreciation";
-            this.periodDepreciationDataGridViewTextBoxColumn.HeaderText = "periodDepreciation";
-            this.periodDepreciationDataGridViewTextBoxColumn.Name = "periodDepreciationDataGridViewTextBoxColumn";
-            this.periodDepreciationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // costDataGridViewTextBoxColumn
-            // 
-            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
-            this.costDataGridViewTextBoxColumn.HeaderText = "cost";
-            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
-            this.costDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // writeOffDataGridViewCheckBoxColumn
-            // 
-            this.writeOffDataGridViewCheckBoxColumn.DataPropertyName = "writeOff";
-            this.writeOffDataGridViewCheckBoxColumn.HeaderText = "writeOff";
-            this.writeOffDataGridViewCheckBoxColumn.Name = "writeOffDataGridViewCheckBoxColumn";
-            this.writeOffDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // unitButtonDelete
             // 
@@ -641,6 +566,7 @@
             this.складToolStripMenuItem.Name = "складToolStripMenuItem";
             this.складToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.складToolStripMenuItem.Text = "Склад";
+            this.складToolStripMenuItem.Click += new System.EventHandler(this.СкладToolStripMenuItem_Click);
             // 
             // переоценкаToolStripMenuItem
             // 
@@ -742,26 +668,23 @@
             this.tableAdapterManager.UnitTableAdapter = this.unitTableAdapter;
             this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // comboBox1
+            // buildingFilterComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(111, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 5;
+            this.buildingFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.buildingFilterComboBox.FormattingEnabled = true;
+            this.buildingFilterComboBox.Location = new System.Drawing.Point(111, 20);
+            this.buildingFilterComboBox.Name = "buildingFilterComboBox";
+            this.buildingFilterComboBox.Size = new System.Drawing.Size(121, 23);
+            this.buildingFilterComboBox.TabIndex = 5;
             // 
-            // comboBox2
+            // orgUnitFilterComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(356, 20);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 6;
-            // 
-            // fKInventoryroomN76177A41BindingSource
-            // 
-            this.fKInventoryroomN76177A41BindingSource.DataMember = "FK__Inventory__roomN__76177A41";
-            this.fKInventoryroomN76177A41BindingSource.DataSource = this.roomBindingSource;
+            this.orgUnitFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.orgUnitFilterComboBox.FormattingEnabled = true;
+            this.orgUnitFilterComboBox.Location = new System.Drawing.Point(356, 20);
+            this.orgUnitFilterComboBox.Name = "orgUnitFilterComboBox";
+            this.orgUnitFilterComboBox.Size = new System.Drawing.Size(121, 23);
+            this.orgUnitFilterComboBox.TabIndex = 6;
             // 
             // roomNameDataGridViewTextBoxColumn1
             // 
@@ -784,6 +707,86 @@
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             this.countDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // fKInventoryroomN76177A41BindingSource
+            // 
+            this.fKInventoryroomN76177A41BindingSource.DataMember = "FK__Inventory__roomN__76177A41";
+            this.fKInventoryroomN76177A41BindingSource.DataSource = this.roomBindingSource;
+            // 
+            // unitIdDataGridViewTextBoxColumn2
+            // 
+            this.unitIdDataGridViewTextBoxColumn2.DataPropertyName = "unitId";
+            this.unitIdDataGridViewTextBoxColumn2.HeaderText = "unitId";
+            this.unitIdDataGridViewTextBoxColumn2.Name = "unitIdDataGridViewTextBoxColumn2";
+            this.unitIdDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // costAfterDataGridViewTextBoxColumn
+            // 
+            this.costAfterDataGridViewTextBoxColumn.DataPropertyName = "costAfter";
+            this.costAfterDataGridViewTextBoxColumn.HeaderText = "costAfter";
+            this.costAfterDataGridViewTextBoxColumn.Name = "costAfterDataGridViewTextBoxColumn";
+            this.costAfterDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fKRevaluatiunitI7246E95DBindingSource
+            // 
+            this.fKRevaluatiunitI7246E95DBindingSource.DataMember = "FK__Revaluati__unitI__7246E95D";
+            this.fKRevaluatiunitI7246E95DBindingSource.DataSource = this.unitBindingSource;
+            // 
+            // unitNameDataGridViewTextBoxColumn
+            // 
+            this.unitNameDataGridViewTextBoxColumn.DataPropertyName = "unitName";
+            this.unitNameDataGridViewTextBoxColumn.HeaderText = "unitName";
+            this.unitNameDataGridViewTextBoxColumn.Name = "unitNameDataGridViewTextBoxColumn";
+            this.unitNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitIdDataGridViewTextBoxColumn1
+            // 
+            this.unitIdDataGridViewTextBoxColumn1.DataPropertyName = "unitId";
+            this.unitIdDataGridViewTextBoxColumn1.HeaderText = "unitId";
+            this.unitIdDataGridViewTextBoxColumn1.Name = "unitIdDataGridViewTextBoxColumn1";
+            this.unitIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // typeUnitIdDataGridViewTextBoxColumn
+            // 
+            this.typeUnitIdDataGridViewTextBoxColumn.DataPropertyName = "typeUnitId";
+            this.typeUnitIdDataGridViewTextBoxColumn.HeaderText = "typeUnitId";
+            this.typeUnitIdDataGridViewTextBoxColumn.Name = "typeUnitIdDataGridViewTextBoxColumn";
+            this.typeUnitIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // datePurchaseDataGridViewTextBoxColumn
+            // 
+            this.datePurchaseDataGridViewTextBoxColumn.DataPropertyName = "datePurchase";
+            this.datePurchaseDataGridViewTextBoxColumn.HeaderText = "datePurchase";
+            this.datePurchaseDataGridViewTextBoxColumn.Name = "datePurchaseDataGridViewTextBoxColumn";
+            this.datePurchaseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // periodDepreciationDataGridViewTextBoxColumn
+            // 
+            this.periodDepreciationDataGridViewTextBoxColumn.DataPropertyName = "periodDepreciation";
+            this.periodDepreciationDataGridViewTextBoxColumn.HeaderText = "periodDepreciation";
+            this.periodDepreciationDataGridViewTextBoxColumn.Name = "periodDepreciationDataGridViewTextBoxColumn";
+            this.periodDepreciationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "cost";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            this.costDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // writeOffDataGridViewCheckBoxColumn
+            // 
+            this.writeOffDataGridViewCheckBoxColumn.DataPropertyName = "writeOff";
+            this.writeOffDataGridViewCheckBoxColumn.HeaderText = "writeOff";
+            this.writeOffDataGridViewCheckBoxColumn.Name = "writeOffDataGridViewCheckBoxColumn";
+            this.writeOffDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -802,7 +805,6 @@
             this.tabPage6.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKRevaluatiunitI7246E95DBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -821,6 +823,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKInventoryroomN76177A41BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKRevaluatiunitI7246E95DBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -863,13 +866,6 @@
         private PropertyRegisterDataSetTableAdapters.InventoryTableAdapter inventoryTableAdapter;
         private System.Windows.Forms.BindingSource unitBindingSource;
         private PropertyRegisterDataSetTableAdapters.UnitTableAdapter unitTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitIdDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeUnitIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn datePurchaseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn periodDepreciationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn writeOffDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource fKRevaluatiunitI7246E95DBindingSource;
         private PropertyRegisterDataSetTableAdapters.RevaluationTableAdapter revaluationTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitIdDataGridViewTextBoxColumn2;
@@ -898,12 +894,19 @@
         private PropertyRegisterDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem складToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox orgUnitFilterComboBox;
+        private System.Windows.Forms.ComboBox buildingFilterComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource fKInventoryroomN76177A41BindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeUnitIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datePurchaseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn periodDepreciationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn writeOffDataGridViewCheckBoxColumn;
     }
 }
 

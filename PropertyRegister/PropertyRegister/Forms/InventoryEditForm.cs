@@ -35,19 +35,51 @@ namespace PropertyRegister.Forms
             this.inventoryRow = propertyRegisterDataSet.Inventory.FindByroomNameunitId(roomName,unitId);
 
             countNumericUpDown.DataBindings.Add("Text", inventoryRow, "count");
-           // countNumericUpDown.Maximum = propertyRegisterDataSet.Storage.FindByunitId((int)unitIdComboBox.SelectedValue).count;
+           
         }
 
         private void InventoryFormEdit_Load(object sender, EventArgs e)
         {
-            unitIdComboBox.DataSource = propertyRegisterDataSet.Unit;
+            // получим все имущество по имени помещения
+            var tmp = propertyRegisterDataSet.Inventory
+                .Where(x => x.roomName == inventoryRow.roomName)
+                .Select(x => x.unitId)                              /*получаем все имущество*/
+                .ToList();
+
+            if (unitId != -1) tmp.Remove(unitId);                   /*удалим unitId что-бы он остался в коллекции*/
+
+            var tmp1 = propertyRegisterDataSet.Unit.Join(
+                propertyRegisterDataSet.Storage                     /*второй набор*/
+                    .Select(x => x.unitId)                          /*получаем все имущество со склада*/
+                    .ToList()
+                    .Except(tmp),                                   /*выдаем все элементы которых нет в tmp*/
+                p => p.unitId,                                      /*свойство-селектор объекта из первого набора*/
+                x => x,                                             /*свойство-селектор объекта из второго набора*/
+                (p, x) => new { p.unitId, p.unitName }              /*результат*/
+                )
+                .ToList();
+
+            if (tmp1.Count == 0)
+            {
+                MessageBox.Show("Больше нет имущества на складе для этого помещения.");
+                this.Close();
+            }
+
+            unitIdComboBox.DataSource = tmp1;
             unitIdComboBox.DisplayMember = "unitName";
             unitIdComboBox.ValueMember = "unitId";
             if (unitId != -1) unitIdComboBox.SelectedValue = inventoryRow.unitId;
+
+            UnitIdComboBox_SelectedIndexChanged(sender, e);
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
+            if (int.Parse(countNumericUpDown.Text) == 0)
+            {
+                MessageBox.Show("Укажите кол-во");
+                return;
+            }
             inventoryRow.unitId = (int)unitIdComboBox.SelectedValue;
             inventoryRow.count = int.Parse(countNumericUpDown.Text);
 
@@ -70,9 +102,11 @@ namespace PropertyRegister.Forms
 
         private void UnitIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (unitIdComboBox.SelectedValue == null || unitIdComboBox.SelectedIndex == -1) return;
-            //int tmp = unitIdComboBox.SelectedValue as int;
-            //countStorageLabel.Text ="На складе: "+ propertyRegisterDataSet.Storage.FindByunitId(tmp).count.ToString();
+            if (!(unitIdComboBox.SelectedValue is int)) return; // не большой костыль
+
+            int tmp = propertyRegisterDataSet.Storage.FindByunitId((int)unitIdComboBox.SelectedValue).count;
+            countStorageLabel.Text = "На складе: " + tmp.ToString();
+            countNumericUpDown.Maximum = tmp;
         }
     }
 }

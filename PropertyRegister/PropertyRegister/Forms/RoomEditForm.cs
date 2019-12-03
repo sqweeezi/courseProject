@@ -91,6 +91,7 @@ namespace PropertyRegister.Forms
             }
             finally
             {
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }

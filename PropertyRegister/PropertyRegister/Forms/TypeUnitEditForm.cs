@@ -12,9 +12,47 @@ namespace PropertyRegister.Forms
 {
     public partial class TypeUnitEditForm : Form
     {
+
+        private PropertyRegisterDataSet propertyRegisterDataSet;
+        private PropertyRegisterDataSet.TypeUnitRow typeUnitRow;
+        private int typeUnitId = -1;
+
         public TypeUnitEditForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            this.typeUnitRow = propertyRegisterDataSet.TypeUnit.NewTypeUnitRow();
+        }
+
+        public TypeUnitEditForm(PropertyRegisterDataSet propertyRegisterDataSet, int typeUnitId)
+        {
+            InitializeComponent();
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            this.typeUnitId = typeUnitId;
+            this.typeUnitRow = propertyRegisterDataSet.TypeUnit.FindBytypeUnitId(typeUnitId);
+
+            typeTextBox.DataBindings.Add("Text", typeUnitRow, "type");
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            typeUnitRow.type = typeTextBox.Text;
+
+            try
+            {
+                if (typeUnitId == -1) propertyRegisterDataSet.TypeUnit.AddTypeUnitRow(typeUnitRow);
+                new PropertyRegisterDataSetTableAdapters.TypeUnitTableAdapter().Update(typeUnitRow);
+                propertyRegisterDataSet.TypeUnit.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

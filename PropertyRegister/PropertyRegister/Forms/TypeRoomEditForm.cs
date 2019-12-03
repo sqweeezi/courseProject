@@ -30,7 +30,7 @@ namespace PropertyRegister.Forms
             this.typeRoomId = typeRoomId;
             this.typeRoomRow = propertyRegisterDataSet.TypeRoom.FindBytypeRoomId(typeRoomId);
 
-            typeTextBox.DataBindings.Add("Text", typeRoomRow, "target");
+            typeTextBox.DataBindings.Add("Text", typeRoomRow, "type");
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
@@ -49,6 +49,7 @@ namespace PropertyRegister.Forms
             }
             finally
             {
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
