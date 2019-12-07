@@ -31,9 +31,17 @@ namespace PropertyRegister.Forms
             this.unitRow = propertyRegisterDataSet.Unit.FindByunitId(unitId);
 
             unitNameTextBox.DataBindings.Add("Text", unitRow, "unitName");
-            datePurchaseDateTimePicker.DataBindings.Add("Text", unitRow, "dateStart");
+            datePurchaseDateTimePicker.DataBindings.Add("Text", unitRow, "datePurchase");
+            timeEndNumericUpDown.DataBindings.Add("Text", unitRow, "periodDepreciation");
             costNumericUpDown.DataBindings.Add("Text", unitRow, "cost");
-            timeEndNumericUpDown.DataBindings.Add("Text", unitRow, "timeEnd");
+        }
+
+        private void UnitFormEdit_Load(object sender, EventArgs e)
+        {
+            typeUnitIdComboBox.DataSource = propertyRegisterDataSet.TypeUnit;
+            typeUnitIdComboBox.DisplayMember = "type";
+            typeUnitIdComboBox.ValueMember = "typeUnitId";
+            if (unitId != -1) typeUnitIdComboBox.SelectedValue = unitRow.typeUnitId;
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)

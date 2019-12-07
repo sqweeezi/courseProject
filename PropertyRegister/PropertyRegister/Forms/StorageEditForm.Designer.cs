@@ -34,82 +34,94 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCLose = new System.Windows.Forms.Button();
             this.countNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             unitIdLabel = new System.Windows.Forms.Label();
             countLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // unitIdLabel
             // 
             unitIdLabel.AutoSize = true;
-            unitIdLabel.Location = new System.Drawing.Point(106, 18);
+            unitIdLabel.Location = new System.Drawing.Point(17, 21);
             unitIdLabel.Name = "unitIdLabel";
-            unitIdLabel.Size = new System.Drawing.Size(45, 16);
+            unitIdLabel.Size = new System.Drawing.Size(85, 16);
             unitIdLabel.TabIndex = 1;
-            unitIdLabel.Text = "unit Id:";
+            unitIdLabel.Text = "Имущество:";
             // 
             // countLabel
             // 
             countLabel.AutoSize = true;
-            countLabel.Location = new System.Drawing.Point(106, 48);
+            countLabel.Location = new System.Drawing.Point(44, 51);
             countLabel.Name = "countLabel";
-            countLabel.Size = new System.Drawing.Size(43, 16);
+            countLabel.Size = new System.Drawing.Size(55, 16);
             countLabel.TabIndex = 3;
-            countLabel.Text = "count:";
+            countLabel.Text = "Кол-во:";
             // 
             // unitIdComboBox
             // 
             this.unitIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.unitIdComboBox.FormattingEnabled = true;
-            this.unitIdComboBox.Location = new System.Drawing.Point(159, 14);
+            this.unitIdComboBox.Location = new System.Drawing.Point(105, 18);
             this.unitIdComboBox.Name = "unitIdComboBox";
-            this.unitIdComboBox.Size = new System.Drawing.Size(140, 23);
+            this.unitIdComboBox.Size = new System.Drawing.Size(200, 23);
             this.unitIdComboBox.TabIndex = 5;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(104, 99);
+            this.buttonSave.Location = new System.Drawing.Point(137, 118);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(87, 27);
             this.buttonSave.TabIndex = 6;
-            this.buttonSave.Text = "button1";
+            this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // buttonCLose
             // 
-            this.buttonCLose.Location = new System.Drawing.Point(198, 99);
+            this.buttonCLose.Location = new System.Drawing.Point(230, 118);
             this.buttonCLose.Name = "buttonCLose";
             this.buttonCLose.Size = new System.Drawing.Size(87, 27);
             this.buttonCLose.TabIndex = 7;
-            this.buttonCLose.Text = "button2";
+            this.buttonCLose.Text = "Отмена";
             this.buttonCLose.UseVisualStyleBackColor = true;
             // 
             // countNumericUpDown
             // 
-            this.countNumericUpDown.Location = new System.Drawing.Point(159, 43);
+            this.countNumericUpDown.Location = new System.Drawing.Point(105, 49);
             this.countNumericUpDown.Name = "countNumericUpDown";
             this.countNumericUpDown.Size = new System.Drawing.Size(56, 21);
             this.countNumericUpDown.TabIndex = 9;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.countNumericUpDown);
+            this.groupBox1.Controls.Add(countLabel);
+            this.groupBox1.Controls.Add(unitIdLabel);
+            this.groupBox1.Controls.Add(this.unitIdComboBox);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(320, 100);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
             // 
             // StorageEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 196);
-            this.Controls.Add(this.countNumericUpDown);
+            this.ClientSize = new System.Drawing.Size(349, 160);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCLose);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.unitIdComboBox);
-            this.Controls.Add(unitIdLabel);
-            this.Controls.Add(countLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "StorageEditForm";
             this.Text = "StorageEditForm";
             this.Load += new System.EventHandler(this.StorageEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCLose;
         private System.Windows.Forms.NumericUpDown countNumericUpDown;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

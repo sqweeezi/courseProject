@@ -35,6 +35,7 @@ namespace PropertyRegister.Forms
 
         private void StorageEditForm_Load(object sender, EventArgs e)
         {
+            
             unitIdComboBox.DataSource = propertyRegisterDataSet.Unit;
             unitIdComboBox.DisplayMember = "unitName";
             unitIdComboBox.ValueMember = "unitId";

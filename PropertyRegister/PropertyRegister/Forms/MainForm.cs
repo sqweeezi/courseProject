@@ -24,6 +24,8 @@ namespace PropertyRegister
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.TypeUnit". При необходимости она может быть перемещена или удалена.
+            this.typeUnitTableAdapter.Fill(this.propertyRegisterDataSet.TypeUnit);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Storage". При необходимости она может быть перемещена или удалена.
             this.storageTableAdapter.Fill(this.propertyRegisterDataSet.Storage);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Building". При необходимости она может быть перемещена или удалена.
@@ -56,6 +58,8 @@ namespace PropertyRegister
             //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).ValueMember = "chiefId";
 
 
+            #region Всячина для фильтрации
+
             // Комбобоксы для фильтрации
             var buildingCB = propertyRegisterDataSet.Building
                 .Select(x => new { x.buildingId, x.buildingName })
@@ -67,8 +71,8 @@ namespace PropertyRegister
             buildingFilterComboBox.DataSource = buildingCB;
             buildingFilterComboBox.DisplayMember = "buildingName";
             buildingFilterComboBox.ValueMember = "buildingId";
+            buildingFilterComboBox.SelectedIndexChanged += (s, ea) => { RoomFilter(); };
 
-            buildingFilterComboBox.SelectedIndexChanged += (s, ea) => { roomFilter(); };
 
             var orgUnitCB = propertyRegisterDataSet.OrgUnit
                 .Select(x => new { x.orgUnitId, x.orgUnitName })
@@ -80,12 +84,28 @@ namespace PropertyRegister
             orgUnitFilterComboBox.DataSource = orgUnitCB;
             orgUnitFilterComboBox.DisplayMember = "orgUnitName";
             orgUnitFilterComboBox.ValueMember = "orgUnitId";
+            orgUnitFilterComboBox.SelectedIndexChanged += (s, ea) => { RoomFilter(); };
 
-            orgUnitFilterComboBox.SelectedIndexChanged += (s, ea) => { roomFilter(); };
 
+            var typeUnitCB = propertyRegisterDataSet.TypeUnit
+                .Select(x => new { x.typeUnitId, x.type })
+                .ToList();
+
+            // добавим пустое поле
+            typeUnitCB.Insert(0, new { typeUnitId = -1, type = "Нет" });
+
+            typeUnitFilterComboBox.DataSource = typeUnitCB;
+            typeUnitFilterComboBox.DisplayMember = "type";
+            typeUnitFilterComboBox.ValueMember = "typeUnitId";
+            typeUnitFilterComboBox.SelectedIndexChanged += (s, ea) => { UnitFilter(); };
+
+
+            writeOffheckBox.CheckedChanged += (s, ea) => { UnitFilter(); };
+
+            #endregion
         }
 
-        private void roomFilter()
+        private void RoomFilter()
         {
             int first = (buildingFilterComboBox.SelectedValue == null ? -1 : (int)buildingFilterComboBox.SelectedValue);
             int second = (orgUnitFilterComboBox.SelectedValue == null ? -1 : (int)orgUnitFilterComboBox.SelectedValue);
@@ -93,6 +113,16 @@ namespace PropertyRegister
                 (first != -1 ? "buildingId = '" + first + "'" : "") +
                 (first != -1 && second != -1 ? " and " : "") +
                 (second != -1 ? "orgUnitId = '" + second + "'" : "");
+        }
+
+        private void UnitFilter()
+        {
+            int first = (typeUnitFilterComboBox.SelectedValue == null ? -1 : (int)typeUnitFilterComboBox.SelectedValue);
+            bool second = writeOffheckBox.Checked;
+            unitBindingSource.Filter =
+                (first != -1 ? "typeUnitId = '" + first + "'" : "") +
+                (first != -1 && second ? " and " : "") +
+                (second ? "writeOff = '" + second + "'" : "");
         }
 
         /// <summary>
@@ -171,7 +201,10 @@ namespace PropertyRegister
 
         private void RoomButtonEdit_Click(object sender, EventArgs e)
         {
-            RoomEditForm form = new RoomEditForm(propertyRegisterDataSet, roomDataGridView.CurrentRow.Cells[0].Value.ToString());
+            RoomEditForm form = new RoomEditForm(
+                propertyRegisterDataSet, 
+                roomDataGridView.CurrentRow.Cells[0].Value.ToString()
+                );
             form.ShowDialog();
         }
 
@@ -246,7 +279,9 @@ namespace PropertyRegister
 
         private void UnitButtonEdit_Click(object sender, EventArgs e)
         {
-            UnitFormEdit form = new UnitFormEdit(propertyRegisterDataSet, (int)unitDataGridView.CurrentRow.Cells[1].Value);
+            UnitFormEdit form = new UnitFormEdit(
+                propertyRegisterDataSet, 
+                (int)unitDataGridView.CurrentRow.Cells[1].Value);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 unitBindingSource.ResetBindings(false);

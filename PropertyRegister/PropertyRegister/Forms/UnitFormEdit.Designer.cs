@@ -161,6 +161,7 @@
             // 
             // typeUnitIdComboBox
             // 
+            this.typeUnitIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeUnitIdComboBox.FormattingEnabled = true;
             this.typeUnitIdComboBox.Location = new System.Drawing.Point(186, 47);
             this.typeUnitIdComboBox.Name = "typeUnitIdComboBox";
@@ -194,6 +195,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "UnitFormEdit";
             this.Text = "UnitFormEdit";
+            this.Load += new System.EventHandler(this.UnitFormEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

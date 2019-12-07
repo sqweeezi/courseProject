@@ -94,9 +94,6 @@
             this.unitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fKInventoryroomN76177A41BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.unitIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costAfterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fKRevaluatiunitI7246E95DBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.unitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,6 +102,16 @@
             this.periodDepreciationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.writeOffDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.typeUnitFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.writeOffheckBox = new System.Windows.Forms.CheckBox();
+            this.typeUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typeUnitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TypeUnitTableAdapter();
+            this.unitIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costAfterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlMain.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -127,6 +134,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKInventoryroomN76177A41BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKRevaluatiunitI7246E95DBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeUnitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -239,6 +247,8 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.orgUnitFilterComboBox);
             this.groupBox3.Controls.Add(this.buildingFilterComboBox);
             this.groupBox3.Controls.Add(this.roomDataGridView);
@@ -407,7 +417,7 @@
             this.revaluationDataGridView.ReadOnly = true;
             this.revaluationDataGridView.RowHeadersVisible = false;
             this.revaluationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.revaluationDataGridView.Size = new System.Drawing.Size(447, 319);
+            this.revaluationDataGridView.Size = new System.Drawing.Size(447, 369);
             this.revaluationDataGridView.TabIndex = 1;
             // 
             // groupBox1
@@ -415,6 +425,9 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.writeOffheckBox);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.typeUnitFilterComboBox);
             this.groupBox1.Controls.Add(this.unitDataGridView);
             this.groupBox1.Controls.Add(this.unitButtonDelete);
             this.groupBox1.Controls.Add(this.unitButtonAdd);
@@ -444,12 +457,12 @@
             this.costDataGridViewTextBoxColumn,
             this.writeOffDataGridViewCheckBoxColumn});
             this.unitDataGridView.DataSource = this.unitBindingSource;
-            this.unitDataGridView.Location = new System.Drawing.Point(6, 57);
+            this.unitDataGridView.Location = new System.Drawing.Point(6, 49);
             this.unitDataGridView.Name = "unitDataGridView";
             this.unitDataGridView.ReadOnly = true;
             this.unitDataGridView.RowHeadersVisible = false;
             this.unitDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.unitDataGridView.Size = new System.Drawing.Size(787, 299);
+            this.unitDataGridView.Size = new System.Drawing.Size(787, 307);
             this.unitDataGridView.TabIndex = 0;
             // 
             // unitButtonDelete
@@ -672,18 +685,18 @@
             // 
             this.buildingFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.buildingFilterComboBox.FormattingEnabled = true;
-            this.buildingFilterComboBox.Location = new System.Drawing.Point(111, 20);
+            this.buildingFilterComboBox.Location = new System.Drawing.Point(175, 20);
             this.buildingFilterComboBox.Name = "buildingFilterComboBox";
-            this.buildingFilterComboBox.Size = new System.Drawing.Size(121, 23);
+            this.buildingFilterComboBox.Size = new System.Drawing.Size(167, 23);
             this.buildingFilterComboBox.TabIndex = 5;
             // 
             // orgUnitFilterComboBox
             // 
             this.orgUnitFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.orgUnitFilterComboBox.FormattingEnabled = true;
-            this.orgUnitFilterComboBox.Location = new System.Drawing.Point(356, 20);
+            this.orgUnitFilterComboBox.Location = new System.Drawing.Point(490, 20);
             this.orgUnitFilterComboBox.Name = "orgUnitFilterComboBox";
-            this.orgUnitFilterComboBox.Size = new System.Drawing.Size(121, 23);
+            this.orgUnitFilterComboBox.Size = new System.Drawing.Size(171, 23);
             this.orgUnitFilterComboBox.TabIndex = 6;
             // 
             // roomNameDataGridViewTextBoxColumn1
@@ -711,27 +724,6 @@
             // 
             this.fKInventoryroomN76177A41BindingSource.DataMember = "FK__Inventory__roomN__76177A41";
             this.fKInventoryroomN76177A41BindingSource.DataSource = this.roomBindingSource;
-            // 
-            // unitIdDataGridViewTextBoxColumn2
-            // 
-            this.unitIdDataGridViewTextBoxColumn2.DataPropertyName = "unitId";
-            this.unitIdDataGridViewTextBoxColumn2.HeaderText = "unitId";
-            this.unitIdDataGridViewTextBoxColumn2.Name = "unitIdDataGridViewTextBoxColumn2";
-            this.unitIdDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // costAfterDataGridViewTextBoxColumn
-            // 
-            this.costAfterDataGridViewTextBoxColumn.DataPropertyName = "costAfter";
-            this.costAfterDataGridViewTextBoxColumn.HeaderText = "costAfter";
-            this.costAfterDataGridViewTextBoxColumn.Name = "costAfterDataGridViewTextBoxColumn";
-            this.costAfterDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fKRevaluatiunitI7246E95DBindingSource
             // 
@@ -787,6 +779,82 @@
             this.writeOffDataGridViewCheckBoxColumn.Name = "writeOffDataGridViewCheckBoxColumn";
             this.writeOffDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Фильтрация по зданию:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(348, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "по подразделению:";
+            // 
+            // typeUnitFilterComboBox
+            // 
+            this.typeUnitFilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeUnitFilterComboBox.FormattingEnabled = true;
+            this.typeUnitFilterComboBox.Location = new System.Drawing.Point(156, 20);
+            this.typeUnitFilterComboBox.Name = "typeUnitFilterComboBox";
+            this.typeUnitFilterComboBox.Size = new System.Drawing.Size(240, 23);
+            this.typeUnitFilterComboBox.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(144, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Фильтрация по типу:";
+            // 
+            // writeOffheckBox
+            // 
+            this.writeOffheckBox.AutoSize = true;
+            this.writeOffheckBox.Location = new System.Drawing.Point(417, 23);
+            this.writeOffheckBox.Name = "writeOffheckBox";
+            this.writeOffheckBox.Size = new System.Drawing.Size(247, 20);
+            this.writeOffheckBox.TabIndex = 7;
+            this.writeOffheckBox.Text = "Показывать списаное имущество";
+            this.writeOffheckBox.UseVisualStyleBackColor = true;
+            // 
+            // typeUnitBindingSource
+            // 
+            this.typeUnitBindingSource.DataMember = "TypeUnit";
+            this.typeUnitBindingSource.DataSource = this.propertyRegisterDataSet;
+            // 
+            // typeUnitTableAdapter
+            // 
+            this.typeUnitTableAdapter.ClearBeforeFill = true;
+            // 
+            // unitIdDataGridViewTextBoxColumn2
+            // 
+            this.unitIdDataGridViewTextBoxColumn2.DataPropertyName = "unitId";
+            this.unitIdDataGridViewTextBoxColumn2.HeaderText = "unitId";
+            this.unitIdDataGridViewTextBoxColumn2.Name = "unitIdDataGridViewTextBoxColumn2";
+            this.unitIdDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // costAfterDataGridViewTextBoxColumn
+            // 
+            this.costAfterDataGridViewTextBoxColumn.DataPropertyName = "costAfter";
+            this.costAfterDataGridViewTextBoxColumn.HeaderText = "costAfter";
+            this.costAfterDataGridViewTextBoxColumn.Name = "costAfterDataGridViewTextBoxColumn";
+            this.costAfterDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -808,12 +876,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.unitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.revaluationDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -824,6 +894,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKInventoryroomN76177A41BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKRevaluatiunitI7246E95DBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeUnitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -868,9 +939,6 @@
         private PropertyRegisterDataSetTableAdapters.UnitTableAdapter unitTableAdapter;
         private System.Windows.Forms.BindingSource fKRevaluatiunitI7246E95DBindingSource;
         private PropertyRegisterDataSetTableAdapters.RevaluationTableAdapter revaluationTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitIdDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costAfterDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource buildingBindingSource;
         private PropertyRegisterDataSetTableAdapters.BuildingTableAdapter buildingTableAdapter;
         private System.Windows.Forms.BindingSource typeRoomBindingSource;
@@ -907,6 +975,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn periodDepreciationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn writeOffDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox typeUnitFilterComboBox;
+        private System.Windows.Forms.CheckBox writeOffheckBox;
+        private System.Windows.Forms.BindingSource typeUnitBindingSource;
+        private PropertyRegisterDataSetTableAdapters.TypeUnitTableAdapter typeUnitTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitIdDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costAfterDataGridViewTextBoxColumn;
     }
 }
 
