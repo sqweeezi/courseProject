@@ -75,7 +75,6 @@
             this.tableAdapterManager.TypeRoomTableAdapter = null;
             this.tableAdapterManager.TypeUnitTableAdapter = null;
             this.tableAdapterManager.UnitTableAdapter = null;
-            this.tableAdapterManager.UnitWriteOffTableAdapter = this.unitWriteOffTableAdapter;
             this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // unitWriteOffDataGridView

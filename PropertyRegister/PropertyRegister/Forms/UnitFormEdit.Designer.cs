@@ -180,9 +180,19 @@
             // timeEndNumericUpDown
             // 
             this.timeEndNumericUpDown.Location = new System.Drawing.Point(186, 130);
+            this.timeEndNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.timeEndNumericUpDown.Name = "timeEndNumericUpDown";
             this.timeEndNumericUpDown.Size = new System.Drawing.Size(120, 21);
             this.timeEndNumericUpDown.TabIndex = 12;
+            this.timeEndNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // UnitFormEdit
             // 

@@ -68,14 +68,6 @@ namespace PropertyRegister {
         
         private global::System.Data.DataRelation relationFK__Unit__typeUnitId__67C95AEA;
         
-        private global::System.Data.DataRelation relationFK__Revaluati__unitI__186C9245;
-        
-        private global::System.Data.DataRelation relationFK__Revaluati__unitI__186C92451;
-        
-        private global::System.Data.DataRelation relationFK__Storage__unitId__11BF94B6;
-        
-        private global::System.Data.DataRelation relationFK__Unit__typeUnitId__0DEF03D2;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -496,10 +488,6 @@ namespace PropertyRegister {
             this.relationFK__Room__typeRoomId__611C5D5B = this.Relations["FK__Room__typeRoomId__611C5D5B"];
             this.relationFK__Storage__unitId__6B99EBCE = this.Relations["FK__Storage__unitId__6B99EBCE"];
             this.relationFK__Unit__typeUnitId__67C95AEA = this.Relations["FK__Unit__typeUnitId__67C95AEA"];
-            this.relationFK__Revaluati__unitI__186C9245 = this.Relations["FK__Revaluati__unitI__186C9245"];
-            this.relationFK__Revaluati__unitI__186C92451 = this.Relations["FK__Revaluati__unitI__186C92451"];
-            this.relationFK__Storage__unitId__11BF94B6 = this.Relations["FK__Storage__unitId__11BF94B6"];
-            this.relationFK__Unit__typeUnitId__0DEF03D2 = this.Relations["FK__Unit__typeUnitId__0DEF03D2"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -574,22 +562,6 @@ namespace PropertyRegister {
                         this.tableTypeUnit.typeUnitIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableUnit.typeUnitIdColumn}, false);
             this.Relations.Add(this.relationFK__Unit__typeUnitId__67C95AEA);
-            this.relationFK__Revaluati__unitI__186C9245 = new global::System.Data.DataRelation("FK__Revaluati__unitI__186C9245", new global::System.Data.DataColumn[] {
-                        this.tableUnit.unitIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableNotRevaluation.unitIdColumn}, false);
-            this.Relations.Add(this.relationFK__Revaluati__unitI__186C9245);
-            this.relationFK__Revaluati__unitI__186C92451 = new global::System.Data.DataRelation("FK__Revaluati__unitI__186C92451", new global::System.Data.DataColumn[] {
-                        this.tableUnitWriteOff.unitIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRevaluation.unitIdColumn}, false);
-            this.Relations.Add(this.relationFK__Revaluati__unitI__186C92451);
-            this.relationFK__Storage__unitId__11BF94B6 = new global::System.Data.DataRelation("FK__Storage__unitId__11BF94B6", new global::System.Data.DataColumn[] {
-                        this.tableUnitWriteOff.unitIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableStorage.unitIdColumn}, false);
-            this.Relations.Add(this.relationFK__Storage__unitId__11BF94B6);
-            this.relationFK__Unit__typeUnitId__0DEF03D2 = new global::System.Data.DataRelation("FK__Unit__typeUnitId__0DEF03D2", new global::System.Data.DataColumn[] {
-                        this.tableTypeUnit.typeUnitIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableUnitWriteOff.typeUnitIdColumn}, false);
-            this.Relations.Add(this.relationFK__Unit__typeUnitId__0DEF03D2);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3998,10 +3970,10 @@ namespace PropertyRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NotRevaluationRow AddNotRevaluationRow(string unitName, System.DateTime date, decimal costAfter) {
+            public NotRevaluationRow AddNotRevaluationRow(int unitId, string unitName, System.DateTime date, decimal costAfter) {
                 NotRevaluationRow rowNotRevaluationRow = ((NotRevaluationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        unitId,
                         unitName,
                         date,
                         costAfter};
@@ -4053,11 +4025,7 @@ namespace PropertyRegister {
                 base.Columns.Add(this.columncostAfter);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnunitId}, true));
-                this.columnunitId.AutoIncrement = true;
-                this.columnunitId.AutoIncrementSeed = -1;
-                this.columnunitId.AutoIncrementStep = -1;
                 this.columnunitId.AllowDBNull = false;
-                this.columnunitId.ReadOnly = true;
                 this.columnunitId.Unique = true;
                 this.columnunitName.AllowDBNull = false;
                 this.columnunitName.MaxLength = 30;
@@ -4335,19 +4303,16 @@ namespace PropertyRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UnitWriteOffRow AddUnitWriteOffRow(string unitName, TypeUnitRow parentTypeUnitRowByFK__Unit__typeUnitId__0DEF03D2, System.DateTime datePurchase, int periodDepreciation, decimal cost, bool writeOff) {
+            public UnitWriteOffRow AddUnitWriteOffRow(string unitName, int typeUnitId, System.DateTime datePurchase, int periodDepreciation, decimal cost, bool writeOff) {
                 UnitWriteOffRow rowUnitWriteOffRow = ((UnitWriteOffRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         unitName,
-                        null,
+                        typeUnitId,
                         datePurchase,
                         periodDepreciation,
                         cost,
                         writeOff};
-                if ((parentTypeUnitRowByFK__Unit__typeUnitId__0DEF03D2 != null)) {
-                    columnValuesArray[2] = parentTypeUnitRowByFK__Unit__typeUnitId__0DEF03D2[0];
-                }
                 rowUnitWriteOffRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUnitWriteOffRow);
                 return rowUnitWriteOffRow;
@@ -4997,17 +4962,6 @@ namespace PropertyRegister {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Revaluati__unitI__7246E95D"]);
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UnitWriteOffRow UnitWriteOffRow {
-                get {
-                    return ((UnitWriteOffRow)(this.GetParentRow(this.Table.ParentRelations["FK__Revaluati__unitI__186C92451"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Revaluati__unitI__186C92451"]);
-                }
-            }
         }
         
         /// <summary>
@@ -5206,17 +5160,6 @@ namespace PropertyRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UnitWriteOffRow UnitWriteOffRow {
-                get {
-                    return ((UnitWriteOffRow)(this.GetParentRow(this.Table.ParentRelations["FK__Storage__unitId__11BF94B6"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Storage__unitId__11BF94B6"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public InventoryRow[] GetInventoryRows() {
                 if ((this.Table.ChildRelations["FK__Inventory__unitI__770B9E7A"] == null)) {
                     return new InventoryRow[0];
@@ -5319,17 +5262,6 @@ namespace PropertyRegister {
                 }
                 else {
                     return ((UnitRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Unit__typeUnitId__67C95AEA"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UnitWriteOffRow[] GetUnitWriteOffRows() {
-                if ((this.Table.ChildRelations["FK__Unit__typeUnitId__0DEF03D2"] == null)) {
-                    return new UnitWriteOffRow[0];
-                }
-                else {
-                    return ((UnitWriteOffRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Unit__typeUnitId__0DEF03D2"])));
                 }
             }
         }
@@ -5474,17 +5406,6 @@ namespace PropertyRegister {
                     return ((StorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Storage__unitId__6B99EBCE"])));
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NotRevaluationRow[] GetNotRevaluationRows() {
-                if ((this.Table.ChildRelations["FK__Revaluati__unitI__186C9245"] == null)) {
-                    return new NotRevaluationRow[0];
-                }
-                else {
-                    return ((NotRevaluationRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Revaluati__unitI__186C9245"])));
-                }
-            }
         }
         
         /// <summary>
@@ -5552,17 +5473,6 @@ namespace PropertyRegister {
                 }
                 set {
                     this[this.tableNotRevaluation.costAfterColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UnitRow UnitRow {
-                get {
-                    return ((UnitRow)(this.GetParentRow(this.Table.ParentRelations["FK__Revaluati__unitI__186C9245"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Revaluati__unitI__186C9245"]);
                 }
             }
             
@@ -5689,17 +5599,6 @@ namespace PropertyRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TypeUnitRow TypeUnitRow {
-                get {
-                    return ((TypeUnitRow)(this.GetParentRow(this.Table.ParentRelations["FK__Unit__typeUnitId__0DEF03D2"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Unit__typeUnitId__0DEF03D2"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IswriteOffNull() {
                 return this.IsNull(this.tableUnitWriteOff.writeOffColumn);
             }
@@ -5708,28 +5607,6 @@ namespace PropertyRegister {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetwriteOffNull() {
                 this[this.tableUnitWriteOff.writeOffColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RevaluationRow[] GetRevaluationRows() {
-                if ((this.Table.ChildRelations["FK__Revaluati__unitI__186C92451"] == null)) {
-                    return new RevaluationRow[0];
-                }
-                else {
-                    return ((RevaluationRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Revaluati__unitI__186C92451"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public StorageRow[] GetStorageRows() {
-                if ((this.Table.ChildRelations["FK__Storage__unitId__11BF94B6"] == null)) {
-                    return new StorageRow[0];
-                }
-                else {
-                    return ((StorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Storage__unitId__11BF94B6"])));
-                }
             }
         }
         
@@ -9791,16 +9668,7 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT DISTINCT x.unitId, x.unitName, Revaluation.date, CAST((x.periodDepreciation - (YEAR(GETDATE()) - YEAR(x.datePurchase))) * x.cost / x.periodDepreciation AS decimal(17, 2)) AS costAfter
-FROM            Unit AS x LEFT OUTER JOIN
-                         Revaluation ON x.unitId = Revaluation.unitId
-WHERE        (DATEADD(year, 1,
-                             (SELECT        MAX(date) AS Expr1
-                               FROM            Revaluation AS Revaluation_2
-                               WHERE        (unitId = x.unitId))) < GETDATE()) AND (Revaluation.date =
-                             (SELECT        MAX(date) AS Expr1
-                               FROM            Revaluation AS Revaluation_1
-                               WHERE        (unitId = x.unitId)))";
+            this._commandCollection[0].CommandText = "SELECT        unitId, unitName, date, costAfter\r\nFROM            NotRevaluation";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9958,49 +9826,6 @@ WHERE        (DATEADD(year, 1,
             tableMapping.ColumnMappings.Add("cost", "cost");
             tableMapping.ColumnMappings.Add("writeOff", "writeOff");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Unit] WHERE (([unitId] = @Original_unitId) AND ([unitName] = @Original_unitName) AND ([typeUnitId] = @Original_typeUnitId) AND ([datePurchase] = @Original_datePurchase) AND ([periodDepreciation] = @Original_periodDepreciation) AND ([cost] = @Original_cost) AND ((@IsNull_writeOff = 1 AND [writeOff] IS NULL) OR ([writeOff] = @Original_writeOff)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_unitId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_unitName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_typeUnitId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typeUnitId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_datePurchase", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "datePurchase", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_periodDepreciation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "periodDepreciation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "cost", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_writeOff", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "writeOff", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_writeOff", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "writeOff", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Unit] ([unitName], [typeUnitId], [datePurchase], [periodDepreciation], [cost], [writeOff]) VALUES (@unitName, @typeUnitId, @datePurchase, @periodDepreciation, @cost, @writeOff);
-SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, writeOff FROM Unit WHERE (unitId = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@unitName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typeUnitId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typeUnitId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@datePurchase", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "datePurchase", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@periodDepreciation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "periodDepreciation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@writeOff", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "writeOff", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Unit] SET [unitName] = @unitName, [typeUnitId] = @typeUnitId, [datePurchase] = @datePurchase, [periodDepreciation] = @periodDepreciation, [cost] = @cost, [writeOff] = @writeOff WHERE (([unitId] = @Original_unitId) AND ([unitName] = @Original_unitName) AND ([typeUnitId] = @Original_typeUnitId) AND ([datePurchase] = @Original_datePurchase) AND ([periodDepreciation] = @Original_periodDepreciation) AND ([cost] = @Original_cost) AND ((@IsNull_writeOff = 1 AND [writeOff] IS NULL) OR ([writeOff] = @Original_writeOff)));
-SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, writeOff FROM Unit WHERE (unitId = @unitId)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@unitName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typeUnitId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typeUnitId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@datePurchase", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "datePurchase", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@periodDepreciation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "periodDepreciation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@writeOff", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "writeOff", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_unitId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_unitName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unitName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_typeUnitId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typeUnitId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_datePurchase", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "datePurchase", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_periodDepreciation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "periodDepreciation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 8, 2, "cost", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_writeOff", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "writeOff", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_writeOff", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "writeOff", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@unitId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "unitId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10017,7 +9842,7 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cos" +
-                "t, writeOff\r\nFROM            Unit\r\nWHERE        (writeOff = 1)";
+                "t, writeOff\r\nFROM            UnitWriteOff";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10043,177 +9868,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
             PropertyRegisterDataSet.UnitWriteOffDataTable dataTable = new PropertyRegisterDataSet.UnitWriteOffDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PropertyRegisterDataSet.UnitWriteOffDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PropertyRegisterDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "UnitWriteOff");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_unitId, string Original_unitName, int Original_typeUnitId, System.DateTime Original_datePurchase, int Original_periodDepreciation, decimal Original_cost, global::System.Nullable<bool> Original_writeOff) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_unitId));
-            if ((Original_unitName == null)) {
-                throw new global::System.ArgumentNullException("Original_unitName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_unitName));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_typeUnitId));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_datePurchase));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_periodDepreciation));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_cost));
-            if ((Original_writeOff.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_writeOff.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string unitName, int typeUnitId, System.DateTime datePurchase, int periodDepreciation, decimal cost, global::System.Nullable<bool> writeOff) {
-            if ((unitName == null)) {
-                throw new global::System.ArgumentNullException("unitName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(unitName));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(typeUnitId));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(datePurchase));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(periodDepreciation));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(cost));
-            if ((writeOff.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(writeOff.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string unitName, int typeUnitId, System.DateTime datePurchase, int periodDepreciation, decimal cost, global::System.Nullable<bool> writeOff, int Original_unitId, string Original_unitName, int Original_typeUnitId, System.DateTime Original_datePurchase, int Original_periodDepreciation, decimal Original_cost, global::System.Nullable<bool> Original_writeOff, int unitId) {
-            if ((unitName == null)) {
-                throw new global::System.ArgumentNullException("unitName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(unitName));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(typeUnitId));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(datePurchase));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(periodDepreciation));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(cost));
-            if ((writeOff.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(writeOff.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_unitId));
-            if ((Original_unitName == null)) {
-                throw new global::System.ArgumentNullException("Original_unitName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_unitName));
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_typeUnitId));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_datePurchase));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_periodDepreciation));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_cost));
-            if ((Original_writeOff.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(Original_writeOff.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(unitId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string unitName, int typeUnitId, System.DateTime datePurchase, int periodDepreciation, decimal cost, global::System.Nullable<bool> writeOff, int Original_unitId, string Original_unitName, int Original_typeUnitId, System.DateTime Original_datePurchase, int Original_periodDepreciation, decimal Original_cost, global::System.Nullable<bool> Original_writeOff) {
-            return this.Update(unitName, typeUnitId, datePurchase, periodDepreciation, cost, writeOff, Original_unitId, Original_unitName, Original_typeUnitId, Original_datePurchase, Original_periodDepreciation, Original_cost, Original_writeOff, Original_unitId);
         }
     }
     
@@ -10409,8 +10063,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
         
         private UnitTableAdapter _unitTableAdapter;
         
-        private UnitWriteOffTableAdapter _unitWriteOffTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -10568,20 +10220,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public UnitWriteOffTableAdapter UnitWriteOffTableAdapter {
-            get {
-                return this._unitWriteOffTableAdapter;
-            }
-            set {
-                this._unitWriteOffTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -10639,10 +10277,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
                             && (this._unitTableAdapter.Connection != null))) {
                     return this._unitTableAdapter.Connection;
                 }
-                if (((this._unitWriteOffTableAdapter != null) 
-                            && (this._unitWriteOffTableAdapter.Connection != null))) {
-                    return this._unitWriteOffTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -10684,9 +10318,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
                     count = (count + 1);
                 }
                 if ((this._unitTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._unitWriteOffTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -10751,15 +10382,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._unitTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._unitWriteOffTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.UnitWriteOff.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._unitWriteOffTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -10857,14 +10479,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._unitWriteOffTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.UnitWriteOff.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._unitWriteOffTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._roomTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Room.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -10936,14 +10550,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._roomTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._unitWriteOffTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.UnitWriteOff.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._unitWriteOffTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11084,11 +10690,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._unitWriteOffTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._unitWriteOffTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager не содержит сведений о подключении. Укажите для каждого адапт" +
@@ -11211,15 +10812,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
                         adaptersWithAcceptChangesDuringUpdate.Add(this._unitTableAdapter.Adapter);
                     }
                 }
-                if ((this._unitWriteOffTableAdapter != null)) {
-                    revertConnections.Add(this._unitWriteOffTableAdapter, this._unitWriteOffTableAdapter.Connection);
-                    this._unitWriteOffTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._unitWriteOffTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._unitWriteOffTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._unitWriteOffTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._unitWriteOffTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -11317,10 +10909,6 @@ SELECT unitId, unitName, typeUnitId, datePurchase, periodDepreciation, cost, wri
                 if ((this._unitTableAdapter != null)) {
                     this._unitTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._unitTableAdapter]));
                     this._unitTableAdapter.Transaction = null;
-                }
-                if ((this._unitWriteOffTableAdapter != null)) {
-                    this._unitWriteOffTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._unitWriteOffTableAdapter]));
-                    this._unitWriteOffTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

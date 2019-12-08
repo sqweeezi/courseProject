@@ -76,7 +76,6 @@
             this.tableAdapterManager.TypeRoomTableAdapter = null;
             this.tableAdapterManager.TypeUnitTableAdapter = null;
             this.tableAdapterManager.UnitTableAdapter = null;
-            this.tableAdapterManager.UnitWriteOffTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // buildingButtonDel

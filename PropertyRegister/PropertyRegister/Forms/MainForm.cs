@@ -103,6 +103,10 @@ namespace PropertyRegister
             writeOffheckBox.CheckedChanged += (s, ea) => { UnitFilter(); };
             writeOffheckBox.Checked = true;
 
+
+
+
+
             #endregion
         }
 
@@ -383,22 +387,6 @@ namespace PropertyRegister
             }
         }
 
-        private void ПереоценитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //  new PropertyRegisterDataSetTableAdapters.QueriesTableAdapter().Reevaluate();
-
-            //using (var sqlConn = new SqlConnection(Properties.Settings.Default.ConnectionString))
-            //{
-            //    var sqlCmd = new SqlCommand("Reevaluate", sqlConn);
-            //    sqlCmd.CommandType = CommandType.StoredProcedure;
-
-            //    sqlConn.Open();
-            //    sqlCmd.ExecuteNonQuery();
-
-            //    this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
-            //}
-        }
-
         private void СкладToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StorageForm form = new StorageForm(propertyRegisterDataSet);
@@ -409,16 +397,6 @@ namespace PropertyRegister
         {
             TypeUnitForm form = new TypeUnitForm(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK) unitBindingSource.ResetBindings(false);
-        }
-
-        private void НеПереоцененоеИмуществоToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RevaluationForm form = new RevaluationForm(propertyRegisterDataSet);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
-                fKRevaluatiunitI7246E95DBindingSource.ResetBindings(true);
-            }
         }
 
         #endregion
@@ -435,6 +413,16 @@ namespace PropertyRegister
                 int pos1 = fKInventoryroomN76177A41BindingSource.Position;
                 this.inventoryTableAdapter.Fill(this.propertyRegisterDataSet.Inventory);
                 fKInventoryroomN76177A41BindingSource.Position = pos1;
+            }
+        }
+
+        private void ПереоценкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RevaluationForm form = new RevaluationForm(propertyRegisterDataSet);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
+                fKRevaluatiunitI7246E95DBindingSource.ResetBindings(true);
             }
         }
     }
