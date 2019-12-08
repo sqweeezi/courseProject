@@ -90,6 +90,11 @@
             // countNumericUpDown
             // 
             this.countNumericUpDown.Location = new System.Drawing.Point(105, 49);
+            this.countNumericUpDown.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.countNumericUpDown.Name = "countNumericUpDown";
             this.countNumericUpDown.Size = new System.Drawing.Size(56, 21);
             this.countNumericUpDown.TabIndex = 9;

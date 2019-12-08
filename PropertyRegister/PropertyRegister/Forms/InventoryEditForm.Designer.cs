@@ -73,6 +73,11 @@
             // countNumericUpDown
             // 
             this.countNumericUpDown.Location = new System.Drawing.Point(174, 51);
+            this.countNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.countNumericUpDown.Name = "countNumericUpDown";
             this.countNumericUpDown.Size = new System.Drawing.Size(56, 21);
             this.countNumericUpDown.TabIndex = 8;
@@ -118,7 +123,7 @@
             this.countStorageLabel.TabIndex = 9;
             this.countStorageLabel.Text = "none";
             // 
-            // InventoryFormEdit
+            // InventoryEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,7 +132,7 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Name = "InventoryFormEdit";
+            this.Name = "InventoryEditForm";
             this.Text = "InventoryFormEdit";
             this.Load += new System.EventHandler(this.InventoryFormEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).EndInit();

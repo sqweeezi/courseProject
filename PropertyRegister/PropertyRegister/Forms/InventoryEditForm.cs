@@ -106,7 +106,7 @@ namespace PropertyRegister.Forms
 
             int tmp = propertyRegisterDataSet.Storage.FindByunitId((int)unitIdComboBox.SelectedValue).count;
             countStorageLabel.Text = "На складе: " + tmp.ToString();
-            countNumericUpDown.Maximum = tmp;
+            if (unitId == -1) countNumericUpDown.Maximum = tmp;
         }
     }
 }

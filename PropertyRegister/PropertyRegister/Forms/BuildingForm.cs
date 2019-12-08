@@ -12,6 +12,8 @@ namespace PropertyRegister.Forms
 {
     public partial class BuildingForm : Form
     {
+        bool dialogRes = false;
+
         public BuildingForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 buildingBindingSource.ResetBindings(true);
-                this.DialogResult = DialogResult.OK;
+                dialogRes = true;
             }
         }
 
@@ -41,7 +43,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 buildingBindingSource.ResetBindings(false);
-                this.DialogResult = DialogResult.OK;
+                dialogRes = true;
             }
         }
 
@@ -58,6 +60,11 @@ namespace PropertyRegister.Forms
                 MessageBox.Show(ex.Message);
                 buildingTableAdapter.Fill(propertyRegisterDataSet.Building);
             }
+        }
+
+        private void BuildingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (dialogRes) this.DialogResult = DialogResult.OK;
         }
     }
 }

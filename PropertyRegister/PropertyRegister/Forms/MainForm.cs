@@ -122,7 +122,7 @@ namespace PropertyRegister
             bool second = writeOffheckBox.Checked;
             unitBindingSource.Filter =
                 (first != -1 ? "typeUnitId = '" + first + "'" : "") +
-                (first != -1 && second ? " and " : "") +
+                (first != -1 && !second ? " and " : "") +
                 (!second ? "writeOff = '" + second + "'" : "");
         }
 
@@ -176,6 +176,12 @@ namespace PropertyRegister
                     propertyRegisterDataSet.Unit.AcceptChanges();
                     return;
                 }
+                if (tableName == propertyRegisterDataSet.Storage.TableName)
+                {
+                    storageTableAdapter.Update(propertyRegisterDataSet);
+                    propertyRegisterDataSet.Storage.AcceptChanges();
+                    return;
+                }
             }
             catch (Exception ex)
             {
@@ -187,6 +193,7 @@ namespace PropertyRegister
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             roomDataGridView.Dispose();
+            unitDataGridView.Dispose();
         }
 
         #endregion
@@ -232,6 +239,7 @@ namespace PropertyRegister
             if (form.ShowDialog() == DialogResult.OK)
             {
                 fKInventoryroomN76177A41BindingSource.ResetBindings(true);
+                storageBindingSource.ResetBindings(false);
             }
         }
 
@@ -245,6 +253,7 @@ namespace PropertyRegister
             if (form.ShowDialog() == DialogResult.OK)
             {
                 fKInventoryroomN76177A41BindingSource.ResetBindings(false);
+                storageBindingSource.ResetBindings(false);
             }
         }
 
@@ -257,6 +266,7 @@ namespace PropertyRegister
                     (int)inventoryDataGridView.CurrentRow.Cells["unitIdDataGridViewTextBoxColumn"].Value
                     ).Delete();
                 saveToBD(this.propertyRegisterDataSet.Inventory.TableName);
+                storageBindingSource.ResetBindings(false);
             }
             catch (Exception ex)
             {
@@ -301,6 +311,35 @@ namespace PropertyRegister
             {
                 MessageBox.Show(ex.Message);
                 unitTableAdapter.Fill(propertyRegisterDataSet.Unit);
+            }
+        }
+
+        private void RoomButtonWriteOff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show(
+                    "Вы уверены?",
+                    "Выполнить списание",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    new PropertyRegisterDataSetTableAdapters.QueriesTableAdapter()
+                        .writeOffUnit(
+                        (int)unitDataGridView.CurrentRow.Cells["unitIdDataGridViewTextBoxColumn1"].Value
+                        );
+
+                    int selected = unitBindingSource.Position;
+                    this.unitTableAdapter.Fill(this.propertyRegisterDataSet.Unit);
+                    unitBindingSource.Position = selected;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -372,6 +411,31 @@ namespace PropertyRegister
             if (form.ShowDialog() == DialogResult.OK) unitBindingSource.ResetBindings(false);
         }
 
+        private void НеПереоцененоеИмуществоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RevaluationForm form = new RevaluationForm(propertyRegisterDataSet);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
+                fKRevaluatiunitI7246E95DBindingSource.ResetBindings(true);
+            }
+        }
+
         #endregion
+
+        private void СписаноеИмуществоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WriteOffForm form = new WriteOffForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                int pos = unitBindingSource.Position;
+                this.unitTableAdapter.Fill(this.propertyRegisterDataSet.Unit);
+                unitBindingSource.Position = pos;
+
+                int pos1 = fKInventoryroomN76177A41BindingSource.Position;
+                this.inventoryTableAdapter.Fill(this.propertyRegisterDataSet.Inventory);
+                fKInventoryroomN76177A41BindingSource.Position = pos1;
+            }
+        }
     }
 }

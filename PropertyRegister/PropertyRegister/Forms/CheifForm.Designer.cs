@@ -70,15 +70,17 @@
             this.tableAdapterManager.OrgUnitTableAdapter = null;
             this.tableAdapterManager.RevaluationTableAdapter = null;
             this.tableAdapterManager.RoomTableAdapter = null;
+            this.tableAdapterManager.StorageTableAdapter = null;
             this.tableAdapterManager.TypeRoomTableAdapter = null;
+            this.tableAdapterManager.TypeUnitTableAdapter = null;
             this.tableAdapterManager.UnitTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // cheifButtonDelete
             // 
-            this.cheifButtonDelete.Location = new System.Drawing.Point(713, 272);
+            this.cheifButtonDelete.Location = new System.Drawing.Point(832, 314);
             this.cheifButtonDelete.Name = "cheifButtonDelete";
-            this.cheifButtonDelete.Size = new System.Drawing.Size(87, 27);
+            this.cheifButtonDelete.Size = new System.Drawing.Size(101, 31);
             this.cheifButtonDelete.TabIndex = 7;
             this.cheifButtonDelete.Text = "Удалить";
             this.cheifButtonDelete.UseVisualStyleBackColor = true;
@@ -86,9 +88,9 @@
             // 
             // cheifButtonEdit
             // 
-            this.cheifButtonEdit.Location = new System.Drawing.Point(620, 272);
+            this.cheifButtonEdit.Location = new System.Drawing.Point(723, 314);
             this.cheifButtonEdit.Name = "cheifButtonEdit";
-            this.cheifButtonEdit.Size = new System.Drawing.Size(87, 27);
+            this.cheifButtonEdit.Size = new System.Drawing.Size(101, 31);
             this.cheifButtonEdit.TabIndex = 6;
             this.cheifButtonEdit.Text = "Изменить";
             this.cheifButtonEdit.UseVisualStyleBackColor = true;
@@ -96,9 +98,9 @@
             // 
             // cheifButtonAdd
             // 
-            this.cheifButtonAdd.Location = new System.Drawing.Point(527, 272);
+            this.cheifButtonAdd.Location = new System.Drawing.Point(615, 314);
             this.cheifButtonAdd.Name = "cheifButtonAdd";
-            this.cheifButtonAdd.Size = new System.Drawing.Size(87, 27);
+            this.cheifButtonAdd.Size = new System.Drawing.Size(101, 31);
             this.cheifButtonAdd.TabIndex = 5;
             this.cheifButtonAdd.Text = "Добавить";
             this.cheifButtonAdd.UseVisualStyleBackColor = true;
@@ -117,12 +119,12 @@
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16});
             this.chiefDataGridView.DataSource = this.chiefBindingSource;
-            this.chiefDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.chiefDataGridView.Location = new System.Drawing.Point(14, 14);
             this.chiefDataGridView.Name = "chiefDataGridView";
             this.chiefDataGridView.ReadOnly = true;
             this.chiefDataGridView.RowHeadersVisible = false;
             this.chiefDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.chiefDataGridView.Size = new System.Drawing.Size(839, 254);
+            this.chiefDataGridView.Size = new System.Drawing.Size(979, 293);
             this.chiefDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn13
@@ -164,17 +166,18 @@
             this.dataGridViewTextBoxColumn16.HeaderText = "Адрес";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 63;
+            this.dataGridViewTextBoxColumn16.Width = 73;
             // 
             // CheifForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 305);
+            this.ClientSize = new System.Drawing.Size(1003, 352);
             this.Controls.Add(this.cheifButtonDelete);
             this.Controls.Add(this.cheifButtonEdit);
             this.Controls.Add(this.cheifButtonAdd);
             this.Controls.Add(this.chiefDataGridView);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "CheifForm";
             this.Text = "CheifForm";
             this.Load += new System.EventHandler(this.CheifForm_Load);

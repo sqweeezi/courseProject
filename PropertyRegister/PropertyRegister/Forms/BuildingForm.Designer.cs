@@ -76,6 +76,7 @@
             this.tableAdapterManager.TypeRoomTableAdapter = null;
             this.tableAdapterManager.TypeUnitTableAdapter = null;
             this.tableAdapterManager.UnitTableAdapter = null;
+            this.tableAdapterManager.UnitWriteOffTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // buildingButtonDel
@@ -204,6 +205,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "BuildingForm";
             this.Text = "BuildingForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BuildingForm_FormClosing);
             this.Load += new System.EventHandler(this.BuildingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.buildingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();

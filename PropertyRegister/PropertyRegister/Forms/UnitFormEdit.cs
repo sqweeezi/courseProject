@@ -51,7 +51,7 @@ namespace PropertyRegister.Forms
             unitRow.cost = int.Parse(costNumericUpDown.Text);
             unitRow.periodDepreciation = int.Parse(timeEndNumericUpDown.Text);
             unitRow.typeUnitId = (int)typeUnitIdComboBox.SelectedValue;
-            unitRow.writeOff = false;
+            if (unitId == -1) unitRow.writeOff = false;
 
             try
             {
