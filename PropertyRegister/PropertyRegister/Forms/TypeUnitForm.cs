@@ -30,7 +30,8 @@ namespace PropertyRegister.Forms
             TypeUnitEditForm form = new TypeUnitEditForm(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK)
             {
-
+                typeUnitBindingSource.ResetBindings(true);
+                this.DialogResult = DialogResult.OK;
             }
         }
 
@@ -38,11 +39,12 @@ namespace PropertyRegister.Forms
         {
             TypeUnitEditForm form = new TypeUnitEditForm(
                 propertyRegisterDataSet, 
-                (int)typeUnitDataGridView.CurrentRow.Cells[1].Value
+                (int)typeUnitDataGridView.CurrentRow.Cells["typeUnitIdDataGridViewTextBoxColumn"].Value
                 );
             if (form.ShowDialog() == DialogResult.OK)
             {
-
+                typeUnitBindingSource.ResetBindings(false);
+                this.DialogResult = DialogResult.OK;
             }
         }
 
@@ -50,7 +52,8 @@ namespace PropertyRegister.Forms
         {
             try
             {
-                propertyRegisterDataSet.TypeUnit.FindBytypeUnitId((int)typeUnitDataGridView.CurrentRow.Cells[1].Value).Delete();
+                propertyRegisterDataSet.TypeUnit.FindBytypeUnitId(
+                    (int)typeUnitDataGridView.CurrentRow.Cells["typeUnitIdDataGridViewTextBoxColumn"].Value).Delete();
                 typeUnitTableAdapter.Update(propertyRegisterDataSet);
                 propertyRegisterDataSet.TypeUnit.AcceptChanges();
             }

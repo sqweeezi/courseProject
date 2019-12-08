@@ -45,17 +45,17 @@ namespace PropertyRegister
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Room". При необходимости она может быть перемещена или удалена.
             this.roomTableAdapter.Fill(this.propertyRegisterDataSet.Room);
 
-            //var tmp = propertyRegisterDataSet.Chief
-            //   .Select(x => new
-            //   {
-            //       x.chiefId,
-            //       fio = x.surname + " " + x.name[0] + "." + (x.patronymic != null ? x.patronymic[0] + "." : null)
-            //   })
-            //   .ToList();
+            var tmp = propertyRegisterDataSet.Chief
+               .Select(x => new
+               {
+                   x.chiefId,
+                   fio = x.surname + " " + x.name[0] + "." + (x.patronymic[0] + "." ?? null)
+               })
+               .ToList();
 
-            //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DataSource = tmp;
-            //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).DisplayMember = "fio";
-            //(roomDataGridView.Columns["chiefId"] as DataGridViewComboBoxColumn).ValueMember = "chiefId";
+            (roomDataGridView.Columns["chiefIdDataGridViewComboBoxColumn"] as DataGridViewComboBoxColumn).DataSource = tmp;
+            (roomDataGridView.Columns["chiefIdDataGridViewComboBoxColumn"] as DataGridViewComboBoxColumn).DisplayMember = "fio";
+            (roomDataGridView.Columns["chiefIdDataGridViewComboBoxColumn"] as DataGridViewComboBoxColumn).ValueMember = "chiefId";
 
 
             #region Всячина для фильтрации
@@ -101,6 +101,7 @@ namespace PropertyRegister
 
 
             writeOffheckBox.CheckedChanged += (s, ea) => { UnitFilter(); };
+            writeOffheckBox.Checked = true;
 
             #endregion
         }
@@ -122,7 +123,7 @@ namespace PropertyRegister
             unitBindingSource.Filter =
                 (first != -1 ? "typeUnitId = '" + first + "'" : "") +
                 (first != -1 && second ? " and " : "") +
-                (second ? "writeOff = '" + second + "'" : "");
+                (!second ? "writeOff = '" + second + "'" : "");
         }
 
         /// <summary>
@@ -202,7 +203,7 @@ namespace PropertyRegister
         private void RoomButtonEdit_Click(object sender, EventArgs e)
         {
             RoomEditForm form = new RoomEditForm(
-                propertyRegisterDataSet, 
+                propertyRegisterDataSet,
                 roomDataGridView.CurrentRow.Cells[0].Value.ToString()
                 );
             form.ShowDialog();
@@ -226,7 +227,7 @@ namespace PropertyRegister
         {
             InventoryEditForm form = new InventoryEditForm(
                 propertyRegisterDataSet,
-                roomDataGridView.CurrentRow.Cells[0].Value.ToString()
+                roomDataGridView.CurrentRow.Cells["roomNameDataGridViewTextBoxColumn"].Value.ToString()
                 );
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -238,8 +239,8 @@ namespace PropertyRegister
         {
             InventoryEditForm form = new InventoryEditForm(
                 propertyRegisterDataSet,
-                roomDataGridView.CurrentRow.Cells[0].Value.ToString(),
-                (int)inventoryDataGridView.CurrentRow.Cells[1].Value
+                roomDataGridView.CurrentRow.Cells["roomNameDataGridViewTextBoxColumn"].Value.ToString(),
+                (int)inventoryDataGridView.CurrentRow.Cells["unitIdDataGridViewTextBoxColumn"].Value
                 );
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -252,8 +253,8 @@ namespace PropertyRegister
             try
             {
                 propertyRegisterDataSet.Inventory.FindByroomNameunitId(
-                    roomDataGridView.CurrentRow.Cells[0].Value.ToString(),
-                    (int)inventoryDataGridView.CurrentRow.Cells[1].Value
+                    roomDataGridView.CurrentRow.Cells["roomNameDataGridViewTextBoxColumn"].Value.ToString(),
+                    (int)inventoryDataGridView.CurrentRow.Cells["unitIdDataGridViewTextBoxColumn"].Value
                     ).Delete();
                 saveToBD(this.propertyRegisterDataSet.Inventory.TableName);
             }
@@ -281,7 +282,7 @@ namespace PropertyRegister
         {
             UnitFormEdit form = new UnitFormEdit(
                 propertyRegisterDataSet, 
-                (int)unitDataGridView.CurrentRow.Cells[1].Value);
+                (int)unitDataGridView.CurrentRow.Cells["unitIdDataGridViewTextBoxColumn1"].Value);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 unitBindingSource.ResetBindings(false);
@@ -292,7 +293,8 @@ namespace PropertyRegister
         {
             try
             {
-                propertyRegisterDataSet.Unit.FindByunitId((int)unitDataGridView.CurrentRow.Cells[1].Value).Delete();
+                propertyRegisterDataSet.Unit.FindByunitId(
+                    (int)unitDataGridView.CurrentRow.Cells["unitIdDataGridViewTextBoxColumn1"].Value).Delete();
                 saveToBD(this.propertyRegisterDataSet.Unit.TableName);
             }
             catch (Exception ex)
@@ -309,45 +311,37 @@ namespace PropertyRegister
         private void ЗданияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BuildingForm form = new BuildingForm(propertyRegisterDataSet);
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-            //    roomBindingSource.ResetBindings(false);
-            //}
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                roomBindingSource.ResetBindings(false);
+            }
         }
 
         private void ПодразделенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OrgUnitForm form = new OrgUnitForm(propertyRegisterDataSet);
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-            //    roomBindingSource.ResetBindings(false);
-            //}
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                roomBindingSource.ResetBindings(false);
+            }
         }
 
         private void МатОтвественныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CheifForm form = new CheifForm(propertyRegisterDataSet);
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-            //    roomBindingSource.ResetBindings(false);
-            //}
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                roomBindingSource.ResetBindings(false);
+            }
         }
 
         private void ТипПомещенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TypeRoomForm form = new TypeRoomForm(propertyRegisterDataSet);
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-            //    roomBindingSource.ResetBindings(false);
-            //}
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                roomBindingSource.ResetBindings(false);
+            }
         }
 
         private void ПереоценитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -369,8 +363,13 @@ namespace PropertyRegister
         private void СкладToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StorageForm form = new StorageForm(propertyRegisterDataSet);
-            form.ShowDialog();
-            roomBindingSource.ResetBindings(false);
+            if(form.ShowDialog()==DialogResult.OK) roomBindingSource.ResetBindings(false);
+        }
+
+        private void ТипИмуществаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TypeUnitForm form = new TypeUnitForm(propertyRegisterDataSet);
+            if (form.ShowDialog() == DialogResult.OK) unitBindingSource.ResetBindings(false);
         }
 
         #endregion

@@ -1,6 +1,6 @@
 ﻿namespace PropertyRegister.Forms
 {
-    partial class CheifEditForm
+    partial class ChiefEditForm
     {
         /// <summary>
         /// Required designer variable.

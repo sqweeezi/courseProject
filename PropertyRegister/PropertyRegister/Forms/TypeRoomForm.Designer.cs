@@ -107,8 +107,9 @@
             // 
             // typeDataGridViewTextBoxColumn
             // 
+            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Тип";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             this.typeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -118,6 +119,7 @@
             this.typeRoomIdDataGridViewTextBoxColumn.HeaderText = "typeRoomId";
             this.typeRoomIdDataGridViewTextBoxColumn.Name = "typeRoomIdDataGridViewTextBoxColumn";
             this.typeRoomIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeRoomIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // TypeRoomForm
             // 

@@ -72,7 +72,9 @@
             this.tableAdapterManager.OrgUnitTableAdapter = null;
             this.tableAdapterManager.RevaluationTableAdapter = null;
             this.tableAdapterManager.RoomTableAdapter = null;
+            this.tableAdapterManager.StorageTableAdapter = null;
             this.tableAdapterManager.TypeRoomTableAdapter = null;
+            this.tableAdapterManager.TypeUnitTableAdapter = null;
             this.tableAdapterManager.UnitTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
@@ -82,7 +84,7 @@
             this.buildingButtonDel.Name = "buildingButtonDel";
             this.buildingButtonDel.Size = new System.Drawing.Size(101, 31);
             this.buildingButtonDel.TabIndex = 6;
-            this.buildingButtonDel.Text = "button1";
+            this.buildingButtonDel.Text = "Удалить";
             this.buildingButtonDel.UseVisualStyleBackColor = true;
             this.buildingButtonDel.Click += new System.EventHandler(this.BuildingButtonDel_Click);
             // 
@@ -92,7 +94,7 @@
             this.buildingButtonEdit.Name = "buildingButtonEdit";
             this.buildingButtonEdit.Size = new System.Drawing.Size(101, 31);
             this.buildingButtonEdit.TabIndex = 5;
-            this.buildingButtonEdit.Text = "button1";
+            this.buildingButtonEdit.Text = "Изменить";
             this.buildingButtonEdit.UseVisualStyleBackColor = true;
             this.buildingButtonEdit.Click += new System.EventHandler(this.BuildingButtonEdit_Click);
             // 
@@ -102,7 +104,7 @@
             this.buildingButtonAdd.Name = "buildingButtonAdd";
             this.buildingButtonAdd.Size = new System.Drawing.Size(101, 31);
             this.buildingButtonAdd.TabIndex = 4;
-            this.buildingButtonAdd.Text = "button1";
+            this.buildingButtonAdd.Text = "Добавить";
             this.buildingButtonAdd.UseVisualStyleBackColor = true;
             this.buildingButtonAdd.Click += new System.EventHandler(this.BuildingButtonAdd_Click);
             // 

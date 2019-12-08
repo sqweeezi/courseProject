@@ -30,7 +30,8 @@ namespace PropertyRegister.Forms
             BuildingEditForm form = new BuildingEditForm(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK)
             {
-
+                buildingBindingSource.ResetBindings(true);
+                this.DialogResult = DialogResult.OK;
             }
         }
 
@@ -39,7 +40,8 @@ namespace PropertyRegister.Forms
             BuildingEditForm form = new BuildingEditForm(propertyRegisterDataSet, (int)buildingDataGridView.CurrentRow.Cells[1].Value);
             if (form.ShowDialog() == DialogResult.OK)
             {
-
+                buildingBindingSource.ResetBindings(false);
+                this.DialogResult = DialogResult.OK;
             }
         }
 

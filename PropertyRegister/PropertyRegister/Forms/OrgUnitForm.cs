@@ -17,34 +17,59 @@ namespace PropertyRegister.Forms
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
             orgUnitBindingSource.DataSource = propertyRegisterDataSet;
+            chiefBindingSource.DataSource = propertyRegisterDataSet;
         }
 
         private void OrgUnitForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.Chief". При необходимости она может быть перемещена или удалена.
+            this.chiefTableAdapter.Fill(this.propertyRegisterDataSet.Chief);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.OrgUnit". При необходимости она может быть перемещена или удалена.
             this.orgUnitTableAdapter.Fill(this.propertyRegisterDataSet.OrgUnit);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "propertyRegisterDataSet.OrgUnit". При необходимости она может быть перемещена или удалена.
-            this.orgUnitTableAdapter.Fill(this.propertyRegisterDataSet.OrgUnit);
+
+
+
+            var tmp = propertyRegisterDataSet.Chief
+               .Select(x => new
+               {
+                   x.chiefId,
+                   fio = x.surname + " " + x.name[0] + "." + (x.patronymic[0] + "." ?? null)
+               })
+               .ToList();
+
+            (orgUnitDataGridView.Columns["chiefIdDataGridViewComboBoxColumn"] as DataGridViewComboBoxColumn).DataSource = tmp;
+            (orgUnitDataGridView.Columns["chiefIdDataGridViewComboBoxColumn"] as DataGridViewComboBoxColumn).DisplayMember = "fio";
+            (orgUnitDataGridView.Columns["chiefIdDataGridViewComboBoxColumn"] as DataGridViewComboBoxColumn).ValueMember = "chiefId";
 
         }
 
         private void OrgUnitButtonAdd_Click(object sender, EventArgs e)
         {
             OrgUnitEditForm form = new OrgUnitEditForm(propertyRegisterDataSet);
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK) {
+                orgUnitBindingSource.ResetBindings(true);
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void OrgUnitButtonEdit_Click(object sender, EventArgs e)
         {
-            OrgUnitEditForm form = new OrgUnitEditForm(propertyRegisterDataSet, (int)orgUnitDataGridView.CurrentRow.Cells[1].Value);
-            form.ShowDialog();
+            OrgUnitEditForm form = new OrgUnitEditForm(
+                propertyRegisterDataSet, 
+                (int)orgUnitDataGridView.CurrentRow.Cells["orgUnitIdDataGridViewTextBoxColumn"].Value);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                orgUnitBindingSource.ResetBindings(false);
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void OrgUnitButtonDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                propertyRegisterDataSet.OrgUnit.FindByorgUnitId((int)orgUnitDataGridView.CurrentRow.Cells[1].Value).Delete();
+                propertyRegisterDataSet.OrgUnit.FindByorgUnitId(
+                    (int)orgUnitDataGridView.CurrentRow.Cells["orgUnitIdDataGridViewTextBoxColumn"].Value).Delete();
                 orgUnitTableAdapter.Update(propertyRegisterDataSet);
                 propertyRegisterDataSet.OrgUnit.AcceptChanges();
             }

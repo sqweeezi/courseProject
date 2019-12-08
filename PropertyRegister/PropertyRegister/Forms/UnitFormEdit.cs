@@ -50,6 +50,8 @@ namespace PropertyRegister.Forms
             unitRow.datePurchase = datePurchaseDateTimePicker.Value;
             unitRow.cost = int.Parse(costNumericUpDown.Text);
             unitRow.periodDepreciation = int.Parse(timeEndNumericUpDown.Text);
+            unitRow.typeUnitId = (int)typeUnitIdComboBox.SelectedValue;
+            unitRow.writeOff = false;
 
             try
             {

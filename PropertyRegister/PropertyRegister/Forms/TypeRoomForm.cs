@@ -31,6 +31,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 typeRoomBindingSource.ResetBindings(true);
+                this.DialogResult = DialogResult.OK;
             }
         }
 
@@ -43,6 +44,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 typeRoomBindingSource.ResetBindings(false);
+                this.DialogResult = DialogResult.OK;
             }
         }
 

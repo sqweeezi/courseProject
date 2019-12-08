@@ -28,13 +28,15 @@ namespace PropertyRegister.Forms
 
         private void CheifButtonAdd_Click(object sender, EventArgs e)
         {
-            CheifEditForm form = new CheifEditForm(propertyRegisterDataSet);
-            form.ShowDialog();
+            ChiefEditForm form = new ChiefEditForm(propertyRegisterDataSet);
+            if (form.ShowDialog() == DialogResult.OK) {
+                chiefBindingSource.ResetBindings(true);
+            }
         }
 
         private void CheifButtonEdit_Click(object sender, EventArgs e)
         {
-            CheifEditForm form = new CheifEditForm(propertyRegisterDataSet, (int)chiefDataGridView.CurrentRow.Cells[1].Value);
+            ChiefEditForm form = new ChiefEditForm(propertyRegisterDataSet, (int)chiefDataGridView.CurrentRow.Cells[1].Value);
             form.ShowDialog();
         }
 

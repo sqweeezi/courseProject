@@ -35,8 +35,31 @@ namespace PropertyRegister.Forms
 
         private void StorageEditForm_Load(object sender, EventArgs e)
         {
-            
-            unitIdComboBox.DataSource = propertyRegisterDataSet.Unit;
+            // получим все имущество по имени помещения
+            var tmp = propertyRegisterDataSet.Storage
+                .Select(x => x.unitId)                              /*получаем все имущество*/
+                .ToList();
+
+            if (unitId != -1) tmp.Remove(unitId);                   /*удалим unitId что-бы он остался в коллекции*/
+
+            var tmp1 = propertyRegisterDataSet.Unit
+                .Join(
+                propertyRegisterDataSet.Unit                        /*второй набор*/
+                    .Select(x => x.unitId)                          /*получаем все имущество со склада*/
+                    .ToList()
+                    .Except(tmp),                                   /*выдаем все элементы которых нет в tmp*/
+                p => p.unitId,                                      /*свойство-селектор объекта из первого набора*/
+                x => x,                                             /*свойство-селектор объекта из второго набора*/
+                (p, x) => new { p.unitId, p.unitName }              /*результат*/
+                )
+                .ToList();
+
+            if (tmp1.Count == 0) {
+                MessageBox.Show("В данный момент нет имущества не зрагестрированого на складе.");
+                this.Close();
+            }
+
+            unitIdComboBox.DataSource = tmp1;
             unitIdComboBox.DisplayMember = "unitName";
             unitIdComboBox.ValueMember = "unitId";
             if (unitId != -1) unitIdComboBox.SelectedValue = storageRow.unitId;

@@ -41,7 +41,7 @@ namespace PropertyRegister.Forms
         {
             StorageEditForm form = new StorageEditForm(
                 propertyRegisterDataSet, 
-                (int)storageDataGridView.CurrentRow.Cells[1].Value
+                (int)storageDataGridView.CurrentRow.Cells["unitIdDataGridViewTextBoxColumn"].Value
                 );
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -53,7 +53,8 @@ namespace PropertyRegister.Forms
         {
             try
             {
-                propertyRegisterDataSet.Storage.FindByunitId((int)storageDataGridView.CurrentRow.Cells[1].Value).Delete();
+                propertyRegisterDataSet.Storage.FindByunitId(
+                    (int)storageDataGridView.CurrentRow.Cells["unitIdDataGridViewTextBoxColumn"].Value).Delete();
                 storageTableAdapter.Update(propertyRegisterDataSet);
                 propertyRegisterDataSet.Storage.AcceptChanges();
             }

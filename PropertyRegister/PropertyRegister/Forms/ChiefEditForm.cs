@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace PropertyRegister.Forms
 {
-    public partial class CheifEditForm : Form
+    public partial class ChiefEditForm : Form
     {
         private PropertyRegisterDataSet propertyRegisterDataSet;
         private PropertyRegisterDataSet.ChiefRow chiefRow;
         private int cheifId = -1;
 
-        public CheifEditForm(PropertyRegisterDataSet propertyRegisterDataSet)
+        public ChiefEditForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
             this.chiefRow = propertyRegisterDataSet.Chief.NewChiefRow();
         }
 
-        public CheifEditForm(PropertyRegisterDataSet propertyRegisterDataSet, int cheifId)
+        public ChiefEditForm(PropertyRegisterDataSet propertyRegisterDataSet, int cheifId)
         {
             InitializeComponent();
             this.propertyRegisterDataSet = propertyRegisterDataSet;
