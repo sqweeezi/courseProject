@@ -12,6 +12,7 @@ namespace PropertyRegister.Forms
 {
     public partial class RevaluationForm : Form
     {
+        bool dialogRes = false;
         public RevaluationForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
@@ -43,13 +44,19 @@ namespace PropertyRegister.Forms
 
                 notRevaluationBindingSource.ResetBindings(true);
 
-                this.DialogResult = DialogResult.OK;
+                dialogRes = true;
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void RevaluationForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(dialogRes) this.DialogResult = DialogResult.OK;
         }
     }
 }

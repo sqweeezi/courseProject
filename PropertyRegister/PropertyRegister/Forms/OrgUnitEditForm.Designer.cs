@@ -32,11 +32,11 @@
             System.Windows.Forms.Label bossLabel;
             System.Windows.Forms.Label phoneLabel;
             this.orgUnitNameTextBox = new System.Windows.Forms.TextBox();
-            this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cheifIdComboBox = new System.Windows.Forms.ComboBox();
+            this.phoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             orgUnitNameLabel = new System.Windows.Forms.Label();
             bossLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
@@ -77,13 +77,6 @@
             this.orgUnitNameTextBox.Size = new System.Drawing.Size(207, 21);
             this.orgUnitNameTextBox.TabIndex = 4;
             // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.Location = new System.Drawing.Point(132, 79);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(207, 21);
-            this.phoneTextBox.TabIndex = 8;
-            // 
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(171, 139);
@@ -102,12 +95,13 @@
             this.buttonClose.TabIndex = 10;
             this.buttonClose.Text = "Отмена";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.phoneMaskedTextBox);
             this.groupBox1.Controls.Add(this.cheifIdComboBox);
             this.groupBox1.Controls.Add(this.orgUnitNameTextBox);
-            this.groupBox1.Controls.Add(this.phoneTextBox);
             this.groupBox1.Controls.Add(phoneLabel);
             this.groupBox1.Controls.Add(orgUnitNameLabel);
             this.groupBox1.Controls.Add(bossLabel);
@@ -126,7 +120,15 @@
             this.cheifIdComboBox.Size = new System.Drawing.Size(207, 23);
             this.cheifIdComboBox.TabIndex = 19;
             // 
-            // OrgUnitFormEdit
+            // phoneMaskedTextBox
+            // 
+            this.phoneMaskedTextBox.Location = new System.Drawing.Point(132, 79);
+            this.phoneMaskedTextBox.Mask = "8(999) 000-0000";
+            this.phoneMaskedTextBox.Name = "phoneMaskedTextBox";
+            this.phoneMaskedTextBox.Size = new System.Drawing.Size(207, 21);
+            this.phoneMaskedTextBox.TabIndex = 20;
+            // 
+            // OrgUnitEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,7 +137,7 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Name = "OrgUnitFormEdit";
+            this.Name = "OrgUnitEditForm";
             this.Text = "OrgUnitFormEdit";
             this.Load += new System.EventHandler(this.OrgUnitFormEdit_Load);
             this.groupBox1.ResumeLayout(false);
@@ -146,10 +148,10 @@
 
         #endregion
         private System.Windows.Forms.TextBox orgUnitNameTextBox;
-        private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cheifIdComboBox;
+        private System.Windows.Forms.MaskedTextBox phoneMaskedTextBox;
     }
 }

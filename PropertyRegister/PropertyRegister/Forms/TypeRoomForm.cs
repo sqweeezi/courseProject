@@ -12,6 +12,7 @@ namespace PropertyRegister.Forms
 {
     public partial class TypeRoomForm : Form
     {
+        bool dialogRes = false;
         public TypeRoomForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 typeRoomBindingSource.ResetBindings(true);
-                this.DialogResult = DialogResult.OK;
+                dialogRes = true;
             }
         }
 
@@ -44,7 +45,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 typeRoomBindingSource.ResetBindings(false);
-                this.DialogResult = DialogResult.OK;
+                dialogRes = true;
             }
         }
 
@@ -61,6 +62,11 @@ namespace PropertyRegister.Forms
                 MessageBox.Show(ex.Message);
                 typeRoomTableAdapter.Fill(propertyRegisterDataSet.TypeRoom);
             }
+        }
+
+        private void TypeRoomForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(dialogRes) this.DialogResult = DialogResult.OK;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace PropertyRegister.Forms
 {
     public partial class StorageForm : Form
     {
+        bool dialogRes = false;
         public StorageForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 storageBindingSource.ResetBindings(true);
+                dialogRes = true;
             }
         }
 
@@ -46,6 +48,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 storageBindingSource.ResetBindings(false);
+                dialogRes = true;
             }
         }
 
@@ -63,6 +66,11 @@ namespace PropertyRegister.Forms
                 MessageBox.Show(ex.Message);
                 storageTableAdapter.Fill(propertyRegisterDataSet.Storage);
             }
+        }
+
+        private void StorageForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (dialogRes) this.DialogResult = DialogResult.OK;
         }
     }
 }

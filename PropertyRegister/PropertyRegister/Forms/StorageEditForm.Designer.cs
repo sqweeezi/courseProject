@@ -86,6 +86,7 @@
             this.buttonCLose.TabIndex = 7;
             this.buttonCLose.Text = "Отмена";
             this.buttonCLose.UseVisualStyleBackColor = true;
+            this.buttonCLose.Click += new System.EventHandler(this.ButtonCLose_Click);
             // 
             // countNumericUpDown
             // 

@@ -48,6 +48,7 @@ namespace PropertyRegister.Forms
                 if (cheifId == -1) propertyRegisterDataSet.Chief.AddChiefRow(chiefRow);
                 new PropertyRegisterDataSetTableAdapters.ChiefTableAdapter().Update(chiefRow);
                 propertyRegisterDataSet.Chief.AcceptChanges();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -55,8 +56,8 @@ namespace PropertyRegister.Forms
             }
             finally
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                
+                //this.Close();
             }
         }
     }

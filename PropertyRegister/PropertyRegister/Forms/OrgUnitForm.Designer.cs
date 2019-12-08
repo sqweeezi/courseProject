@@ -33,20 +33,20 @@
             this.orgUnitButtonEdit = new System.Windows.Forms.Button();
             this.orgUnitButtonAdd = new System.Windows.Forms.Button();
             this.orgUnitDataGridView = new System.Windows.Forms.DataGridView();
-            this.orgUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
-            this.orgUnitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter();
-            this.chiefBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chiefTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.ChiefTableAdapter();
             this.orgUnitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chiefIdDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.chiefBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.propertyRegisterDataSet = new PropertyRegister.PropertyRegisterDataSet();
             this.chiefIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orgUnitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orgUnitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.OrgUnitTableAdapter();
+            this.chiefTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.ChiefTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // orgUnitButtonDelete
@@ -100,29 +100,6 @@
             this.orgUnitDataGridView.Size = new System.Drawing.Size(961, 293);
             this.orgUnitDataGridView.TabIndex = 4;
             // 
-            // orgUnitBindingSource
-            // 
-            this.orgUnitBindingSource.DataMember = "OrgUnit";
-            this.orgUnitBindingSource.DataSource = this.propertyRegisterDataSet;
-            // 
-            // propertyRegisterDataSet
-            // 
-            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
-            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // orgUnitTableAdapter
-            // 
-            this.orgUnitTableAdapter.ClearBeforeFill = true;
-            // 
-            // chiefBindingSource
-            // 
-            this.chiefBindingSource.DataMember = "Chief";
-            this.chiefBindingSource.DataSource = this.propertyRegisterDataSet;
-            // 
-            // chiefTableAdapter
-            // 
-            this.chiefTableAdapter.ClearBeforeFill = true;
-            // 
             // orgUnitNameDataGridViewTextBoxColumn
             // 
             this.orgUnitNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -153,6 +130,16 @@
             this.chiefIdDataGridViewComboBoxColumn.ValueMember = "chiefId";
             this.chiefIdDataGridViewComboBoxColumn.Width = 110;
             // 
+            // chiefBindingSource
+            // 
+            this.chiefBindingSource.DataMember = "Chief";
+            this.chiefBindingSource.DataSource = this.propertyRegisterDataSet;
+            // 
+            // propertyRegisterDataSet
+            // 
+            this.propertyRegisterDataSet.DataSetName = "PropertyRegisterDataSet";
+            this.propertyRegisterDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // chiefIdDataGridViewTextBoxColumn
             // 
             this.chiefIdDataGridViewTextBoxColumn.DataPropertyName = "chiefId";
@@ -169,6 +156,19 @@
             this.orgUnitIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.orgUnitIdDataGridViewTextBoxColumn.Visible = false;
             // 
+            // orgUnitBindingSource
+            // 
+            this.orgUnitBindingSource.DataMember = "OrgUnit";
+            this.orgUnitBindingSource.DataSource = this.propertyRegisterDataSet;
+            // 
+            // orgUnitTableAdapter
+            // 
+            this.orgUnitTableAdapter.ClearBeforeFill = true;
+            // 
+            // chiefTableAdapter
+            // 
+            this.chiefTableAdapter.ClearBeforeFill = true;
+            // 
             // OrgUnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -181,11 +181,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "OrgUnitForm";
             this.Text = "OrgUnitForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrgUnitForm_FormClosing);
             this.Load += new System.EventHandler(this.OrgUnitForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orgUnitDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orgUnitBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -34,14 +34,14 @@
             this.storageTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.StorageTableAdapter();
             this.tableAdapterManager = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TableAdapterManager();
             this.storageDataGridView = new System.Windows.Forms.DataGridView();
+            this.unitIdDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.unitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.storageAddButton = new System.Windows.Forms.Button();
             this.storageEditButton = new System.Windows.Forms.Button();
             this.storageDeleteButton = new System.Windows.Forms.Button();
             this.unitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.UnitTableAdapter();
-            this.unitIdDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageDataGridView)).BeginInit();
@@ -96,10 +96,41 @@
             this.storageDataGridView.Size = new System.Drawing.Size(408, 254);
             this.storageDataGridView.TabIndex = 1;
             // 
+            // unitIdDataGridViewComboBoxColumn
+            // 
+            this.unitIdDataGridViewComboBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitIdDataGridViewComboBoxColumn.DataPropertyName = "unitId";
+            this.unitIdDataGridViewComboBoxColumn.DataSource = this.unitBindingSource;
+            this.unitIdDataGridViewComboBoxColumn.DisplayMember = "unitName";
+            this.unitIdDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.unitIdDataGridViewComboBoxColumn.HeaderText = "Имущество";
+            this.unitIdDataGridViewComboBoxColumn.Name = "unitIdDataGridViewComboBoxColumn";
+            this.unitIdDataGridViewComboBoxColumn.ReadOnly = true;
+            this.unitIdDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.unitIdDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.unitIdDataGridViewComboBoxColumn.ValueMember = "unitId";
+            // 
             // unitBindingSource
             // 
             this.unitBindingSource.DataMember = "Unit";
             this.unitBindingSource.DataSource = this.propertyRegisterDataSet;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countDataGridViewTextBoxColumn.Width = 111;
+            // 
+            // unitIdDataGridViewTextBoxColumn
+            // 
+            this.unitIdDataGridViewTextBoxColumn.DataPropertyName = "unitId";
+            this.unitIdDataGridViewTextBoxColumn.HeaderText = "unitId";
+            this.unitIdDataGridViewTextBoxColumn.Name = "unitIdDataGridViewTextBoxColumn";
+            this.unitIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.unitIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // storageAddButton
             // 
@@ -135,37 +166,6 @@
             // 
             this.unitTableAdapter.ClearBeforeFill = true;
             // 
-            // unitIdDataGridViewComboBoxColumn
-            // 
-            this.unitIdDataGridViewComboBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.unitIdDataGridViewComboBoxColumn.DataPropertyName = "unitId";
-            this.unitIdDataGridViewComboBoxColumn.DataSource = this.unitBindingSource;
-            this.unitIdDataGridViewComboBoxColumn.DisplayMember = "unitName";
-            this.unitIdDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.unitIdDataGridViewComboBoxColumn.HeaderText = "Имущество";
-            this.unitIdDataGridViewComboBoxColumn.Name = "unitIdDataGridViewComboBoxColumn";
-            this.unitIdDataGridViewComboBoxColumn.ReadOnly = true;
-            this.unitIdDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.unitIdDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.unitIdDataGridViewComboBoxColumn.ValueMember = "unitId";
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            this.countDataGridViewTextBoxColumn.ReadOnly = true;
-            this.countDataGridViewTextBoxColumn.Width = 111;
-            // 
-            // unitIdDataGridViewTextBoxColumn
-            // 
-            this.unitIdDataGridViewTextBoxColumn.DataPropertyName = "unitId";
-            this.unitIdDataGridViewTextBoxColumn.HeaderText = "unitId";
-            this.unitIdDataGridViewTextBoxColumn.Name = "unitIdDataGridViewTextBoxColumn";
-            this.unitIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.unitIdDataGridViewTextBoxColumn.Visible = false;
-            // 
             // StorageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -178,6 +178,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "StorageForm";
             this.Text = "StorageForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StorageForm_FormClosing);
             this.Load += new System.EventHandler(this.StorageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();

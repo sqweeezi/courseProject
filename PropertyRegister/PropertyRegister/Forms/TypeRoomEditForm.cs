@@ -42,6 +42,7 @@ namespace PropertyRegister.Forms
                 if (typeRoomId == -1) propertyRegisterDataSet.TypeRoom.AddTypeRoomRow(typeRoomRow);
                 new PropertyRegisterDataSetTableAdapters.TypeRoomTableAdapter().Update(typeRoomRow);
                 propertyRegisterDataSet.TypeRoom.AcceptChanges();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -49,9 +50,14 @@ namespace PropertyRegister.Forms
             }
             finally
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                
+                //this.Close();
             }
+        }
+
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -88,6 +88,7 @@ namespace PropertyRegister.Forms
                 if (unitId == -1) propertyRegisterDataSet.Inventory.AddInventoryRow(inventoryRow);
                 new PropertyRegisterDataSetTableAdapters.InventoryTableAdapter().Update(inventoryRow);
                 propertyRegisterDataSet.Inventory.AcceptChanges();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -95,8 +96,8 @@ namespace PropertyRegister.Forms
             }
             finally
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                
+                //this.Close();
             }
         }
 
@@ -104,9 +105,15 @@ namespace PropertyRegister.Forms
         {
             if (!(unitIdComboBox.SelectedValue is int)) return; // не большой костыль
 
-            int tmp = propertyRegisterDataSet.Storage.FindByunitId((int)unitIdComboBox.SelectedValue).count;
-            countStorageLabel.Text = "На складе: " + tmp.ToString();
-            if (unitId == -1) countNumericUpDown.Maximum = tmp;
+            var tmp = propertyRegisterDataSet.Storage.FindByunitId((int)unitIdComboBox.SelectedValue);
+            countStorageLabel.Text = "На складе: " + tmp.count.ToString();
+            if (tmp.unitId == unitId) countNumericUpDown.Maximum = tmp.count + inventoryRow.count;
+            else countNumericUpDown.Maximum = tmp.count;
+        }
+
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

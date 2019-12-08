@@ -75,6 +75,7 @@ namespace PropertyRegister.Forms
                 if (unitId == -1) propertyRegisterDataSet.Storage.AddStorageRow(storageRow);
                 new PropertyRegisterDataSetTableAdapters.StorageTableAdapter().Update(storageRow);
                 propertyRegisterDataSet.Storage.AcceptChanges();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -82,9 +83,14 @@ namespace PropertyRegister.Forms
             }
             finally
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                
+                //this.Close();
             }
+        }
+
+        private void ButtonCLose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

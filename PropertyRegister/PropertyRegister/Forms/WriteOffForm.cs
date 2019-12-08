@@ -14,17 +14,11 @@ namespace PropertyRegister.Forms
     {
         bool dialogRes = false;
 
-        public WriteOffForm()
+        public WriteOffForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
-        }
-
-        private void UnitWriteOffBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.unitWriteOffBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.propertyRegisterDataSet);
-
+            this.propertyRegisterDataSet = propertyRegisterDataSet;
+            unitWriteOffBindingSource.DataSource = propertyRegisterDataSet;
         }
 
         private void WriteOffForm_Load(object sender, EventArgs e)

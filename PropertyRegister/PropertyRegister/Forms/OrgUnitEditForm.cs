@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,7 +32,7 @@ namespace PropertyRegister.Forms
             this.orgUnitRow = propertyRegisterDataSet.OrgUnit.FindByorgUnitId(orgUnitId);
 
             orgUnitNameTextBox.DataBindings.Add("Text", orgUnitRow, "orgUnitName");
-            phoneTextBox.DataBindings.Add("Text", orgUnitRow, "phone");
+            phoneMaskedTextBox.DataBindings.Add("Text", orgUnitRow, "phone");
         }
 
         private void OrgUnitFormEdit_Load(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace PropertyRegister.Forms
         {
             orgUnitRow.orgUnitName = orgUnitNameTextBox.Text;
             orgUnitRow.chiefId = (int)cheifIdComboBox.SelectedValue;
-            orgUnitRow.phone = phoneTextBox.Text;
+            orgUnitRow.phone = Regex.Replace(phoneMaskedTextBox.Text, @"[^\d]+", "");
 
             try
             {
@@ -71,6 +72,11 @@ namespace PropertyRegister.Forms
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

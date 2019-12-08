@@ -12,6 +12,7 @@ namespace PropertyRegister.Forms
 {
     public partial class OrgUnitForm : Form
     {
+        bool dialogRes = false;
         public OrgUnitForm(PropertyRegisterDataSet propertyRegisterDataSet)
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace PropertyRegister.Forms
             OrgUnitEditForm form = new OrgUnitEditForm(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK) {
                 orgUnitBindingSource.ResetBindings(true);
-                this.DialogResult = DialogResult.OK;
+                dialogRes = true;
             }
         }
 
@@ -60,7 +61,7 @@ namespace PropertyRegister.Forms
             if (form.ShowDialog() == DialogResult.OK)
             {
                 orgUnitBindingSource.ResetBindings(false);
-                this.DialogResult = DialogResult.OK;
+                dialogRes = true;
             }
         }
 
@@ -78,6 +79,11 @@ namespace PropertyRegister.Forms
                 MessageBox.Show(ex.Message);
                 orgUnitTableAdapter.Fill(propertyRegisterDataSet.OrgUnit);
             }
+        }
+
+        private void OrgUnitForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(dialogRes) this.DialogResult = DialogResult.OK;
         }
     }
 }

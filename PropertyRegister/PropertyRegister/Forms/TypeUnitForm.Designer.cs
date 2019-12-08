@@ -33,11 +33,11 @@
             this.typeUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typeUnitTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.TypeUnitTableAdapter();
             this.typeUnitDataGridView = new System.Windows.Forms.DataGridView();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeUnitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeUnitAddButton = new System.Windows.Forms.Button();
             this.typeUnitEditButton = new System.Windows.Forms.Button();
             this.typeUnitDeleteButton = new System.Windows.Forms.Button();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeUnitIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUnitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUnitDataGridView)).BeginInit();
@@ -75,6 +75,22 @@
             this.typeUnitDataGridView.Size = new System.Drawing.Size(350, 254);
             this.typeUnitDataGridView.TabIndex = 1;
             // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Тип";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeUnitIdDataGridViewTextBoxColumn
+            // 
+            this.typeUnitIdDataGridViewTextBoxColumn.DataPropertyName = "typeUnitId";
+            this.typeUnitIdDataGridViewTextBoxColumn.HeaderText = "typeUnitId";
+            this.typeUnitIdDataGridViewTextBoxColumn.Name = "typeUnitIdDataGridViewTextBoxColumn";
+            this.typeUnitIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeUnitIdDataGridViewTextBoxColumn.Visible = false;
+            // 
             // typeUnitAddButton
             // 
             this.typeUnitAddButton.Location = new System.Drawing.Point(72, 274);
@@ -105,22 +121,6 @@
             this.typeUnitDeleteButton.UseVisualStyleBackColor = true;
             this.typeUnitDeleteButton.Click += new System.EventHandler(this.TypeUnitDeleteButton_Click);
             // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Тип";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeUnitIdDataGridViewTextBoxColumn
-            // 
-            this.typeUnitIdDataGridViewTextBoxColumn.DataPropertyName = "typeUnitId";
-            this.typeUnitIdDataGridViewTextBoxColumn.HeaderText = "typeUnitId";
-            this.typeUnitIdDataGridViewTextBoxColumn.Name = "typeUnitIdDataGridViewTextBoxColumn";
-            this.typeUnitIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.typeUnitIdDataGridViewTextBoxColumn.Visible = false;
-            // 
             // TypeUnitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -133,6 +133,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "TypeUnitForm";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TypeUnitForm_FormClosing);
             this.Load += new System.EventHandler(this.TypeUnit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUnitBindingSource)).EndInit();

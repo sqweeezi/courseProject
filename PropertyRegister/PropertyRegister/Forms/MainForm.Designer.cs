@@ -106,6 +106,8 @@
             this.складToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списаноеИмуществоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.переоценкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.полныйОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.roomTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.RoomTableAdapter();
             this.inventoryTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.InventoryTableAdapter();
@@ -832,7 +834,8 @@
             this.справочникиToolStripMenuItem,
             this.складToolStripMenuItem,
             this.списаноеИмуществоToolStripMenuItem,
-            this.переоценкаToolStripMenuItem});
+            this.переоценкаToolStripMenuItem,
+            this.отчетToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1293, 24);
@@ -924,6 +927,21 @@
             this.переоценкаToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.переоценкаToolStripMenuItem.Text = "Переоценка";
             this.переоценкаToolStripMenuItem.Click += new System.EventHandler(this.ПереоценкаToolStripMenuItem_Click);
+            // 
+            // отчетToolStripMenuItem
+            // 
+            this.отчетToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.полныйОтчетToolStripMenuItem});
+            this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
+            this.отчетToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.отчетToolStripMenuItem.Text = "Отчет";
+            // 
+            // полныйОтчетToolStripMenuItem
+            // 
+            this.полныйОтчетToolStripMenuItem.Name = "полныйОтчетToolStripMenuItem";
+            this.полныйОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.полныйОтчетToolStripMenuItem.Text = "Полный отчет ";
+            this.полныйОтчетToolStripMenuItem.Click += new System.EventHandler(this.ПолныйОтчетToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -1132,6 +1150,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn typeUnitIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem списаноеИмуществоToolStripMenuItem;
         private System.Windows.Forms.Button roomButtonWriteOff;
+        private System.Windows.Forms.ToolStripMenuItem отчетToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem полныйОтчетToolStripMenuItem;
     }
 }
 

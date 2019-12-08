@@ -84,6 +84,7 @@ namespace PropertyRegister.Forms
                 if (roomName == "") propertyRegisterDataSet.Room.AddRoomRow(roomRow);
                 new PropertyRegisterDataSetTableAdapters.RoomTableAdapter().Update(roomRow);
                 propertyRegisterDataSet.Room.AcceptChanges();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -91,9 +92,14 @@ namespace PropertyRegister.Forms
             }
             finally
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                
+               // this.Close();
             }
+        }
+
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -52,6 +52,7 @@ namespace PropertyRegister.Forms
                 if (buildingId == -1) propertyRegisterDataSet.Building.AddBuildingRow(buildingRow);
                 new PropertyRegisterDataSetTableAdapters.BuildingTableAdapter().Update(buildingRow);
                 propertyRegisterDataSet.Building.AcceptChanges();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -59,8 +60,14 @@ namespace PropertyRegister.Forms
             }
             finally
             {
-                this.Close();
+                
+                //this.Close();
             }
+        }
+
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

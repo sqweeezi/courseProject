@@ -7,8 +7,10 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace PropertyRegister
 {
@@ -243,7 +245,8 @@ namespace PropertyRegister
             if (form.ShowDialog() == DialogResult.OK)
             {
                 fKInventoryroomN76177A41BindingSource.ResetBindings(true);
-                storageBindingSource.ResetBindings(false);
+                //storageBindingSource.ResetBindings(false);
+                this.storageTableAdapter.Fill(this.propertyRegisterDataSet.Storage);
             }
         }
 
@@ -257,7 +260,8 @@ namespace PropertyRegister
             if (form.ShowDialog() == DialogResult.OK)
             {
                 fKInventoryroomN76177A41BindingSource.ResetBindings(false);
-                storageBindingSource.ResetBindings(false);
+                //storageBindingSource.ResetBindings(false);
+                this.storageTableAdapter.Fill(this.propertyRegisterDataSet.Storage);
             }
         }
 
@@ -399,11 +403,9 @@ namespace PropertyRegister
             if (form.ShowDialog() == DialogResult.OK) unitBindingSource.ResetBindings(false);
         }
 
-        #endregion
-
         private void СписаноеИмуществоToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            WriteOffForm form = new WriteOffForm();
+            WriteOffForm form = new WriteOffForm(propertyRegisterDataSet);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 int pos = unitBindingSource.Position;
@@ -413,6 +415,7 @@ namespace PropertyRegister
                 int pos1 = fKInventoryroomN76177A41BindingSource.Position;
                 this.inventoryTableAdapter.Fill(this.propertyRegisterDataSet.Inventory);
                 fKInventoryroomN76177A41BindingSource.Position = pos1;
+
             }
         }
 
@@ -424,6 +427,199 @@ namespace PropertyRegister
                 this.revaluationTableAdapter.Fill(this.propertyRegisterDataSet.Revaluation);
                 fKRevaluatiunitI7246E95DBindingSource.ResetBindings(true);
             }
+        }
+
+        #endregion
+
+
+        private void drawBordersAround(Excel.Range eR, int tL)
+        {
+            if (tL == 1 || tL == 6 || tL == 7) eR.Borders[Excel.XlBordersIndex.xlEdgeLeft].LineStyle = Excel.XlLineStyle.xlContinuous;
+            if (tL == 2 || tL == 6 || tL == 7) eR.Borders[Excel.XlBordersIndex.xlEdgeRight].LineStyle = Excel.XlLineStyle.xlContinuous;
+            if (tL == 3 || tL == 6 || tL == 7) eR.Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = Excel.XlLineStyle.xlContinuous;
+            if (tL == 4 || tL == 6 || tL == 7) eR.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle = Excel.XlLineStyle.xlContinuous;
+            if (tL == 5 || tL == 7) eR.Borders[Excel.XlBordersIndex.xlInsideVertical].LineStyle = Excel.XlLineStyle.xlContinuous;
+            if (tL == 7) eR.Borders[Excel.XlBordersIndex.xlInsideHorizontal].LineStyle = Excel.XlLineStyle.xlContinuous;
+        }
+
+
+        private void ПолныйОтчетToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show(
+                    "Создание отчета может занять некоторое время.\n" +
+                    "\nПродолжить?",
+                    "Однопоточное выполнение",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.No) return;
+            
+
+            Excel.Application exApp = new Excel.Application();
+            exApp.SheetsInNewWorkbook = 1;
+            exApp.Workbooks.Add();
+            Excel.Worksheet exSh = exApp.Sheets[1];
+            Excel.Range exRange;
+
+            exSh.Columns[2].ColumnWidth = 90;
+            exSh.Columns[3].ColumnWidth = 30;
+            exSh.Columns[4].ColumnWidth = 30;
+
+            int pY = 1; //текущая строка в excel
+            exSh.Name = "Полный отчет";
+            exSh.Cells[pY, 2] = "Полный отчет";
+            exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 4]];
+            exRange.Merge(Type.Missing);                                    //Объединяем ячейки
+            exRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;    //Выравниваем по центру
+
+
+            pY++;
+            exSh.Cells[pY, 2] = "Наименование";
+            exSh.Cells[pY, 3] = "Кол-во";
+            exSh.Cells[pY, 4] = "Цена";
+
+            exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 4]];
+            exRange.Interior.Color = Color.FromArgb(255, 255, 255);
+            drawBordersAround(exRange, 7); //Рисует границы
+
+            int tSumCount = 0;
+            decimal tSumCost = 0;
+
+            var otchet = propertyRegisterDataSet.Building.ToList();
+
+
+            foreach (PropertyRegisterDataSet.BuildingRow item in otchet)
+            {
+                pY++;
+
+                exSh.Cells[pY, 2] = item.buildingName;
+
+                exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 4]];
+                exRange.Interior.Color = Color.FromArgb(204, 204, 153);
+                drawBordersAround(exRange, 6); //Рисует границы
+
+                var otchet01 = propertyRegisterDataSet.Room.Where(row => row.buildingId == item.buildingId);
+
+                foreach (PropertyRegisterDataSet.RoomRow item01 in otchet01)
+                {
+                    pY++;
+
+                    exSh.Cells[pY, 2] = item01.roomName;
+
+                    exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 4]];
+                    exRange.Interior.Color = Color.FromArgb(255, 255, 153);
+                    drawBordersAround(exRange, 6); //Рисует границы
+                    exRange.Merge(Type.Missing);                                    //Объединяем ячейки
+                    exRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;    //Выравниваем по левой стороне
+
+                    var otchet02 = (
+                        from inv in propertyRegisterDataSet.Inventory
+                        join unit in propertyRegisterDataSet.Unit on inv.unitId equals unit.unitId
+                        where inv.roomName == item01.roomName
+                        select new
+                        {
+                            inv.unitId,
+                            unit.unitName,
+                            unit.cost,
+                            inv.count
+                        });
+
+                    int sumCount = 0;
+                    decimal sumCost = 0;
+                    foreach (var item02 in otchet02)
+                    {
+                        pY++;
+
+                        exSh.Cells[pY, 2] = item02.unitName;
+                        exSh.Cells[pY, 3] = item02.count;
+                        exSh.Cells[pY, 4] = item02.cost;
+
+                        exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 4]];
+                        exRange.Interior.Color = Color.FromArgb(255, 255, 255);
+                        drawBordersAround(exRange, 7); //Рисует границы
+
+
+                        sumCount += item02.count;
+                        sumCost += item02.cost;
+                    }
+
+                    pY++;
+
+                    exSh.Cells[pY, 2] = "Итог:";
+                    exSh.Cells[pY, 3] = sumCount;
+                    exSh.Cells[pY, 4] = sumCost;
+
+                    exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 4]];
+                    exRange.Interior.Color = Color.FromArgb(255, 255, 255);
+                    drawBordersAround(exRange, 7); //Рисует границы
+
+                    tSumCount += sumCount;
+                    tSumCost += sumCost;
+                }
+            }
+
+            pY += 2;
+
+            exSh.Cells[pY, 2] = "Общий итог:";
+            exSh.Cells[pY, 3] = tSumCount;
+            exSh.Cells[pY, 4] = tSumCost;
+            //foreach (DataGridViewRow item in dataGridViewVibor.Rows)
+            //{
+            //    pY++;
+            //    if ((int)item.Cells[0].Value != trapezi)
+            //    {
+            //        trapezi = (int)item.Cells[0].Value;
+            //        exSh.Cells[pY, 2] = dataSetAll.Trapezi.FindBycod_trapezi((int)item.Cells[0].Value).nazvanie; //Выводим название трапезы
+
+            //        exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 5]];
+            //        exRange.Interior.Color = Color.FromArgb(255, 255, 0);
+            //        drawBordersAround(exRange, 6); //Рисует границы
+
+            //        pY++;
+            //    }
+
+            //    exSh.Cells[pY, 3] = dataSetAll.Vid_blud.FindBycod_vid_bluda((int)item.Cells[1].Value).nazvanie.Trim();
+            //    exSh.Cells[pY, 4] = dataSetAll.Bluda.FindBycod_bluda((int)item.Cells[2].Value).nazvanie.Trim();
+            //    exSh.Cells[pY, 5] = item.Cells[4].Value + " Ккал";
+
+
+            //    exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 5]];
+            //    exRange.Interior.Color = Color.FromArgb(255, 230, 153);
+            //    drawBordersAround(exRange, 6); //Рисует границы
+
+
+
+            //    //pY++;
+            //    //exSh.Cells[pY, 3] = iVb; //Выводим название вида блюд
+            //    //exSh.Cells[pY, 5] = "Кол-во"; //Надпись "Кол-во"
+
+            //    //exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 5]];
+            //    //exRange.Interior.Color = Color.FromArgb(189, 215, 238);
+            //    //drawBordersAround(exRange, 6);
+            //    //drawBordersAround(((Excel.Range)exSh.Range[exSh.Cells[pY, 5], exSh.Cells[pY, 5]]), 1);
+
+            //    ////Получаем все блюда для текущей трапезы, вида блюда
+            //    //var bluda = dlyaPovara.Where(row => row.trapeza == item && row.vidBluda == iVb).ToList();
+            //    //foreach (var iBl in bluda)
+            //    //{
+            //    //    pY++; exSh.Cells[pY, 4] = iBl.bludo; //Выводим название блюда
+            //    //    exSh.Cells[pY, 5] = iBl.kolvo; //Выводим количество блюд
+
+            //    //    exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 5]];
+            //    //    drawBordersAround(exRange, 6);
+            //    //    drawBordersAround(((Excel.Range)exSh.Range[exSh.Cells[pY, 5], exSh.Cells[pY, 5]]), 1);
+            //    //}
+
+            //}
+            //Задаём ширину столбцов
+            ((Excel.Range)exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 3]]).Columns.ColumnWidth = 35;
+            ((Excel.Range)exSh.Range[exSh.Cells[pY, 3], exSh.Cells[pY, 5]]).EntireColumn.AutoFit();
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+            saveFileDialog.FileName = "Отчет.xlsx";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) exApp.ActiveWorkbook.SaveAs(saveFileDialog.FileName);
+            exApp.Visible = true;
+
         }
     }
 }

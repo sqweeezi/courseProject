@@ -46,10 +46,10 @@
             targetLabel.TabIndex = 3;
             targetLabel.Text = "Назначение:";
             // 
-            // targetTextBox
+            // typeTextBox
             // 
             this.typeTextBox.Location = new System.Drawing.Point(115, 29);
-            this.typeTextBox.Name = "targetTextBox";
+            this.typeTextBox.Name = "typeTextBox";
             this.typeTextBox.Size = new System.Drawing.Size(295, 21);
             this.typeTextBox.TabIndex = 4;
             // 
@@ -71,6 +71,7 @@
             this.buttonClose.TabIndex = 6;
             this.buttonClose.Text = "Отмена";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // groupBox1
             // 
@@ -82,7 +83,7 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // TypeRoomFormEdit
+            // TypeRoomEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,7 +92,7 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Name = "TypeRoomFormEdit";
+            this.Name = "TypeRoomEditForm";
             this.Text = "TypeRoomFormEdit";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -174,6 +174,7 @@
             this.buttonClose.TabIndex = 20;
             this.buttonClose.Text = "Отмена";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // windowsNumericUpDown
             // 
@@ -233,7 +234,7 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             // 
-            // RoomFormEdit
+            // RoomEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -242,7 +243,7 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonSave);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Name = "RoomFormEdit";
+            this.Name = "RoomEditForm";
             this.Text = "RoomFormEdit";
             this.Load += new System.EventHandler(this.RoomFormEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.windowsNumericUpDown)).EndInit();

@@ -43,6 +43,7 @@ namespace PropertyRegister.Forms
                 if (typeUnitId == -1) propertyRegisterDataSet.TypeUnit.AddTypeUnitRow(typeUnitRow);
                 new PropertyRegisterDataSetTableAdapters.TypeUnitTableAdapter().Update(typeUnitRow);
                 propertyRegisterDataSet.TypeUnit.AcceptChanges();
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -50,9 +51,14 @@ namespace PropertyRegister.Forms
             }
             finally
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                
+                //this.Close();
             }
+        }
+
+        private void ButtonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -78,9 +78,19 @@
             0,
             0,
             0});
+            this.countNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.countNumericUpDown.Name = "countNumericUpDown";
             this.countNumericUpDown.Size = new System.Drawing.Size(56, 21);
             this.countNumericUpDown.TabIndex = 8;
+            this.countNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // buttonSave
             // 
@@ -100,6 +110,7 @@
             this.buttonClose.TabIndex = 10;
             this.buttonClose.Text = "Отмена";
             this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // groupBox1
             // 
