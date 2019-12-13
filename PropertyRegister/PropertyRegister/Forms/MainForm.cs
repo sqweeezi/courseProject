@@ -621,5 +621,11 @@ namespace PropertyRegister
             exApp.Visible = true;
 
         }
+
+        private void ОтчетToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OtchetForm form = new OtchetForm(propertyRegisterDataSet);
+            form.ShowDialog();
+        }
     }
 }

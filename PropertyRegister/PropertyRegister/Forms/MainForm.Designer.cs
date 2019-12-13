@@ -108,6 +108,7 @@
             this.переоценкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.полныйОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчетToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.roomTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.RoomTableAdapter();
             this.inventoryTableAdapter = new PropertyRegister.PropertyRegisterDataSetTableAdapters.InventoryTableAdapter();
@@ -931,7 +932,8 @@
             // отчетToolStripMenuItem
             // 
             this.отчетToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.полныйОтчетToolStripMenuItem});
+            this.полныйОтчетToolStripMenuItem,
+            this.отчетToolStripMenuItem1});
             this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
             this.отчетToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.отчетToolStripMenuItem.Text = "Отчет";
@@ -939,9 +941,16 @@
             // полныйОтчетToolStripMenuItem
             // 
             this.полныйОтчетToolStripMenuItem.Name = "полныйОтчетToolStripMenuItem";
-            this.полныйОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.полныйОтчетToolStripMenuItem.Text = "Полный отчет ";
+            this.полныйОтчетToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.полныйОтчетToolStripMenuItem.Text = "Отчет по всем зданиям";
             this.полныйОтчетToolStripMenuItem.Click += new System.EventHandler(this.ПолныйОтчетToolStripMenuItem_Click);
+            // 
+            // отчетToolStripMenuItem1
+            // 
+            this.отчетToolStripMenuItem1.Name = "отчетToolStripMenuItem1";
+            this.отчетToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
+            this.отчетToolStripMenuItem1.Text = "Ползовательский отчет";
+            this.отчетToolStripMenuItem1.Click += new System.EventHandler(this.ОтчетToolStripMenuItem1_Click);
             // 
             // statusStrip1
             // 
@@ -1152,6 +1161,7 @@
         private System.Windows.Forms.Button roomButtonWriteOff;
         private System.Windows.Forms.ToolStripMenuItem отчетToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem полныйОтчетToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отчетToolStripMenuItem1;
     }
 }
 
