@@ -241,7 +241,7 @@
             this.Controls.Add(this.buttonSave);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "BuildingEditForm";
-            this.Text = "FormBuildingEdit";
+            this.Text = "Редактор здания";
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flowNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);

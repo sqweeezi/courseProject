@@ -179,7 +179,7 @@
             this.Controls.Add(this.chiefDataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "CheifForm";
-            this.Text = "CheifForm";
+            this.Text = "Мат. ответсвенный";
             this.Load += new System.EventHandler(this.CheifForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.propertyRegisterDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chiefBindingSource)).EndInit();

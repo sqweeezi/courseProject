@@ -447,6 +447,22 @@ namespace PropertyRegister.Forms
                     exRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;    //Выравниваем по левой стороне
 
                     buildingName = item.buildingName;
+
+
+                    if (orgUnitName == item.orgUnitName)
+                    {
+                        pY += 2;
+
+                        exSh.Cells[pY, 2] = item.orgUnitName;
+
+                        exRange = exSh.Range[exSh.Cells[pY, 2], exSh.Cells[pY, 4]];
+                        exRange.Interior.Color = Color.FromArgb(220, 220, 220);
+                        drawBordersAround(exRange, 6); //Рисует границы
+                        exRange.Merge(Type.Missing);                                    //Объединяем ячейки
+                        exRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;    //Выравниваем по левой стороне
+
+                        orgUnitName = item.orgUnitName;
+                    }
                 }
 
                 if (orgUnitName != item.orgUnitName)
